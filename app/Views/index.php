@@ -22,7 +22,7 @@
 
   <!-- Centered Content -->
   <div class="container text-center my-auto py-5">
-    <h1 class="display-3 fw-bold text-primary">Hello Raph</h1>
+    <h1 class="display-3 fw-bold text-primary">Hello Justine!</h1>
     <p class="lead">Welcome to Bootstrap world 🚀</p>
     <h1>hays</h1>
   </div>

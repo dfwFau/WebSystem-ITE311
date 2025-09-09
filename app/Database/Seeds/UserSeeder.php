@@ -10,12 +10,12 @@ class UserSeeder extends Seeder
     {
         // Create a sample user
         $data = [
-            'username'  => 'john_doe',
+            'name'  => 'john_doe',
             'email'     => 'john.doe@example.com',
             'password'  => password_hash('secret_password', PASSWORD_DEFAULT),  // Using password_hash for security
             'created_at' => date('Y-m-d H:i:s'),  // Current timestamp
             'updated_at' => date('Y-m-d H:i:s'),  // Current timestamp
-            'deleted_at' => null, // For soft deletes (nullable)
+           
         ];
 
         // Insert sample user into the 'users' table
