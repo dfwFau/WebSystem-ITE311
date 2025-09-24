@@ -51,20 +51,21 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <!-- Brand goes to Dashboard if logged in, else Home -->
-            <a class="navbar-brand" href="<?= session()->get('isLoggedIn') ? base_url('dashboard') : base_url('/') ?>">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Brand goes to Dashboard if logged in, else Home -->
+        <a class="navbar-brand" href="<?= session()->get('isLoggedIn') ? base_url('dashboard') : base_url('/') ?>">
             Dashboard
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <!-- Public Links -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <?php if (!session()->get('isLoggedIn')): ?>
+                    <!-- Show only when not logged in -->
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('/') ?>">Home</a>
                     </li>
@@ -74,17 +75,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
                     </li>
-
-                    <?php if (session()->get('isLoggedIn')): ?>
-                        <!-- Authenticated -->
-                        <li class="nav-item">
-                            <a class="btn btn-sm btn-outline-danger btn-logout ms-2" href="<?= base_url('logout') ?>">Logout</a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
-            </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
+                    </li>
+                <?php else: ?>
+                    <!-- Show only when logged in -->
+                    <li class="nav-item">
+                        <a class="btn btn-sm btn-outline-danger btn-logout ms-2" href="<?= base_url('logout') ?>">Logout</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Main Content -->
     <?= $this->renderSection('content') ?>
