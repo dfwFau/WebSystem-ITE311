@@ -1,110 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title><?= $this->renderSection('title') ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        body {
-            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar-brand {
-            color: #00796b;
-            font-weight: bold;
-        }
-
-        .nav-link {
-            color: #00796b !important;
-            font-weight: 500;
-            transition: color 0.2s ease-in-out;
-        }
-
-        .nav-link:hover {
-            color: #004d40 !important;
-        }
-
-        .btn-logout {
-            font-size: 0.9rem;
-            padding: 6px 14px;
-            border-radius: 8px;
-            border: 1px solid #dc3545;
-            color: #dc3545;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .btn-logout:hover {
-            background-color: #dc3545;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?= $this->renderSection('title') ?> - MyCI</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <!-- Brand goes to Dashboard if logged in, else Home -->
-        <a class="navbar-brand" href="<?= session()->get('isLoggedIn') ? base_url('dashboard') : base_url('/') ?>">
-            Dashboard
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ms-auto">
-				<?php if (!session()->get('isLoggedIn')): ?>
-					<!-- Show only when not logged in -->
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('/') ?>">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('about') ?>">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-					</li>
-				<?php else: ?>
-					<!-- Role-specific navigation when logged in -->
-					<?php if (session()->get('userRole') === 'admin'): ?>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="adminMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Admin
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="adminMenu">
-								<li><a class="dropdown-item disabled" href="#">Manage Users</a></li>
-								<li><a class="dropdown-item disabled" href="#">Reports</a></li>
-								<li><a class="dropdown-item disabled" href="#">Settings</a></li>
-							</ul>
-						</li>
-					<?php endif; ?>
-					<li class="nav-item">
-						<a class="btn btn-sm btn-outline-danger btn-logout ms-2" href="<?= base_url('logout') ?>">Logout</a>
-					</li>
-				<?php endif; ?>
-			</ul>
+<body class="d-flex flex-column min-vh-100 bg-light">
+  
+  <?php if (!session()->get('isAuthenticated')): ?>
+    <!-- NAVBAR for guests (not logged in) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="<?= base_url('/') ?>">MySite</a>
+        <div class="ms-auto">
+          <a class="btn btn-outline-light me-2" href="<?= base_url('/') ?>">Home</a>
+          <a class="btn btn-outline-light me-2" href="<?= base_url('/about') ?>">About</a>
+          <a class="btn btn-outline-light me-2" href="<?= base_url('/contact') ?>">Contact</a>
+          <a class="btn btn-success" href="<?= base_url('/login') ?>">Login</a>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
+  <?php else: ?>
+    <!-- Include role-based header -->
+    <?= $this->include('template/header') ?>
+  <?php endif; ?>
 
-    <!-- Main Content -->
+  <!-- Centered Page Content -->
+  <div class="container text-center my-auto py-5">
     <?= $this->renderSection('content') ?>
+  </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-2 mt-auto">
+    <small>&copy; <?= date('Y') ?> MyCI Project</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
