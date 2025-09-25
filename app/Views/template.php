@@ -63,28 +63,40 @@
         </button>
         
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <?php if (!session()->get('isLoggedIn')): ?>
-                    <!-- Show only when not logged in -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/') ?>">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('about') ?>">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                    </li>
-                <?php else: ?>
-                    <!-- Show only when logged in -->
-                    <li class="nav-item">
-                        <a class="btn btn-sm btn-outline-danger btn-logout ms-2" href="<?= base_url('logout') ?>">Logout</a>
-                    </li>
-                <?php endif; ?>
-            </ul>
+			<ul class="navbar-nav ms-auto">
+				<?php if (!session()->get('isLoggedIn')): ?>
+					<!-- Show only when not logged in -->
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('/') ?>">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('about') ?>">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url('login') ?>">Login</a>
+					</li>
+				<?php else: ?>
+					<!-- Role-specific navigation when logged in -->
+					<?php if (session()->get('userRole') === 'admin'): ?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="adminMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Admin
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="adminMenu">
+								<li><a class="dropdown-item disabled" href="#">Manage Users</a></li>
+								<li><a class="dropdown-item disabled" href="#">Reports</a></li>
+								<li><a class="dropdown-item disabled" href="#">Settings</a></li>
+							</ul>
+						</li>
+					<?php endif; ?>
+					<li class="nav-item">
+						<a class="btn btn-sm btn-outline-danger btn-logout ms-2" href="<?= base_url('logout') ?>">Logout</a>
+					</li>
+				<?php endif; ?>
+			</ul>
         </div>
     </div>
 </nav>

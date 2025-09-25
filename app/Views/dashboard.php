@@ -45,8 +45,24 @@
 
 <div class="container py-5 d-flex justify-content-center">
     <div class="dashboard-card">
-        <h4> Welcome to this page </h4>
-        <p>You are logged in as <strong><?= esc(session('userEmail')) ?></strong></p>
+        <?php if (($role ?? session('userRole')) === 'admin'): ?>
+            <h4>Administrator Dashboard</h4>
+            <p>Welcome, <strong><?= esc($userName ?? session('userName')) ?></strong></p>
+            <hr>
+            <div class="text-start">
+                <p class="mb-2">Total Users: <strong><?= esc($stats['totalUsers'] ?? 0) ?></strong></p>
+                <div class="d-grid gap-2 mt-3">
+                    <a href="#" class="btn btn-outline-primary btn-sm" disabled>Manage Users</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm" disabled>View Reports</a>
+                    <a href="#" class="btn btn-outline-success btn-sm" disabled>Site Settings</a>
+                </div>
+                <p class="mt-3 small text-muted">Links are placeholders for admin features.</p>
+            </div>
+        <?php else: ?>
+            <h4>Welcome</h4>
+            <p>You are logged in as <strong><?= esc($userEmail ?? session('userEmail')) ?></strong></p>
+            <p class="small text-muted">This dashboard currently includes admin features only.</p>
+        <?php endif; ?>
     </div>
-</div>  
+</div>
 <?= $this->endSection() ?>
