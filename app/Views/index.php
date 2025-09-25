@@ -1,37 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Homepage</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="d-flex flex-column min-vh-100 bg-light">
+<?= $this->extend('template') ?>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="<?= base_url('/') ?>">MySite</a>
-      <div>
-        <a class="btn btn-outline-light me-2" href="<?= base_url('/') ?>">Home</a>
-        <a class="btn btn-outline-light me-2" href="<?= base_url('/about') ?>">About</a>
-        <a class="btn btn-outline-light" href="<?= base_url('/contact') ?>">Contact</a>
-      </div>
+<?= $this->section('title') ?>Home<?= $this->endSection() ?>
+
+<?= $this->section('content') ?>
+<style>
+    body {
+        background: #f8fbff; /* light blue-white background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .homepage-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px 30px;
+        max-width: 600px;
+        margin: 0 auto; /* keeps it centered */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    .homepage-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+        color: #00796b; /* deep teal */
+        font-weight: 700;
+        font-size: 2.3rem;
+    }
+
+    p {
+        color: #455a64; /* dark gray-blue */
+        font-size: 1.1rem;
+    }
+
+    .divider {
+        width: 70px;
+        height: 4px;
+        background: #00796b;
+        margin: 15px auto 25px auto;
+        border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+        .homepage-card {
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="container py-5">
+    <div class="homepage-card">
+        <h1>Welcome 👋</h1>
+        <div class="divider"></div>
+        <p class="lead">You've arrived at a beautifully updated homepage layout with clean visuals and soft colors.</p>
     </div>
-  </nav>
-
-  <!-- Centered Content -->
-  <div class="container text-center my-auto py-5">
-    <h1 class="display-3 fw-bold text-primary">Hello Justine!</h1>
-    <p class="lead">Welcome to Bootstrap world 🚀</p>
-    <h1>hays</h1>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-2 mt-auto">
-    <small>&copy; 2025 Bootstrap World</small>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
+<?= $this->endSection() ?>
