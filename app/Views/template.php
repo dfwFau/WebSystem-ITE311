@@ -49,15 +49,6 @@
       transform: translateY(-4px);
       box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
     }
-
-    /* Footer */
-    footer {
-      background: #00796b;
-      color: white;
-      font-size: 0.9rem;
-      border-radius: 20px 20px 0 0;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
-    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -92,11 +83,6 @@
   <main class="container my-4 flex-grow-1">
     <?= $this->renderSection('content') ?>
   </main>
-
-  <!-- Footer -->
-  <footer class="text-center py-3 mt-auto">
-    <small>&copy; <?= date('Y') ?> MySite. All rights reserved.</small>
-  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
