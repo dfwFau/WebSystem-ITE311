@@ -34,6 +34,9 @@ $routes->group('teacher', ['filter' => 'role:teacher'], function($routes) {
     $routes->get('classes', 'Teacher::classes');
     $routes->get('materials', 'Teacher::materials');
     $routes->get('grades', 'Teacher::grades');
+    $routes->get('create-course', 'Teacher::createCourse');
+    $routes->post('store-course', 'Teacher::storeCourse');
+    $routes->get('get-courses', 'Teacher::getCourses');
 });
 
 // Student routes (student only)
@@ -53,3 +56,9 @@ $routes->get('/teacher/grades', 'Teacher::grades', ['filter' => 'role:teacher'])
 $routes->get('/student/courses', 'Student::courses', ['filter' => 'role:student']);
 $routes->get('/student/grades', 'Student::grades', ['filter' => 'role:student']);
 $routes->get('/student/assignments', 'Student::assignments', ['filter' => 'role:student']);
+
+// Course enrollment routes
+$routes->post('/course/enroll', 'Course::enroll');
+$routes->post('/course/unenroll', 'Course::unenroll');
+$routes->get('/course/enrolled', 'Course::getEnrolledCourses');
+$routes->get('/course/available', 'Course::getAvailableCourses');

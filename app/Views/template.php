@@ -143,5 +143,196 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+  <!-- Custom JavaScript for enrollment functionality -->
+  <script>
+  $(document).ready(function() {
+      // Handle enrollment button clicks
+      $(document).on('click', '.enroll-btn', function(e) {
+          e.preventDefault();
+          
+          const button = $(this);
+          const courseId = button.data('course-id');
+          const courseName = button.data('course-name');
+          
+          // Disable button to prevent multiple clicks
+          button.prop('disabled', true).text('Enrolling...');
+          
+          // Send AJAX request
+          $.post('<?= base_url('/course/enroll') ?>', {
+              course_id: courseId
+          })
+          .done(function(response) {
+              if (response.success) {
+                  // Show success message
+                  showAlert('success', response.message);
+                  
+                  // Hide the enrolled course card
+                  button.closest('.col-md-6, .col-lg-4').fadeOut(500, function() {
+                      $(this).remove();
+                      
+                      // Check if no more available courses
+                      if ($('.enroll-btn').length === 0) {
+                          $('.row:has(.enroll-btn)').html(`
+                              <div class="col-12">
+                                  <div class="alert alert-warning">
+                                      <h6 class="alert-heading">No Available Courses</h6>
+                                      <p class="mb-0">You are enrolled in all available courses! Great job!</p>
+                                  </div>
+                              </div>
+                          `);
+                      }
+                  });
+                  
+                  // Add to enrolled courses section
+                  addToEnrolledCourses(response.course);
+                  
+              } else {
+                  // Show error message
+                  showAlert('danger', response.message);
+                  
+                  // Re-enable button
+                  button.prop('disabled', false).text('Enroll');
+              }
+          })
+          .fail(function() {
+              // Show error message
+              showAlert('danger', 'An error occurred. Please try again.');
+              
+              // Re-enable button
+              button.prop('disabled', false).text('Enroll');
+          });
+      });
+      
+      // Handle unenroll button clicks
+      $(document).on('click', '.unenroll-btn', function(e) {
+          e.preventDefault();
+          
+          const button = $(this);
+          const courseId = button.data('course-id');
+          const courseName = button.data('course-name');
+          
+          // Confirm unenrollment
+          if (!confirm(`Are you sure you want to unenroll from "${courseName}"?`)) {
+              return;
+          }
+          
+          // Disable button to prevent multiple clicks
+          button.prop('disabled', true).text('Unenrolling...');
+          
+          // Send AJAX request
+          $.post('<?= base_url('/course/unenroll') ?>', {
+              course_id: courseId
+          })
+          .done(function(response) {
+              if (response.success) {
+                  // Show success message
+                  showAlert('success', response.message);
+                  
+                  // Hide the enrolled course card
+                  button.closest('.col-md-6, .col-lg-4').fadeOut(500, function() {
+                      $(this).remove();
+                      
+                      // Check if no more enrolled courses
+                      if ($('.unenroll-btn').length === 0) {
+                          $('.row:has(.unenroll-btn)').html(`
+                              <div class="col-12">
+                                  <div class="alert alert-info">
+                                      <h6 class="alert-heading">No Enrolled Courses</h6>
+                                      <p class="mb-0">You haven't enrolled in any courses yet. Browse available courses below to get started!</p>
+                                  </div>
+                              </div>
+                          `);
+                      }
+                  });
+                  
+                  // Add to available courses section
+                  addToAvailableCourses(response.course_id);
+                  
+              } else {
+                  // Show error message
+                  showAlert('danger', response.message);
+                  
+                  // Re-enable button
+                  button.prop('disabled', false).text('Unenroll');
+              }
+          })
+          .fail(function() {
+              // Show error message
+              showAlert('danger', 'An error occurred. Please try again.');
+              
+              // Re-enable button
+              button.prop('disabled', false).text('Unenroll');
+          });
+      });
+      
+      // Function to show alert messages
+      function showAlert(type, message) {
+          const alertHtml = `
+              <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                  ${message}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          `;
+          
+          // Remove existing alerts
+          $('.alert').remove();
+          
+          // Add new alert at the top of the container
+          $('.container').prepend(alertHtml);
+          
+          // Auto-dismiss after 5 seconds
+          setTimeout(function() {
+              $('.alert').fadeOut();
+          }, 5000);
+      }
+      
+      // Function to add course to enrolled courses section
+      function addToEnrolledCourses(course) {
+          const enrolledSection = $('h4:contains("My Enrolled Courses")').closest('.row').next('.row');
+          
+          // Check if this is the first enrollment
+          if (enrolledSection.find('.alert-info').length > 0) {
+              enrolledSection.html('');
+          }
+          
+          const courseCard = `
+              <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="card h-100">
+                      <div class="card-body">
+                          <h6 class="card-title text-primary">${course.name}</h6>
+                          <p class="card-text small text-muted">${course.code}</p>
+                          <p class="card-text small">${course.description || ''}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <small class="text-muted">
+                                  Enrolled: ${new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                              </small>
+                              <button class="btn btn-sm btn-outline-danger unenroll-btn" 
+                                      data-course-id="${course.id}"
+                                      data-course-name="${course.name}">
+                                  Unenroll
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          `;
+          
+          enrolledSection.append(courseCard);
+      }
+      
+      // Function to add course to available courses section
+      function addToAvailableCourses(courseId) {
+          // This would require fetching course details from the server
+          // For now, we'll just refresh the page
+          setTimeout(function() {
+              location.reload();
+          }, 1000);
+      }
+  });
+  </script>
 </body>
 </html>

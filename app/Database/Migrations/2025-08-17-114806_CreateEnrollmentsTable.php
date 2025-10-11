@@ -9,7 +9,7 @@ class CreateEnrollmentsTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'enrollment_id' => [
+            'id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
@@ -25,15 +25,9 @@ class CreateEnrollmentsTable extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
-'enrollment_date' => [
-    'type'    => 'DATETIME',
-    'null'    => true,
-],
-
-            'status' => [
-                'type'       => 'ENUM',
-                'constraint' => ['enrolled', 'completed', 'dropped'],
-                'default'    => 'enrolled',
+            'enrollment_date' => [
+                'type'    => 'DATETIME',
+                'null'    => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -45,7 +39,7 @@ class CreateEnrollmentsTable extends Migration
             ],
         ]);
 
-        $this->forge->addKey('enrollment_id', true);
+        $this->forge->addKey('id', true);
 
         // Foreign Keys
         $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');

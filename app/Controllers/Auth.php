@@ -124,8 +124,16 @@ class Auth extends BaseController
     if ($role === 'admin') {
         $userModel     = new UserModel();
         $data['users'] = $userModel->findAll(); // Example for admin
+    } elseif ($role === 'student') {
+        // Load enrollment and course data for students
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $courseModel = new \App\Models\CourseModel();
+        
+        $userId = session()->get('userId');
+        $data['enrolledCourses'] = $enrollmentModel->getUserEnrollments($userId);
+        $data['availableCourses'] = $courseModel->getAvailableCourses($userId);
     }
-    // Student and teacher just use default $data
+    // Teacher just use default $data
 
     return view('auth/dashboard', $data);
 }
