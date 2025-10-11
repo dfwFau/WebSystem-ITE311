@@ -14,10 +14,42 @@ $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
 
 
-// routes for login register and dashboard
+// Authentication routes
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register');
 $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
+
+// Admin routes (admin only)
+$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
+    $routes->get('manage-users', 'Admin::manageUsers');
+    $routes->get('reports', 'Admin::reports');
+    $routes->get('settings', 'Admin::settings');
+});
+
+// Teacher routes (teacher only)
+$routes->group('teacher', ['filter' => 'role:teacher'], function($routes) {
+    $routes->get('classes', 'Teacher::classes');
+    $routes->get('materials', 'Teacher::materials');
+    $routes->get('grades', 'Teacher::grades');
+});
+
+// Student routes (student only)
+$routes->group('student', ['filter' => 'role:student'], function($routes) {
+    $routes->get('courses', 'Student::courses');
+    $routes->get('grades', 'Student::grades');
+    $routes->get('assignments', 'Student::assignments');
+});
+
+// Additional routes for testing (with role filters)
+$routes->get('/manage-users', 'Admin::manageUsers', ['filter' => 'role:admin']);
+$routes->get('/reports', 'Admin::reports', ['filter' => 'role:admin']);
+$routes->get('/admin/settings', 'Admin::settings', ['filter' => 'role:admin']);
+$routes->get('/teacher/classes', 'Teacher::classes', ['filter' => 'role:teacher']);
+$routes->get('/teacher/materials', 'Teacher::materials', ['filter' => 'role:teacher']);
+$routes->get('/teacher/grades', 'Teacher::grades', ['filter' => 'role:teacher']);
+$routes->get('/student/courses', 'Student::courses', ['filter' => 'role:student']);
+$routes->get('/student/grades', 'Student::grades', ['filter' => 'role:student']);
+$routes->get('/student/assignments', 'Student::assignments', ['filter' => 'role:student']);
