@@ -87,7 +87,7 @@ class Teacher extends BaseController
     }
 
     /**
-     * Get all courses created by teachers
+     * Get all courses created by teachersssss
      */
     public function getCourses()
     {
