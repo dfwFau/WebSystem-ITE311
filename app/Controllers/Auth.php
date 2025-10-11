@@ -107,35 +107,101 @@ class Auth extends BaseController
     }
 
     public function dashboard()
-{
-    if (!session()->get('isAuthenticated')) {
-        return redirect()->to('/login')->with('error', 'Please login first.');
-    }
+    {
+        // Enhanced authorization check
+        if (!session()->get('isAuthenticated')) {
+            return redirect()->to('/login')->with('error', 'Please login first.');
+        }
 
-    $role     = session()->get('userRole');
-    $userName = session()->get('userName');
-
-    $data = [
-        'title'    => 'Dashboard',
-        'role'     => $role,
-        'userName' => $userName,
-    ];
-
-    if ($role === 'admin') {
-        $userModel     = new UserModel();
-        $data['users'] = $userModel->findAll(); // Example for admin
-    } elseif ($role === 'student') {
-        // Load enrollment and course data for students
-        $enrollmentModel = new \App\Models\EnrollmentModel();
-        $courseModel = new \App\Models\CourseModel();
-        
+        // Get user session data
+        $role = session()->get('userRole');
+        $userName = session()->get('userName');
         $userId = session()->get('userId');
-        $data['enrolledCourses'] = $enrollmentModel->getUserEnrollments($userId);
-        $data['availableCourses'] = $courseModel->getAvailableCourses($userId);
-    }
-    // Teacher just use default $data
+        $userEmail = session()->get('userEmail');
 
-    return view('auth/dashboard', $data);
-}
+        // Validate role
+        if (!in_array($role, ['admin', 'teacher', 'student'])) {
+            return redirect()->to('/login')->with('error', 'Invalid user role. Please contact administrator.');
+        }
+
+        // Base data for all roles
+        $data = [
+            'title' => 'Dashboard',
+            'role' => $role,
+            'userName' => $userName,
+            'userEmail' => $userEmail,
+            'userId' => $userId,
+        ];
+
+        // Role-specific data fetching
+        switch ($role) {
+            case 'admin':
+                $userModel = new UserModel();
+                $courseModel = new \App\Models\CourseModel();
+                $enrollmentModel = new \App\Models\EnrollmentModel();
+                
+                // Admin dashboard data
+                $data['users'] = $userModel->findAll();
+                $data['totalUsers'] = count($data['users']);
+                $data['totalCourses'] = $courseModel->countAll();
+                $data['totalEnrollments'] = $enrollmentModel->countAll();
+                
+                // Get user statistics by role
+                $data['adminCount'] = $userModel->where('role', 'admin')->countAllResults();
+                $data['teacherCount'] = $userModel->where('role', 'teacher')->countAllResults();
+                $data['studentCount'] = $userModel->where('role', 'student')->countAllResults();
+                
+                // Recent enrollments
+                $data['recentEnrollments'] = $enrollmentModel->select('enrollments.*, users.name as student_name, courses.course_name')
+                    ->join('users', 'users.id = enrollments.user_id', 'left')
+                    ->join('courses', 'courses.course_id = enrollments.course_id', 'left')
+                    ->orderBy('enrollments.enrollment_date', 'DESC')
+                    ->limit(5)
+                    ->findAll();
+                break;
+
+            case 'teacher':
+                $courseModel = new \App\Models\CourseModel();
+                $enrollmentModel = new \App\Models\EnrollmentModel();
+                
+                // Teacher dashboard data - for now, show all courses since there's no created_by field
+                // In a real system, you'd want to add a created_by field to the courses table
+                $data['myCourses'] = $courseModel->getAllCourses(); // Show all courses for now
+                $data['totalMyCourses'] = count($data['myCourses']);
+                
+                // Get total students enrolled in all courses (since we can't filter by teacher yet)
+                $data['totalStudents'] = $enrollmentModel->countAll();
+                
+                // Recent enrollments in all courses
+                $data['recentEnrollments'] = $enrollmentModel->select('enrollments.*, users.name as student_name, courses.course_name')
+                    ->join('users', 'users.id = enrollments.user_id', 'left')
+                    ->join('courses', 'courses.course_id = enrollments.course_id', 'left')
+                    ->orderBy('enrollments.enrollment_date', 'DESC')
+                    ->limit(5)
+                    ->findAll();
+                break;
+
+            case 'student':
+                $enrollmentModel = new \App\Models\EnrollmentModel();
+                $courseModel = new \App\Models\CourseModel();
+                
+                // Student dashboard data
+                $data['enrolledCourses'] = $enrollmentModel->getUserEnrollments($userId);
+                $data['availableCourses'] = $courseModel->getAvailableCourses($userId);
+                $data['totalEnrolled'] = count($data['enrolledCourses']);
+                $data['totalAvailable'] = count($data['availableCourses']);
+                
+                // Get recent activity (enrollments)
+                $data['recentActivity'] = $enrollmentModel->select('enrollments.*, courses.course_name, courses.course_code')
+                    ->join('courses', 'courses.course_id = enrollments.course_id', 'left')
+                    ->where('enrollments.user_id', $userId)
+                    ->orderBy('enrollments.enrollment_date', 'DESC')
+                    ->limit(3)
+                    ->findAll();
+                break;
+        }
+
+        return view('auth/dashboard', $data);
+    }
 
 }

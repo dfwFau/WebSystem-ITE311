@@ -15,35 +15,20 @@ class Teacher extends BaseController
 
     public function classes()
     {
-        $data = [
-            'title' => 'My Classes',
-            'userName' => session()->get('userName'),
-            'role' => session()->get('userRole')
-        ];
-        
-        return view('teacher/classes', $data);
+        // Redirect to dashboard with a message about classes
+        return redirect()->to('/dashboard')->with('info', 'Classes management - Coming soon!');
     }
     
     public function materials()
     {
-        $data = [
-            'title' => 'Teaching Materials',
-            'userName' => session()->get('userName'),
-            'role' => session()->get('userRole')
-        ];
-        
-        return view('teacher/materials', $data);
+        // Redirect to dashboard with a message about materials
+        return redirect()->to('/dashboard')->with('info', 'Teaching materials management - Coming soon!');
     }
     
     public function grades()
     {
-        $data = [
-            'title' => 'Grade Students',
-            'userName' => session()->get('userName'),
-            'role' => session()->get('userRole')
-        ];
-        
-        return view('teacher/grades', $data);
+        // Redirect to dashboard with a message about grading
+        return redirect()->to('/dashboard')->with('info', 'Student grading system - Coming soon!');
     }
 
     /**
@@ -51,13 +36,19 @@ class Teacher extends BaseController
      */
     public function createCourse()
     {
+        // Check if user is logged in and is a teacher
+        if (!session()->get('isAuthenticated') || session()->get('userRole') !== 'teacher') {
+            return redirect()->to('/login')->with('error', 'Please login as a teacher to create courses.');
+        }
+
         $data = [
             'title' => 'Create New Course',
             'userName' => session()->get('userName'),
             'role' => session()->get('userRole')
         ];
         
-        return view('teacher/create_course', $data);
+        // Return a simple course creation form view
+        return view('course/create_form', $data);
     }
 
     /**
@@ -71,7 +62,7 @@ class Teacher extends BaseController
         }
 
         $rules = [
-            'course_name' => 'required|min_length[3]|max_length[150]',
+            'course_name' => 'required|min_length[3]|max_length[255]',
             'course_code' => 'required|min_length[3]|max_length[50]|is_unique[courses.course_code]',
             'description' => 'permit_empty',
             'units' => 'permit_empty|integer|greater_than[0]'
@@ -83,13 +74,13 @@ class Teacher extends BaseController
 
         $courseData = [
             'course_name' => $this->request->getPost('course_name'),
-            'course_code' => $this->request->getPost('course_code'),
-            'description' => $this->request->getPost('description'),
-            'units' => $this->request->getPost('units') ?: null
+            'course_code' => strtoupper($this->request->getPost('course_code')),
+            'description' => $this->request->getPost('description') ?: null,
+            'units' => $this->request->getPost('units') ?: 3
         ];
 
         if ($this->courseModel->insert($courseData)) {
-            return redirect()->to('/teacher/classes')->with('success', 'Course created successfully!');
+            return redirect()->to('/dashboard')->with('success', 'Course "' . $courseData['course_name'] . '" created successfully!');
         } else {
             return redirect()->back()->withInput()->with('error', 'Failed to create course. Please try again.');
         }
