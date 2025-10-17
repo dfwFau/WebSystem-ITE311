@@ -33,33 +33,41 @@ class RoleAuth implements FilterInterface
         // Get user role
         $userRole = session()->get('userRole');
         $currentPath = $request->getUri()->getPath();
+        
+        // Get URI segments to properly identify the route
+        $segments = $request->getUri()->getSegments();
+        $firstSegment = isset($segments[0]) ? $segments[0] : '';
 
         // Role-based access control
         switch ($userRole) {
             case 'admin':
                 // Admins can access any route starting with /admin
-                if (strpos($currentPath, '/admin') === 0) {
+                if ($firstSegment === 'admin') {
                     return; // Allow access
                 }
-                break;
+                // If admin tries to access non-admin routes, redirect to unified dashboard
+                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
                 
             case 'teacher':
-                // Teachers can only access routes starting with /teacher
-                if (strpos($currentPath, '/teacher') === 0) {
+                // Teachers can access routes starting with /teacher
+                if ($firstSegment === 'teacher') {
                     return; // Allow access
                 }
-                break;
+                // If teacher tries to access non-teacher routes, redirect to unified dashboard
+                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
                 
             case 'student':
                 // Students can access routes starting with /student and /announcements
-                if (strpos($currentPath, '/student') === 0 || $currentPath === '/announcements') {
+                if ($firstSegment === 'student' || $currentPath === '/announcements') {
                     return; // Allow access
                 }
-                break;
+                // If student tries to access non-student routes, redirect to dashboard
+                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
+                
+            default:
+                // Unknown role, deny access
+                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
         }
-
-        // If user tries to access a route not permitted for their role
-        return redirect()->to('/announcements')->with('error', 'Access Denied: Insufficient Permissions');
     }
 
     /**

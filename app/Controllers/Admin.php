@@ -6,23 +6,41 @@ class Admin extends BaseController
 {
     /**
      * Admin Dashboard
-     * Displays welcome message for admins
+     * Redirects to unified dashboard with admin-specific functionality
      */
     public function dashboard()
     {
-        // Check if user is authenticated
-        if (!session()->get('isAuthenticated')) {
-            return redirect()->to('/login')->with('error', 'Please login first.');
-        }
+        // Redirect to unified dashboard - it will automatically show admin content
+        return redirect()->to('/dashboard');
+    }
 
-        // Check if user has admin role
-        if (session()->get('userRole') !== 'admin') {
-            return redirect()->to('/announcements')->with('error', 'Access Denied: Insufficient Permissions');
-        }
+    public function manageUsers()
+    {
+        // Role-based access control is handled by the RoleAuth filter
+        return view('admin/manage_users', [
+            'title' => 'Manage Users',
+            'userName' => session()->get('userName'),
+            'userEmail' => session()->get('userEmail'),
+            'userRole' => session()->get('userRole')
+        ]);
+    }
 
-        // Load admin dashboard view
-        return view('admin/admin_dashboard', [
-            'title' => 'Admin Dashboard',
+    public function reports()
+    {
+        // Role-based access control is handled by the RoleAuth filter
+        return view('admin/reports', [
+            'title' => 'Reports',
+            'userName' => session()->get('userName'),
+            'userEmail' => session()->get('userEmail'),
+            'userRole' => session()->get('userRole')
+        ]);
+    }
+
+    public function settings()
+    {
+        // Role-based access control is handled by the RoleAuth filter
+        return view('admin/settings', [
+            'title' => 'Settings',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole')
