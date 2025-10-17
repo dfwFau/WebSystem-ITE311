@@ -79,7 +79,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
 
-                <!-- Common link -->
+                <!-- Unified Dashboard link for all roles -->
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/dashboard') ?>">Dashboard</a>
                 </li>
@@ -112,6 +112,9 @@
 
                 <!-- Student links -->
                 <?php if (session()->get('userRole') === 'student'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('/announcements') ?>">Announcements</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('/student/courses') ?>">My Courses</a>
                     </li>
