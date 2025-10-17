@@ -49,9 +49,9 @@ class Auth extends BaseController
                 case 'student':
                     return redirect()->to('/announcements')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
                 case 'teacher':
-                    return redirect()->to('/teacher/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+                    return redirect()->to('/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
                 case 'admin':
-                    return redirect()->to('/admin/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+                    return redirect()->to('/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
                 default:
                     return redirect()->to('/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
             }
