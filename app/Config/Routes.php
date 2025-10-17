@@ -22,25 +22,27 @@ $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
 
-// Admin routes (admin only)
-$routes->group('admin', ['filter' => 'role:admin'], function($routes) {
+// Admin routes (admin only) - Protected by RoleAuth filter
+$routes->group('admin', ['filter' => 'roleAuth'], function($routes) {
     $routes->get('manage-users', 'Admin::manageUsers');
     $routes->get('reports', 'Admin::reports');
     $routes->get('settings', 'Admin::settings');
+    $routes->get('dashboard', 'Admin::dashboard');
 });
 
-// Teacher routes (teacher only)
-$routes->group('teacher', ['filter' => 'role:teacher'], function($routes) {
+// Teacher routes (teacher only) - Protected by RoleAuth filter
+$routes->group('teacher', ['filter' => 'roleAuth'], function($routes) {
     $routes->get('classes', 'Teacher::classes');
     $routes->get('materials', 'Teacher::materials');
     $routes->get('grades', 'Teacher::grades');
     $routes->get('create-course', 'Teacher::createCourse');
     $routes->post('store-course', 'Teacher::storeCourse');
     $routes->get('get-courses', 'Teacher::getCourses');
+    $routes->get('dashboard', 'Teacher::dashboard');
 });
 
-// Student routes (student only)
-$routes->group('student', ['filter' => 'role:student'], function($routes) {
+// Student routes (student only) - Protected by RoleAuth filter
+$routes->group('student', ['filter' => 'roleAuth'], function($routes) {
     $routes->get('courses', 'Student::courses');
     $routes->get('grades', 'Student::grades');
     $routes->get('assignments', 'Student::assignments');
@@ -62,3 +64,8 @@ $routes->post('/course/enroll', 'Course::enroll');
 $routes->post('/course/unenroll', 'Course::unenroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 $routes->get('/course/available', 'Course::getAvailableCourses');
+
+// Announcements route
+$routes->get('/announcements', 'Announcement::index');
+
+// Dashboard routes are now handled within the protected route groups above

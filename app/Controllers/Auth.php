@@ -44,7 +44,17 @@ class Auth extends BaseController
 
             session()->set($userSession);
 
-            return redirect()->to('/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+            // Role-based redirection after successful login
+            switch ($userRecord['role']) {
+                case 'student':
+                    return redirect()->to('/announcements')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+                case 'teacher':
+                    return redirect()->to('/teacher/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+                case 'admin':
+                    return redirect()->to('/admin/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+                default:
+                    return redirect()->to('/dashboard')->with('success', 'Welcome back, ' . $userRecord['name'] . '!');
+            }
         }
 
         // GET request: Show login form
