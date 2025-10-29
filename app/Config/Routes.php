@@ -60,7 +60,17 @@ $routes->post('/course/unenroll', 'Course::unenroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 $routes->get('/course/available', 'Course::getAvailableCourses');
 
+// Materials routes
+$routes->get('/admin/course/(:num)/upload', 'Materials::upload/$1');
+$routes->post('/admin/course/(:num)/upload', 'Materials::upload/$1');
+$routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
+$routes->get('/materials/download/(:num)', 'Materials::download/$1');
+
 // Announcements route (accessible to all authenticated users)
 $routes->get('/announcements', 'Announcement::index');
+
+// Notification routes 
+$routes->get('/notifications', 'Notifications::get');
+$routes->post('/notifications/mark_read/(:num)', 'Notifications::mark_as_read/$1');
 
 // Dashboard routes are now handled within the protected route groups above

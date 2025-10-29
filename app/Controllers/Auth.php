@@ -58,7 +58,7 @@ class Auth extends BaseController
         }
 
         // GET request: Show login form
-        return view('login');
+        return view('login', $this->data);
     }
 
     public function logout()
@@ -113,7 +113,7 @@ class Auth extends BaseController
             return redirect()->to('/login')->with('register_success', 'Registration successful. Please log in.');
         }
 
-        return view('register');
+        return view('register', $this->data);
     }
 
     public function dashboard()
@@ -141,6 +141,7 @@ class Auth extends BaseController
             'userName' => $userName,
             'userEmail' => $userEmail,
             'userId' => $userId,
+            'unreadCount' => $this->data['unreadCount'] ?? 0,
         ];
 
         // Role-specific data fetching
@@ -194,13 +195,19 @@ class Auth extends BaseController
             case 'student':
                 $enrollmentModel = new \App\Models\EnrollmentModel();
                 $courseModel = new \App\Models\CourseModel();
-                
+                $materialModel = new \App\Models\MaterialModel();
+
                 // Student dashboard data
                 $data['enrolledCourses'] = $enrollmentModel->getUserEnrollments($userId);
                 $data['availableCourses'] = $courseModel->getAvailableCourses($userId);
                 $data['totalEnrolled'] = count($data['enrolledCourses']);
                 $data['totalAvailable'] = count($data['availableCourses']);
-                
+
+                // Add materials to enrolled courses
+                foreach ($data['enrolledCourses'] as &$course) {
+                    $course['materials'] = $materialModel->getMaterialsByCourse($course['course_id']);
+                }
+
                 // Get recent activity (enrollments)
                 $data['recentActivity'] = $enrollmentModel->select('enrollments.*, courses.course_name, courses.course_code')
                     ->join('courses', 'courses.course_id = enrollments.course_id', 'left')

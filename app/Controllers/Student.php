@@ -17,33 +17,46 @@ class Student extends BaseController
     public function courses()
     {
         // Role-based access control is handled by the RoleAuth filter
-        return view('student/courses', [
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $materialModel = new \App\Models\MaterialModel();
+        $courseModel = new \App\Models\CourseModel();
+
+        $userId = session()->get('userId');
+        $enrollments = $enrollmentModel->getUserEnrollments($userId);
+
+        // Get materials for each course
+        foreach ($enrollments as &$enrollment) {
+            $enrollment['materials'] = $materialModel->getMaterialsByCourse($enrollment['course_id']);
+        }
+
+        return view('student/courses', array_merge($this->data, [
             'title' => 'My Courses',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
-            'userRole' => session()->get('userRole')
-        ]);
+            'userRole' => session()->get('userRole'),
+            'enrollments' => $enrollments
+        ]));
     }
     
     public function grades()
     {
         // Role-based access control is handled by the RoleAuth filter
-        return view('student/grades', [
+        return view('student/grades', array_merge($this->data, [
             'title' => 'My Grades',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole')
-        ]);
+        ]));
     }
     
     public function assignments()
     {
         // Role-based access control is handled by the RoleAuth filter
-        return view('student/assignments', [
+        return view('student/assignments', array_merge($this->data, [
             'title' => 'My Assignments',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole')
-        ]);
+        ]));
     }
 }

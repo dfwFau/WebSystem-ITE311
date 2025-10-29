@@ -342,8 +342,8 @@
                     <div class="card-body">
                         <h5 class="card-title"><i class="fas fa-file-upload me-2"></i>Teaching Materials</h5>
                         <p class="card-text">Upload and manage course materials.</p>
-                        <a href="<?= base_url('/teacher/materials') ?>" class="btn btn-outline-primary">
-                            <i class="fas fa-upload me-1"></i>Upload Materials
+                        <a href="<?= base_url('/teacher/get-courses') ?>" class="btn btn-outline-primary">
+                            <i class="fas fa-upload me-1"></i>Manage Materials
                         </a>
                     </div>
                 </div>
@@ -466,7 +466,39 @@
                                     <div class="card-body">
                                         <h6 class="card-title text-primary"><?= esc($enrollment['course_name']) ?></h6>
                                         <p class="card-text small text-muted"><?= esc($enrollment['course_code']) ?></p>
-                                        <p class="card-text small"><?= esc(substr($enrollment['description'] ?? '', 0, 100)) ?><?= strlen($enrollment['description'] ?? '') > 100 ? '...' : '' ?></p>
+                                        <p class="card-text small mb-3"><?= esc(substr($enrollment['description'] ?? '', 0, 100)) ?><?= strlen($enrollment['description'] ?? '') > 100 ? '...' : '' ?></p>
+                                        
+                                        <!-- Course Materials -->
+                                        <?php if (!empty($enrollment['materials'])): ?>
+                                            <div class="mb-3">
+                                                <h6 class="text-muted mb-2">📁 Course Materials</h6>
+                                                <div class="list-group list-group-flush">
+                                                    <?php foreach ($enrollment['materials'] as $material): ?>
+                                                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                                            <div>
+                                                                <small class="fw-medium text-dark">
+                                                                    <?= esc($material['file_name']) ?>
+                                                                </small>
+                                                                <br>
+                                                                <small class="text-muted">
+                                                                    Uploaded: <?= date('M d, Y', strtotime($material['created_at'])) ?>
+                                                                </small>
+                                                            </div>
+                                                            <a href="<?= base_url('/materials/download/' . $material['id']) ?>" 
+                                                               class="btn btn-sm btn-outline-primary" 
+                                                               title="Download Material">
+                                                                Download
+                                                            </a>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="mb-3">
+                                                <small class="text-muted">No materials available for this course yet.</small>
+                                            </div>
+                                        <?php endif; ?>
+                                        
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
                                                 Enrolled: <?= date('M d, Y', strtotime($enrollment['enrollment_date'])) ?>

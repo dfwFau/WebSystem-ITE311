@@ -21,6 +21,6 @@ class Announcement extends BaseController
         // Fetch all announcements ordered by created_at in descending order (newest first)
         $data['announcements'] = $this->announcementModel->orderBy('created_at', 'DESC')->findAll();
         
-        return view('announcements', $data);
+        return view('announcements', array_merge($this->data, $data));
     }
 }

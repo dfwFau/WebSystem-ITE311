@@ -23,28 +23,49 @@
                     <h5 class="card-title">Enrolled Courses</h5>
                     <p class="text-muted">Here are your enrolled courses for this semester.</p>
                     
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Course Code</th>
-                                    <th>Course Name</th>
-                                    <th>Instructor</th>
-                                    <th>Schedule</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="6" class="text-center text-muted">
-                                        <i class="mdi mdi-information-outline me-1"></i>
-                                        No courses enrolled yet. Contact your advisor to enroll in courses.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <?php if (empty($enrollments)): ?>
+                        <div class="alert alert-info" role="alert">
+                            <i class="mdi mdi-information-outline me-1"></i>
+                            No courses enrolled yet. Contact your advisor to enroll in courses.
+                        </div>
+                    <?php else: ?>
+                        <?php foreach ($enrollments as $enrollment): ?>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <?= esc($enrollment['course_code']) ?> - <?= esc($enrollment['course_name']) ?>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted mb-3">
+                                        <strong>Description:</strong> <?= esc($enrollment['description'] ?? 'No description available.') ?>
+                                    </p>
+
+                                    <h6>Course Materials</h6>
+                                    <?php if (empty($enrollment['materials'])): ?>
+                                        <p class="text-muted">No materials available for this course.</p>
+                                    <?php else: ?>
+                                        <div class="list-group">
+                                            <?php foreach ($enrollment['materials'] as $material): ?>
+                                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="mdi mdi-file-document-outline me-2"></i>
+                                                        <?= esc($material['file_name']) ?>
+                                                        <small class="text-muted d-block">
+                                                            Uploaded: <?= date('M d, Y', strtotime($material['created_at'])) ?>
+                                                        </small>
+                                                    </div>
+                                                    <a href="<?= base_url('materials/download/' . $material['id']) ?>" class="btn btn-sm btn-primary">
+                                                        <i class="mdi mdi-download me-1"></i>Download
+                                                    </a>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

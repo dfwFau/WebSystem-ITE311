@@ -6,6 +6,8 @@
   <title><?= $this->renderSection('title') ?> - MySite</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     body {
@@ -126,6 +128,19 @@
                     </li>
                 <?php endif; ?>
 
+                <!-- Notifications -->
+                <?php if (session()->get('isAuthenticated')): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bell"></i>
+                            <span class="badge bg-danger ms-1" id="notificationBadge" style="display: <?php echo $unreadCount > 0 ? 'inline' : 'none'; ?>;"><?php echo $unreadCount; ?></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" id="notificationsList">
+                            <!-- Notifications will be loaded here via AJAX -->
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
                 <!-- Logout -->
                 <?php if (session()->get('isAuthenticated')): ?>
                     <li class="nav-item">
@@ -150,9 +165,100 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   
-  <!-- Custom JavaScript for enrollment functionality -->
+  <!-- Custom JavaScript for enrollment functionality and notifications -->
   <script>
   $(document).ready(function() {
+      // Load notifications when dropdown is shown
+      $('#notificationsDropdown').on('show.bs.dropdown', function () {
+          loadNotifications();
+      });
+
+      // Auto-refresh notifications every 5 seconds
+      setInterval(function() {
+          loadNotifications();
+      }, 5000);
+
+      // Function to load notifications
+      function loadNotifications() {
+          console.log('Loading notifications...');
+          $.get('<?= base_url('/notifications') ?>')
+              .done(function(data) {
+                  console.log('Notifications loaded:', data);
+                  if (data.error) {
+                      console.error(data.error);
+                      return;
+                  }
+
+                  // Update badge
+                  updateBadge(data.unreadCount);
+
+                  // Populate dropdown
+                  populateNotifications(data.notifications);
+              })
+              .fail(function() {
+                  console.error('Failed to load notifications');
+              });
+      }
+
+      // Function to update badge
+      function updateBadge(count) {
+          const badge = $('#notificationBadge');
+          if (count > 0) {
+              badge.text(count).show();
+          } else {
+              badge.hide();
+          }
+      }
+
+      // Function to populate notifications list
+      function populateNotifications(notifications) {
+          const list = $('#notificationsList');
+          list.empty();
+
+          if (notifications.length === 0) {
+              list.append('<li><a class="dropdown-item" href="#">No new notifications</a></li>');
+              return;
+          }
+
+          notifications.forEach(function(notification) {
+              const item = `
+                  <li>
+                      <div class="dropdown-item d-flex justify-content-between align-items-start">
+                          <div class="flex-grow-1">
+                              <p class="mb-1">${notification.message}</p>
+                              <small class="text-muted">${new Date(notification.created_at).toLocaleDateString()}</small>
+                          </div>
+                          <button class="btn btn-sm btn-outline-primary mark-read-btn" data-id="${notification.id}">Mark as Read</button>
+                      </div>
+                  </li>
+              `;
+              list.append(item);
+          });
+      }
+
+      // Handle mark as read
+      $(document).on('click', '.mark-read-btn', function(e) {
+          e.preventDefault();
+          const btn = $(this);
+          const id = btn.data('id');
+
+          $.post('<?= base_url('/notifications/mark_read/') ?>' + id, {
+              '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
+          })
+              .done(function(data) {
+                  if (data.success) {
+                      btn.closest('li').remove();
+                      // Update badge count
+                      const currentCount = parseInt($('#notificationBadge').text()) || 0;
+                      updateBadge(currentCount - 1);
+                  } else {
+                      console.error(data.error);
+                  }
+              })
+              .fail(function() {
+                  console.error('Failed to mark as read');
+              });
+      });
       // Handle enrollment button clicks
       $(document).on('click', '.enroll-btn', function(e) {
           e.preventDefault();
@@ -166,7 +272,8 @@
           
           // Send AJAX request
           $.post('<?= base_url('/course/enroll') ?>', {
-              course_id: courseId
+              course_id: courseId,
+              '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
           })
           .done(function(response) {
               if (response.success) {
@@ -228,7 +335,8 @@
           
           // Send AJAX request
           $.post('<?= base_url('/course/unenroll') ?>', {
-              course_id: courseId
+              course_id: courseId,
+              '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
           })
           .done(function(response) {
               if (response.success) {
@@ -241,12 +349,12 @@
                       
                       // Check if no more enrolled courses
                       if ($('.unenroll-btn').length === 0) {
-                          $('.row:has(.unenroll-btn)').html(`
-                              <div class="col-12">
-                                  <div class="alert alert-info">
-                                      <h6 class="alert-heading">No Enrolled Courses</h6>
-                                      <p class="mb-0">You haven't enrolled in any courses yet. Browse available courses below to get started!</p>
-                                  </div>
+                          const enrolledHeader = $('h4:contains("My Enrolled Courses")');
+                          const enrolledSection = enrolledHeader.next('.row');
+                          enrolledSection.replaceWith(`
+                              <div class="alert alert-info">
+                                  <h6 class="alert-heading">No Enrolled Courses</h6>
+                                  <p class="mb-0">You haven't enrolled in any courses yet. Browse available courses below to get started!</p>
                               </div>
                           `);
                       }
@@ -295,11 +403,12 @@
       
       // Function to add course to enrolled courses section
       function addToEnrolledCourses(course) {
-          const enrolledSection = $('h4:contains("My Enrolled Courses")').closest('.row').next('.row');
+          const enrolledHeader = $('h4:contains("My Enrolled Courses")');
+          let enrolledSection = enrolledHeader.next('.row');
           
-          // Check if this is the first enrollment
-          if (enrolledSection.find('.alert-info').length > 0) {
-              enrolledSection.html('');
+          // If no row exists (first enrollment), create one
+          if (enrolledSection.length === 0) {
+              enrolledSection = $('<div class="row"></div>').insertAfter(enrolledHeader);
           }
           
           const courseCard = `
