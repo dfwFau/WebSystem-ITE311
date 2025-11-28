@@ -113,4 +113,5 @@ class CourseModel extends Model
     {
         return $this->where('course_code', $course_code)->first();
     }
+
 }

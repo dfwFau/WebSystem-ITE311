@@ -7,14 +7,12 @@
         <div class="col-12">
             <h2 class="mb-4"><?= esc($title) ?></h2>
             
-            <div class="alert alert-success">
-                <h5 class="alert-heading">✅ Access Control Test Passed!</h5>
-                <p class="mb-0">You successfully accessed the admin-only page. This confirms that:</p>
-                <ul class="mb-0 mt-2">
-                    <li>You are logged in as: <strong><?= esc($userName) ?></strong></li>
-                    <li>Your role is: <strong><?= esc(ucfirst($role)) ?></strong></li>
-                    <li>Role-based access control is working correctly</li>
-                </ul>
+            <div class="mb-4">
+                <form action="<?= base_url('/admin/manage-users') ?>" method="GET" class="search-form">
+                    <div class="input-group" style="max-width: 400px;">
+                        <input type="text" class="form-control form-control-sm" name="search" placeholder="Search users by name, email, or role..." value="<?= esc($searchQuery ?? '') ?>">
+                    </div>
+                </form>
             </div>
 
             <div class="row">

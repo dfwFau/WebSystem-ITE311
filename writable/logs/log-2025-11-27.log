@@ -1,0 +1,426 @@
+CRITICAL - 2025-11-27 19:30:42 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:30:47 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:30:57 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:31:13 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:32:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/classes.php"
+[Method: GET, Route: teacher/classes]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/classes.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/classes', [], true)
+ 3 APPPATH\Controllers\Teacher.php(20): view('teacher/classes', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->classes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:32:47 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/materials.php"
+[Method: GET, Route: teacher/materials]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/materials.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/materials', [], true)
+ 3 APPPATH\Controllers\Teacher.php(31): view('teacher/materials', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->materials()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:32:49 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/grades.php"
+[Method: GET, Route: teacher/grades]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/grades.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/grades', [], true)
+ 3 APPPATH\Controllers\Teacher.php(42): view('teacher/grades', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->grades()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:34:12 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:40:55 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:41:00 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 19:41:11 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:28:01 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:30:39 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:31:29 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:33:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/create_course.php"
+[Method: GET, Route: teacher/create-course]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/create_course.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/create_course', [], true)
+ 3 APPPATH\Controllers\Teacher.php(53): view('teacher/create_course', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->createCourse()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:33:58 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/classes.php"
+[Method: GET, Route: teacher/classes]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/classes.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/classes', [], true)
+ 3 APPPATH\Controllers\Teacher.php(20): view('teacher/classes', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->classes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:34:11 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/materials.php"
+[Method: GET, Route: teacher/materials]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/materials.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/materials', [], true)
+ 3 APPPATH\Controllers\Teacher.php(31): view('teacher/materials', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->materials()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:34:17 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:35:01 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:36:14 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:47:27 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:47:48 --> ErrorException: Undefined variable $unreadCount
+[Method: GET, Route: course/search]
+in APPPATH\Views\template.php on line 143.
+ 1 APPPATH\Views\template.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $unreadCount', 'C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-MORIL\\app\\Views\\template.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 5 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('course/search', [], true)
+ 6 APPPATH\Controllers\Course.php(248): view('course/search', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:51:23 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/materials.php"
+[Method: GET, Route: teacher/materials]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/materials.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/materials', [], true)
+ 3 APPPATH\Controllers\Teacher.php(31): view('teacher/materials', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->materials()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:53:29 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/materials.php"
+[Method: GET, Route: teacher/materials]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/materials.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/materials', [], true)
+ 3 APPPATH\Controllers\Teacher.php(31): view('teacher/materials', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->materials()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:53:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "teacher/classes.php"
+[Method: GET, Route: teacher/classes]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('teacher/classes.php')
+ 2 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/classes', [], true)
+ 3 APPPATH\Controllers\Teacher.php(20): view('teacher/classes', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->classes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:15 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: dashboard]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 4 APPPATH\Controllers\Auth.php(219): view('auth/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:20 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: dashboard]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 4 APPPATH\Controllers\Auth.php(219): view('auth/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:20 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: announcements]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('announcements', [], true)
+ 4 APPPATH\Controllers\Announcement.php(24): view('announcements', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Announcement->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Announcement))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:21 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: dashboard]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 4 APPPATH\Controllers\Auth.php(219): view('auth/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:22 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: dashboard]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 4 APPPATH\Controllers\Auth.php(219): view('auth/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-27 20:57:23 --> ParseError: syntax error, unexpected token "else"
+[Method: GET, Route: dashboard]
+in APPPATH\Views\template.php on line 380.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\View\View.php(242): CodeIgniter\View\View->render('template', [], true)
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('auth/dashboard', [], true)
+ 4 APPPATH\Controllers\Auth.php(219): view('auth/dashboard', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->dashboard()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

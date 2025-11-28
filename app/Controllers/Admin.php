@@ -17,11 +17,14 @@ class Admin extends BaseController
     public function manageUsers()
     {
         // Role-based access control is handled by the RoleAuth filter
+        $searchQuery = $this->request->getGet('search');
+        
         return view('admin/manage_users', [
             'title' => 'Manage Users',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
-            'userRole' => session()->get('userRole')
+            'userRole' => session()->get('userRole'),
+            'searchQuery' => $searchQuery
         ]);
     }
 
