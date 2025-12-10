@@ -52,6 +52,7 @@ $routes->group('teacher', ['filter' => 'roleAuth'], function($routes) {
 $routes->group('student', ['filter' => 'roleAuth'], function($routes) {
     $routes->get('dashboard', 'Student::dashboard');
     $routes->get('courses', 'Student::courses');
+    $routes->post('enroll/(:num)', 'Student::enroll/$1');
     $routes->get('grades', 'Student::grades');
     $routes->get('assignments', 'Student::assignments');
 });

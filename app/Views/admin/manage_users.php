@@ -31,11 +31,16 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="mb-0"><?= esc($title) ?></h2>
-                <a href="<?= base_url('/admin/add-user') ?>" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> Add New User
-                </a>
+            <h2 class="mb-4"><?= esc($title) ?></h2>
+            
+            <div class="alert alert-success">
+                <h5 class="alert-heading">✅ Access Control Test Passed!</h5>
+                <p class="mb-0">You successfully accessed the admin-only page. This confirms that:</p>
+                <ul class="mb-0 mt-2">
+                    <li>You are logged in as: <strong><?= esc($userName) ?></strong></li>
+                    <li>Your role is: <strong><?= esc(ucfirst($userRole)) ?></strong></li>
+                    <li>Role-based access control is working correctly</li>
+                </ul>
             </div>
 
             <?php if (session()->getFlashdata('success')): ?>

@@ -43,14 +43,52 @@ class Student extends BaseController
             $enrollment['materials'] = $materialModel->getMaterialsByCourse($enrollment['course_id']);
         }
 
+        // Also get courses available to enroll (not yet enrolled)
+        $availableCourses = $courseModel->getAvailableCourses($userId);
+
         return view('student/courses', array_merge($this->data, [
             'title' => 'My Courses',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole'),
-            'enrollments' => $enrollments,
-            'searchQuery' => $searchQuery
+            'enrollments' => $enrollments
         ]));
+    }
+
+    /**
+     * Enroll the current student in a course
+     *
+     * @param int|null $course_id
+     * @return \CodeIgniter\HTTP\RedirectResponse
+     */
+    public function enroll($course_id = null)
+    {
+        if (!session()->get('isAuthenticated')) {
+            return redirect()->to('/login')->with('error', 'Please login first.');
+        }
+
+        $userId = session()->get('userId');
+
+        if (empty($course_id) || !is_numeric($course_id)) {
+            return redirect()->back()->with('error', 'Invalid course selected.');
+        }
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+
+        if ($enrollmentModel->isAlreadyEnrolled($userId, (int) $course_id)) {
+            return redirect()->back()->with('error', 'You are already enrolled in this course.');
+        }
+
+        $result = $enrollmentModel->enrollUser([
+            'user_id' => $userId,
+            'course_id' => (int) $course_id,
+        ]);
+
+        if ($result) {
+            return redirect()->back()->with('success', 'Enrolled successfully.');
+        }
+
+        return redirect()->back()->with('error', 'Enrollment failed.');
     }
     
     public function grades()
