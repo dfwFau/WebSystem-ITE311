@@ -22,7 +22,21 @@ class Student extends BaseController
         $courseModel = new \App\Models\CourseModel();
 
         $userId = session()->get('userId');
+        $searchQuery = $this->request->getGet('search');
+        
         $enrollments = $enrollmentModel->getUserEnrollments($userId);
+
+        // Filter enrollments based on search query
+        if (!empty($searchQuery)) {
+            $searchLower = strtolower($searchQuery);
+            $enrollments = array_filter($enrollments, function($enrollment) use ($searchLower) {
+                return strpos(strtolower($enrollment['course_name'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($enrollment['course_code'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($enrollment['description'] ?? ''), $searchLower) !== false;
+            });
+            // Re-index array after filtering
+            $enrollments = array_values($enrollments);
+        }
 
         // Get materials for each course
         foreach ($enrollments as &$enrollment) {
@@ -34,7 +48,8 @@ class Student extends BaseController
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole'),
-            'enrollments' => $enrollments
+            'enrollments' => $enrollments,
+            'searchQuery' => $searchQuery
         ]));
     }
     

@@ -17,10 +17,10 @@
                 <!-- Admin links -->
                 <?php if (session()->get('userRole') === 'admin'): ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/manage-users') ?>">Manage Users</a>
+                        <a class="nav-link" href="<?= base_url('/admin/manage-users') ?>">Manage Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/reports') ?>">Reports</a>
+                        <a class="nav-link" href="<?= base_url('/admin/reports') ?>">Reports</a>
                     </li>
                 <?php endif; ?>
 

@@ -170,7 +170,7 @@
                     <div class="card-body">
                         <h5 class="card-title">User Management</h5>
                         <p class="card-text">Manage system users and their roles.</p>
-                        <a href="<?= base_url('/admin/users') ?>" class="btn btn-primary">Manage Users</a>
+                        <a href="<?= base_url('/admin/manage-users') ?>" class="btn btn-primary">Manage Users</a>
                     </div>
                 </div>
             </div>
@@ -397,21 +397,6 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card bg-success text-white">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 class="card-title"><?= $totalAvailable ?? 0 ?></h4>
-                                <p class="card-text">Available Courses</p>
-                            </div>
-                            <div class="align-self-center">
-                                <i class="fas fa-plus-circle fa-2x"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
                 <div class="card bg-info text-white">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
@@ -453,110 +438,6 @@
             </div>
         </div>
         <?php endif; ?>
-        
-        <!-- Enrolled Courses Section -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h4 class="mb-3">📚 My Enrolled Courses</h4>
-                <?php if (!empty($enrolledCourses)): ?>
-                    <div class="row">
-                        <?php foreach ($enrolledCourses as $enrollment): ?>
-                            <div class="col-md-6 col-lg-4 mb-3">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-primary"><?= esc($enrollment['course_name']) ?></h6>
-                                        <p class="card-text small text-muted"><?= esc($enrollment['course_code']) ?></p>
-                                        <p class="card-text small mb-3"><?= esc(substr($enrollment['description'] ?? '', 0, 100)) ?><?= strlen($enrollment['description'] ?? '') > 100 ? '...' : '' ?></p>
-                                        
-                                        <!-- Course Materials -->
-                                        <?php if (!empty($enrollment['materials'])): ?>
-                                            <div class="mb-3">
-                                                <h6 class="text-muted mb-2">📁 Course Materials</h6>
-                                                <div class="list-group list-group-flush">
-                                                    <?php foreach ($enrollment['materials'] as $material): ?>
-                                                        <div class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                                            <div>
-                                                                <small class="fw-medium text-dark">
-                                                                    <?= esc($material['file_name']) ?>
-                                                                </small>
-                                                                <br>
-                                                                <small class="text-muted">
-                                                                    Uploaded: <?= date('M d, Y', strtotime($material['created_at'])) ?>
-                                                                </small>
-                                                            </div>
-                                                            <a href="<?= base_url('/materials/download/' . $material['id']) ?>" 
-                                                               class="btn btn-sm btn-outline-primary" 
-                                                               title="Download Material">
-                                                                Download
-                                                            </a>
-                                                        </div>
-                                                    <?php endforeach; ?>
-                                                </div>
-                                            </div>
-                                        <?php else: ?>
-                                            <div class="mb-3">
-                                                <small class="text-muted">No materials available for this course yet.</small>
-                                            </div>
-                                        <?php endif; ?>
-                                        
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">
-                                                Enrolled: <?= date('M d, Y', strtotime($enrollment['enrollment_date'])) ?>
-                                            </small>
-                                            <button class="btn btn-sm btn-outline-danger unenroll-btn" 
-                                                    data-course-id="<?= $enrollment['course_id'] ?>"
-                                                    data-course-name="<?= esc($enrollment['course_name']) ?>">
-                                                Unenroll
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <div class="alert alert-info">
-                        <h6 class="alert-heading">No Enrolled Courses</h6>
-                        <p class="mb-0">You haven't enrolled in any courses yet. Browse available courses below to get started!</p>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-
-        <!-- Available Courses Section -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h4 class="mb-3">🎯 Available Courses</h4>
-                <?php if (!empty($availableCourses)): ?>
-                    <div class="row">
-                        <?php foreach ($availableCourses as $course): ?>
-                            <div class="col-md-6 col-lg-4 mb-3">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-success"><?= esc($course['course_name']) ?></h6>
-                                        <p class="card-text small text-muted"><?= esc($course['course_code']) ?></p>
-                                        <p class="card-text small"><?= esc(substr($course['description'] ?? '', 0, 100)) ?><?= strlen($course['description'] ?? '') > 100 ? '...' : '' ?></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted"><?= $course['units'] ?? 3 ?> units</small>
-                                            <button class="btn btn-sm btn-success enroll-btn" 
-                                                    data-course-id="<?= $course['course_id'] ?>"
-                                                    data-course-name="<?= esc($course['course_name']) ?>">
-                                                Enroll
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <div class="alert alert-warning">
-                        <h6 class="alert-heading">No Available Courses</h6>
-                        <p class="mb-0">You are enrolled in all available courses! Great job!</p>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
 
         <!-- Quick Actions -->
         <div class="row">

@@ -70,9 +70,22 @@ class Teacher extends BaseController
         // Role-based access control is handled by the RoleAuth filter
         $courseModel = new \App\Models\CourseModel();
         $materialModel = new \App\Models\MaterialModel();
+        $searchQuery = $this->request->getGet('search');
 
         // Assuming teacher can see all courses or their own; for now, get all
         $courses = $courseModel->getAllCourses();
+
+        // Filter courses based on search query
+        if (!empty($searchQuery)) {
+            $searchLower = strtolower($searchQuery);
+            $courses = array_filter($courses, function($course) use ($searchLower) {
+                return strpos(strtolower($course['course_name'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($course['course_code'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($course['description'] ?? ''), $searchLower) !== false;
+            });
+            // Re-index array after filtering
+            $courses = array_values($courses);
+        }
 
         // Get materials for each course
         foreach ($courses as &$course) {
@@ -84,7 +97,8 @@ class Teacher extends BaseController
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole'),
-            'courses' => $courses
+            'courses' => $courses,
+            'searchQuery' => $searchQuery
         ]));
     }
 }

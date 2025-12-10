@@ -16,6 +16,23 @@
         </div>
     </div>
 
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="<?= base_url('/student/courses') ?>" method="GET" class="search-form">
+                        <div class="input-group" style="max-width: 400px;">
+                            <input type="text" class="form-control form-control-sm" name="search" placeholder="Search courses by name, code, or description..." value="<?= esc($searchQuery ?? '') ?>">
+                            <button class="btn btn-primary btn-sm" type="submit">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <div class="card">

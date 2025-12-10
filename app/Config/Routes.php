@@ -27,6 +27,11 @@ $routes->get('/dashboard', 'Auth::dashboard');
 // Admin routes (admin only) - Protected by RoleAuth filter
 $routes->group('admin', ['filter' => 'roleAuth'], function($routes) {
     $routes->get('manage-users', 'Admin::manageUsers');
+    $routes->get('add-user', 'Admin::addUser');
+    $routes->post('add-user', 'Admin::addUser');
+    $routes->get('edit-user/(:num)', 'Admin::editUser/$1');
+    $routes->post('edit-user/(:num)', 'Admin::editUser/$1');
+    $routes->get('delete-user/(:num)', 'Admin::deleteUser/$1');
     $routes->get('reports', 'Admin::reports');
     $routes->get('settings', 'Admin::settings');
     $routes->get('dashboard', 'Admin::dashboard');
@@ -59,6 +64,7 @@ $routes->post('/course/enroll', 'Course::enroll');
 $routes->post('/course/unenroll', 'Course::unenroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 $routes->get('/course/available', 'Course::getAvailableCourses');
+
 
 // Materials routes
 $routes->get('/admin/course/(:num)/upload', 'Materials::upload/$1');

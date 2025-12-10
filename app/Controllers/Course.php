@@ -229,4 +229,5 @@ class Course extends BaseController
             ]);
         }
     }
+
 }

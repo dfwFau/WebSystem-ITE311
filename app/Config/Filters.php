@@ -14,6 +14,7 @@ use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\RoleFilter;
 use App\Filters\RoleAuth;
+use App\Filters\UserUpdateCheck;
 
 class Filters extends BaseFilters
 {
@@ -38,6 +39,7 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'role'          => RoleFilter::class,
         'roleAuth'      => RoleAuth::class,
+        'userUpdateCheck' => UserUpdateCheck::class,
     ];
 
     /**
@@ -79,6 +81,14 @@ class Filters extends BaseFilters
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'userUpdateCheck' => [
+                'except' => [
+                    'login',
+                    'logout',
+                    'register',
+                    '/',
+                ],
+            ],
         ],
         'after' => [
             // 'honeypot',
@@ -110,5 +120,20 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'userUpdateCheck' => [
+            'before' => [
+                'dashboard*',
+                'admin/*',
+                'teacher/*',
+                'student/*',
+                'announcements*',
+            ],
+            'except' => [
+                'login',
+                'logout',
+                'register',
+            ],
+        ],
+    ];
 }

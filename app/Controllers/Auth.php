@@ -39,7 +39,8 @@ class Auth extends BaseController
                 'userName'        => $userRecord['name'],
                 'userEmail'       => $userRecord['email'],
                 'userRole'        => $userRecord['role'],
-                'isAuthenticated' => true
+                'isAuthenticated' => true,
+                'userUpdatedAt'   => $userRecord['updated_at'] ?? null // Store user's updated_at to detect changes
             ];
 
             session()->set($userSession);
@@ -199,9 +200,7 @@ class Auth extends BaseController
 
                 // Student dashboard data
                 $data['enrolledCourses'] = $enrollmentModel->getUserEnrollments($userId);
-                $data['availableCourses'] = $courseModel->getAvailableCourses($userId);
                 $data['totalEnrolled'] = count($data['enrolledCourses']);
-                $data['totalAvailable'] = count($data['availableCourses']);
 
                 // Add materials to enrolled courses
                 foreach ($data['enrolledCourses'] as &$course) {
