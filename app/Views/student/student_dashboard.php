@@ -1,88 +1,170 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('content') ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box">
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Student</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
+<div class="container-fluid py-4">
+    <!-- Page Title -->
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="dashboard-title">Welcome, <span class="gradient-text"><?= esc($userName) ?></span>!</h2>
+            <p class="text-muted">Here’s a quick overview of your courses, grades, and assignments.</p>
+        </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="dashboard-card text-center p-4">
+                <div class="icon-card bg-primary-gradient mb-3">
+                    <i class="mdi mdi-book-open-variant"></i>
                 </div>
-                <h4 class="page-title">Student Dashboard</h4>
+                <h4 class="card-title">My Courses</h4>
+                <a href="<?= base_url('student/courses') ?>" class="btn btn-gradient mt-3">View Courses</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card text-center p-4">
+                <div class="icon-card bg-success-gradient mb-3">
+                    <i class="mdi mdi-chart-line"></i>
+                </div>
+                <h4 class="card-title">My Grades</h4>
+                <a href="<?= base_url('student/grades') ?>" class="btn btn-gradient mt-3">View Grades</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="dashboard-card text-center p-4">
+                <div class="icon-card bg-warning-gradient mb-3">
+                    <i class="mdi mdi-file-document"></i>
+                </div>
+                <h4 class="card-title">Assignments</h4>
+                <a href="<?= base_url('student/assignments') ?>" class="btn btn-gradient mt-3">View Assignments</a>
             </div>
         </div>
     </div>
 
+    <!-- Quick Links -->
     <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h3 class="mb-3">Welcome back, <?= esc($userName) ?>!</h3>
-                            <p class="text-muted mb-4">Here's what's happening with your courses today.</p>
-                            
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border">
-                                        <div class="card-body text-center">
-                                            <i class="mdi mdi-book-open-variant text-primary" style="font-size: 2rem;"></i>
-                                            <h4 class="mt-2">My Courses</h4>
-                                            <p class="text-muted">View your enrolled courses</p>
-                                            <a href="<?= base_url('student/courses') ?>" class="btn btn-primary btn-sm">View Courses</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="card border">
-                                        <div class="card-body text-center">
-                                            <i class="mdi mdi-chart-line text-success" style="font-size: 2rem;"></i>
-                                            <h4 class="mt-2">My Grades</h4>
-                                            <p class="text-muted">Check your academic progress</p>
-                                            <a href="<?= base_url('student/grades') ?>" class="btn btn-success btn-sm">View Grades</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="card border">
-                                        <div class="card-body text-center">
-                                            <i class="mdi mdi-file-document text-warning" style="font-size: 2rem;"></i>
-                                            <h4 class="mt-2">Assignments</h4>
-                                            <p class="text-muted">Track your assignments</p>
-                                            <a href="<?= base_url('student/assignments') ?>" class="btn btn-warning btn-sm">View Assignments</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-4">
-                            <div class="card border">
-                                <div class="card-body">
-                                    <h5 class="card-title">Quick Actions</h5>
-                                    <div class="d-grid gap-2">
-                                        <a href="<?= base_url('announcements') ?>" class="btn btn-outline-primary">
-                                            <i class="mdi mdi-bullhorn me-1"></i> View Announcements
-                                        </a>
-                                        <a href="<?= base_url('student/courses') ?>" class="btn btn-outline-success">
-                                            <i class="mdi mdi-book-open me-1"></i> My Courses
-                                        </a>
-                                        <a href="<?= base_url('student/grades') ?>" class="btn btn-outline-info">
-                                            <i class="mdi mdi-chart-line me-1"></i> My Grades
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-12">
+            <div class="dashboard-card p-4">
+                <h5 class="card-title mb-3">Quick Links</h5>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="<?= base_url('announcements') ?>" class="btn btn-outline-gradient-primary">
+                        <i class="mdi mdi-bullhorn me-1"></i> Announcements
+                    </a>
+                    <a href="<?= base_url('student/courses') ?>" class="btn btn-outline-gradient-success">
+                        <i class="mdi mdi-book-open me-1"></i> Courses
+                    </a>
+                    <a href="<?= base_url('student/grades') ?>" class="btn btn-outline-gradient-info">
+                        <i class="mdi mdi-chart-line me-1"></i> Grades
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .gradient-text {
+        background: linear-gradient(135deg,#667eea,#764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .dashboard-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .icon-card {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        margin: 0 auto;
+    }
+
+    .bg-primary-gradient { background: linear-gradient(135deg,#667eea,#764ba2); }
+    .bg-success-gradient { background: linear-gradient(135deg,#10b981,#059669); }
+    .bg-warning-gradient { background: linear-gradient(135deg,#f59e0b,#d97706); }
+
+    .btn-gradient {
+        background: linear-gradient(135deg,#667eea,#764ba2);
+        color: #fff;
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(102,126,234,0.4);
+        color: #fff;
+    }
+
+    .btn-outline-gradient-primary {
+        border: 2px solid #667eea;
+        color: #667eea;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+
+    .btn-outline-gradient-primary:hover {
+        background: linear-gradient(135deg,#667eea,#764ba2);
+        color: #fff;
+    }
+
+    .btn-outline-gradient-success {
+        border: 2px solid #10b981;
+        color: #10b981;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+
+    .btn-outline-gradient-success:hover {
+        background: linear-gradient(135deg,#10b981,#059669);
+        color: #fff;
+    }
+
+    .btn-outline-gradient-info {
+        border: 2px solid #06b6d4;
+        color: #06b6d4;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+
+    .btn-outline-gradient-info:hover {
+        background: linear-gradient(135deg,#06b6d4,#0891b2);
+        color: #fff;
+    }
+
+    .card-title {
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+    @media (max-width: 768px){
+        .dashboard-card { text-align: center; }
+        .d-flex.flex-wrap { justify-content: center; }
+    }
+</style>
 <?= $this->endSection() ?>
