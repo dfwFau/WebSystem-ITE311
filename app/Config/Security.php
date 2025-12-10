@@ -8,7 +8,7 @@ class Security extends BaseConfig
 {
     /**
      * --------------------------------------------------------------------------
-     * CSRF Protection Method
+      CSRF Protection Method
      * --------------------------------------------------------------------------
      *
      * Protection Method for Cross Site Request Forgery protection.
@@ -65,13 +65,13 @@ class Security extends BaseConfig
     public int $expires = 7200;
 
     /**
-     * --------------------------------------------------------------------------
+     * -------------------------------------------------------------------------- 
      * CSRF Regenerate
      * --------------------------------------------------------------------------
      *
      * Regenerate CSRF Token on every submission.
      */
-    public bool $regenerate = true;
+    public bool $regenerate = false;
 
     /**
      * --------------------------------------------------------------------------

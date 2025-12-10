@@ -5,79 +5,89 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-
-// Default route
 $routes->get('/', 'Home::index');
-
-// Custom routes
+$routes->get('home', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/contact', 'Home::contact');
 
+// Announcements
+$routes->get('/announcements', 'Announcement::index');
+$routes->get('/announcements/create', 'Announcement::create');
+$routes->post('/announcements/create', 'Announcement::create');
 
-// Authentication routes
+// Authentication
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register');
 $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
-
-// Dashboard route (accessible to all authenticated users)
 $routes->get('/dashboard', 'Auth::dashboard');
 
-// Admin routes (admin only) - Protected by RoleAuth filter
-$routes->group('admin', ['filter' => 'roleAuth'], function($routes) {
-    $routes->get('manage-users', 'Admin::manageUsers');
-    $routes->get('add-user', 'Admin::addUser');
-    $routes->post('add-user', 'Admin::addUser');
-    $routes->get('edit-user/(:num)', 'Admin::editUser/$1');
-    $routes->post('edit-user/(:num)', 'Admin::editUser/$1');
-    $routes->get('delete-user/(:num)', 'Admin::deleteUser/$1');
-    $routes->get('reports', 'Admin::reports');
-    $routes->get('settings', 'Admin::settings');
-    $routes->get('dashboard', 'Admin::dashboard');
-});
-
-// Teacher routes (teacher only) - Protected by RoleAuth filter
-$routes->group('teacher', ['filter' => 'roleAuth'], function($routes) {
-    $routes->get('classes', 'Teacher::classes');
-    $routes->get('materials', 'Teacher::materials');
-    $routes->get('grades', 'Teacher::grades');
-    $routes->get('create-course', 'Teacher::createCourse');
-    $routes->post('store-course', 'Teacher::storeCourse');
-    $routes->get('get-courses', 'Teacher::getCourses');
-    $routes->get('dashboard', 'Teacher::dashboard');
-});
-
-// Student routes (student only) - Protected by RoleAuth filter
-$routes->group('student', ['filter' => 'roleAuth'], function($routes) {
-    $routes->get('dashboard', 'Student::dashboard');
-    $routes->get('courses', 'Student::courses');
-    $routes->post('enroll/(:num)', 'Student::enroll/$1');
-    $routes->get('grades', 'Student::grades');
-    $routes->get('assignments', 'Student::assignments');
-});
-
-// Note: Role-based access control is handled by the RoleAuth filter
-// applied to the route groups above
-
-// Course enrollment routes
+// Courses
+$routes->get('/courses', 'Course::index');
+$routes->get('/courses/create', 'Course::create');
+$routes->post('/courses/create', 'Course::create');
 $routes->post('/course/enroll', 'Course::enroll');
-$routes->post('/course/unenroll', 'Course::unenroll');
-$routes->get('/course/enrolled', 'Course::getEnrolledCourses');
-$routes->get('/course/available', 'Course::getAvailableCourses');
+$routes->get('/course/search', 'Course::search');
+$routes->post('/course/search', 'Course::search');
+$routes->post('/course/delete', 'Course::delete');
+$routes->get('/course/getAllCourses', 'Course::getAllCourses');
+$routes->get('/course/getTeacherCourses', 'Course::getTeacherCourses');
+$routes->post('/course/activate', 'Course::activate');
 
-
-// Materials routes
+// Materials
 $routes->get('/admin/course/(:num)/upload', 'Materials::upload/$1');
 $routes->post('/admin/course/(:num)/upload', 'Materials::upload/$1');
 $routes->get('/materials/delete/(:num)', 'Materials::delete/$1');
 $routes->get('/materials/download/(:num)', 'Materials::download/$1');
 
-// Announcements route (accessible to all authenticated users)
-$routes->get('/announcements', 'Announcement::index');
+// Assignments
+$routes->get('/assignments/course/(:num)', 'Assignment::index/$1');
+$routes->get('/assignments/create/(:num)', 'Assignment::create/$1');
+$routes->post('/assignments/create/(:num)', 'Assignment::create/$1');
+$routes->get('/assignments/submit/(:num)', 'Assignment::submit/$1');
+$routes->post('/assignments/submit/(:num)', 'Assignment::submit/$1');
+$routes->get('/assignments/view-submissions/(:num)', 'Assignment::viewSubmissions/$1');
+$routes->get('/assignments/get-submission-text/(:num)', 'Assignment::getSubmissionText/$1');
+$routes->get('/assignments/download-submission/(:num)', 'Assignment::downloadSubmission/$1');
 
-// Notification routes 
+// Generic assignment routes
+$routes->get('/assignments', 'Assignment::assignments');
+
+// Notifications
 $routes->get('/notifications', 'Notifications::get');
 $routes->post('/notifications/mark_read/(:num)', 'Notifications::mark_as_read/$1');
+$routes->post('/notifications/mark_all_read', 'Notifications::mark_all_read');
 
-// Dashboard routes are now handled within the protected route groups above
+// User Management
+$routes->get('/manageusers', 'UserManagement::index');
+$routes->get('/manageusers/create', 'UserManagement::create');
+$routes->post('/manageusers/create', 'UserManagement::create');
+$routes->post('/manageusers/update-role', 'UserManagement::updateRole');
+$routes->post('/manageusers/delete', 'UserManagement::delete');
+$routes->post('/manageusers/restore', 'UserManagement::restore');
+$routes->post('/manageusers/edit', 'UserManagement::edit');
+
+// Admin Course Management
+$routes->get('/admin/courses', 'Admin::courses');
+$routes->get('/admin/courses/create', 'Admin::createCourse');
+$routes->post('/admin/courses/create', 'Admin::createCourse');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

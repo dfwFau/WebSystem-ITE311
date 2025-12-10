@@ -17,6 +17,7 @@ class Migrations extends BaseConfig
      * and disable it back when you're done.
      */
     public bool $enabled = true;
+    public $type    = 'timestamp';
 
     /**
      * --------------------------------------------------------------------------
@@ -27,7 +28,7 @@ class Migrations extends BaseConfig
      * When migrations runs it will store in a database table which migration
      * files have already been run.
      */
-    public string $table = 'sequential';
+    public string $table = 'migrations';
 
     /**
      * --------------------------------------------------------------------------

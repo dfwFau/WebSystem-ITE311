@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'unique'     => true,
             ],
             'email' => [
                 'type'       => 'VARCHAR',
@@ -29,9 +28,10 @@ class CreateUsersTable extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'role' => [
-                'type'       => 'ENUM("admin","student","teacher")',
-                'default'    => 'student',
+            'role_id' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -44,6 +44,7 @@ class CreateUsersTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('role_id', 'roles', 'id', 'RESTRICT', 'CASCADE');
         $this->forge->createTable('users');
     }
 

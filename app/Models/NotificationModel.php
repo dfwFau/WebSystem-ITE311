@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
@@ -15,13 +14,21 @@ class NotificationModel extends Model
         return $this->where('user_id', $userId)->where('is_read', 0)->countAllResults();
     }
 
-    public function getNotificationsForUser($userId, $limit = 5)
+    public function getNotificationsForUser($userId)
     {
-        return $this->where('user_id', $userId)->where('is_read', 0)->orderBy('created_at', 'DESC')->limit($limit)->findAll();
+        return $this->where('user_id', $userId)
+                    ->orderBy('created_at', 'DESC')
+                    ->limit(10)
+                    ->findAll();
     }
 
-    public function markAsRead($notificationId)
+    public function markAsRead($id)
     {
-        return $this->update($notificationId, ['is_read' => 1]);
+        return $this->update($id, ['is_read' => 1]);
+    }
+
+    public function markAllAsRead($userId)
+    {
+        return $this->where('user_id', $userId)->set(['is_read' => 1])->update();
     }
 }

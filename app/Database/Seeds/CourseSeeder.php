@@ -8,90 +8,59 @@ class CourseSeeder extends Seeder
 {
     public function run()
     {
-        // Clear existing courses first
-        $this->db->query('SET FOREIGN_KEY_CHECKS=0');
-        $this->db->table('courses')->truncate();
-        $this->db->query('SET FOREIGN_KEY_CHECKS=1');
+        // Get teacher user ID
+        $teacher = $this->db->table('users')
+            ->where('email', 'teacher@gmail.com')
+            ->get()
+            ->getRowArray();
         
-        // Create sample courses
-        $courses = [
+        if (!$teacher) {
+            echo "Teacher user not found. Please run UserSeeder first.\n";
+            return;
+        }
+        
+        $data = [
             [
-                'course_name' => 'Introduction to Web Development',
-                'description' => 'Learn the fundamentals of web development including HTML, CSS, and JavaScript.',
-                'course_code' => 'WEB101',
+                'course_code' => 'CS101',
+                'course_name' => 'Introduction to Computer Science',
+                'description' => 'Basic concepts of computer science and programming fundamentals.',
                 'units' => 3,
+                'teacher_id' => $teacher['id'],
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'course_name' => 'Database Management Systems',
-                'description' => 'Comprehensive course on database design, SQL, and database administration.',
-                'course_code' => 'DBMS201',
-                'units' => 3,
+                'course_code' => 'MATH201',
+                'course_name' => 'Calculus I',
+                'description' => 'Introduction to differential and integral calculus.',
+                'units' => 4,
+                'teacher_id' => $teacher['id'],
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'course_name' => 'Object-Oriented Programming',
-                'description' => 'Learn OOP concepts using PHP and Java programming languages.',
-                'course_code' => 'OOP301',
+                'course_code' => 'ENG101',
+                'course_name' => 'English Composition',
+                'description' => 'Fundamentals of writing and communication.',
                 'units' => 3,
+                'teacher_id' => $teacher['id'],
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'course_name' => 'Software Engineering Principles',
-                'description' => 'Study software development methodologies, design patterns, and best practices.',
-                'course_code' => 'SE401',
-                'units' => 3,
+                'course_code' => 'PHYS101',
+                'course_name' => 'General Physics',
+                'description' => 'Basic principles of mechanics, thermodynamics, and waves.',
+                'units' => 4,
+                'teacher_id' => $teacher['id'],
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'course_name' => 'Mobile App Development',
-                'description' => 'Create mobile applications using modern frameworks and tools.',
-                'course_code' => 'MOB501',
-                'units' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'course_name' => 'Cybersecurity Fundamentals',
-                'description' => 'Introduction to cybersecurity concepts, threats, and protection methods.',
-                'course_code' => 'CS601',
-                'units' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'course_name' => 'Data Structures and Algorithms',
-                'description' => 'Learn fundamental data structures and algorithmic problem-solving techniques.',
-                'course_code' => 'DSA701',
-                'units' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'course_name' => 'Machine Learning Basics',
-                'description' => 'Introduction to machine learning concepts and practical applications.',
-                'course_code' => 'ML801',
-                'units' => 3,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ]
         ];
 
-        // Insert sample courses into the 'courses' table
-        $this->db->table('courses')->insertBatch($courses);
+        // Insert courses
+        $this->db->table('courses')->insertBatch($data);
         
-        echo "Created " . count($courses) . " sample courses:\n";
-        echo "- Introduction to Web Development (WEB101)\n";
-        echo "- Database Management Systems (DBMS201)\n";
-        echo "- Object-Oriented Programming (OOP301)\n";
-        echo "- Software Engineering Principles (SE401)\n";
-        echo "- Mobile App Development (MOB501)\n";
-        echo "- Cybersecurity Fundamentals (CS601)\n";
-        echo "- Data Structures and Algorithms (DSA701)\n";
-        echo "- Machine Learning Basics (ML801)\n";
+        echo "Test courses created successfully!\n";
     }
 }

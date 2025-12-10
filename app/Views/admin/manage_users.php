@@ -56,7 +56,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             <?php endif; ?>
-            
+
+            <div class="mb-4">
+                <a href="<?= base_url('/admin/add-user') ?>" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Add User
+                </a>
+            </div>
+
             <div class="mb-4">
                 <form action="<?= base_url('/admin/manage-users') ?>" method="GET" class="search-form">
                     <div class="input-group" style="max-width: 400px;">

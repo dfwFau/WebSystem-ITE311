@@ -1,57 +1,207 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="<?= base_url('/') ?>">MyApp</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+<?php if (session()->get('isLoggedIn')):
+  $role = session()->get('userRole');
+  $email = session()->get('userEmail');
+  $name  = session()->get('userName') ?? 'User';
+  $uri   = uri_string();
 
-                <!-- Common link -->
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/dashboard') ?>">Dashboard</a>
-                </li>
+  // Sidebar menus by role
+  $menus = [
+    'admin' => [
+      'title' => 'Administration',
+      ['url' => '/dashboard',       'icon' => 'th-large',     'text' => 'Dashboard'],
+      ['url' => '/manageusers',   'icon' => 'users-cog',    'text' => 'ManageUsers'],
+      ['url' => '/courses',        'icon' => 'graduation-cap','text' => 'All Courses'],
+    ],
+    'teacher' => [
+      'title' => 'Teaching',
+      ['url' => '/dashboard',                'icon' => 'th-large',       'text' => 'Dashboard'],
+      ['url' => 'courses',                   'icon' => 'graduation-cap', 'text' => 'Courses'],
+      ['url' => '/announcements/create',     'icon' => 'bullhorn',       'text' => 'Create Announcement'],
+      ['url' => '/assignments',      'icon' => 'tasks',          'text' => 'Assignments'],
+      ['url' => '/teacher/grades',           'icon' => 'star',           'text' => 'Grades'],
+      ['url' => '/teacher/settings',         'icon' => 'cog',            'text' => 'Settings'],
+    ],
+    'student' => [
+      'title' => 'Learning',
+      ['url' => '/dashboard',            'icon' => 'th-large',       'text' => 'Dashboard'],
+      ['url' => '/courses',      'icon' => 'graduation-cap', 'text' => 'Courses'],
+      ['url' => '/assignments',  'icon' => 'tasks',          'text' => 'Assignments'],
+      ['url' => '/student/grades',       'icon' => 'star',           'text' => 'Grades'],
+      ['url' => '/announcements',        'icon' => 'bullhorn',       'text' => 'Announcements'],
+    ],
+  ];
+?>
 
-                <!-- Admin links -->
-                <?php if (session()->get('userRole') === 'admin'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/admin/manage-users') ?>">Manage Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/admin/reports') ?>">Reports</a>
-                    </li>
-                <?php endif; ?>
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-                <!-- Teacher links -->
-                <?php if (session()->get('userRole') === 'teacher'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/teacher/classes') ?>">My Classes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/teacher/materials') ?>">Materials</a>
-                    </li>
-                <?php endif; ?>
+<!-- Sidebar -->
+<div class="sidebar-wrapper" id="sidebar">
 
-                <!-- Student links -->
-                <?php if (session()->get('userRole') === 'student'): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/student/courses') ?>">My Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('/student/grades') ?>">My Grades</a>
-                    </li>
-                <?php endif; ?>
+  <!-- Header -->
+  <div class="sidebar-header">
+    <a href="<?= base_url('/dashboard') ?>" class="sidebar-brand">
+      <i class="fas fa-rocket"></i><span>ITE311-MORIL</span>
+    </a>
+    <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+  </div>
 
-                <!-- Logout -->
-                <?php if (session()->get('isAuthenticated')): ?>
-                    <li class="nav-item">
-                        <a class="nav-link text-danger" href="<?= base_url('/logout') ?>">Logout</a>
-                    </li>
-                <?php endif; ?>
-
-            </ul>
-        </div>
+  <!-- User Info -->
+  <div class="sidebar-user">
+    <div class="user-profile">
+      <div class="user-avatar-sidebar"><?= strtoupper(substr($email, 0, 1)) ?></div>
+      <div class="user-info-sidebar">
+        <div class="user-name-sidebar"><?= $name ?></div>
+        <div class="user-email-sidebar"><?= $email ?></div>
+        <span class="user-role-badge <?= $role ?>"><?= ucfirst($role) ?></span>
+      </div>
     </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav">
+    <ul class="p-0 m-0" style="list-style:none;">
+      
+      <div class="nav-section-title"><?= $menus[$role]['title'] ?></div>
+
+      <?php foreach (array_slice($menus[$role], 1) as $item): 
+        $itemUrl = trim($item['url'], '/');
+        // Better active state detection
+        if ($itemUrl === 'dashboard') {
+          $active = ($uri === 'dashboard' || $uri === '') ? 'active' : '';
+        } else {
+          $active = (strpos($uri, $itemUrl) !== false || $uri === $itemUrl) ? 'active' : '';
+        }
+      ?>
+        <li class="nav-item-sidebar">
+          <a href="<?= base_url($item['url']) ?>" class="nav-link-sidebar <?= $active ?>">
+            <span class="nav-icon"><i class="fas fa-<?= $item['icon'] ?>"></i></span>
+            <span class="nav-text"><?= $item['text'] ?></span>
+          </a>
+        </li>
+      <?php endforeach; ?>
+
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a href="<?= base_url('/logout') ?>" class="logout-btn-sidebar">
+      <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+      <span class="nav-text">Logout</span>
+    </a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="d-flex align-items-center gap-3">
+      <button class="mobile-toggle" id="mobileToggle" style="display:none;">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>
+        <?php
+        // Dynamic page title based on current route
+        $pageTitle = 'Dashboard';
+        if ($uri === 'dashboard' || $uri === '') {
+          $pageTitle = 'Dashboard';
+        } elseif (strpos($uri, 'manageusers') !== false) {
+          $pageTitle = 'ManageUsers';
+        } elseif (strpos($uri, 'courses') !== false) {
+          $pageTitle = 'Courses';
+        } elseif (strpos($uri, 'announcements') !== false) {
+          $pageTitle = 'Announcements';
+        } elseif (strpos($uri, 'materials') !== false) {
+          $pageTitle = 'Materials';
+        } else {
+          // Try to get title from menu
+          foreach ($menus[$role] as $menuItem) {
+            if (is_array($menuItem) && isset($menuItem['url'])) {
+              $menuUrl = trim($menuItem['url'], '/');
+              if (strpos($uri, $menuUrl) !== false || $uri === $menuUrl) {
+                $pageTitle = $menuItem['text'];
+                break;
+              }
+            }
+          }
+        }
+        echo $pageTitle;
+        ?>
+      </h1>
+    </div>
+
+    <div class="top-bar-actions">
+
+      <!-- Notifications -->
+      <div class="dropdown">
+        <button class="notification-bell-topbar" id="notificationDropdown" data-bs-toggle="dropdown">
+          <i class="fas fa-bell"></i>
+          <span id="notificationBadge" class="notification-badge-topbar" style="display:none;">0</span>
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end notification-dropdown-menu">
+          <li class="notification-dropdown-header">
+            <h6><i class="fas fa-bell"></i> Notifications</h6>
+            <div class="notification-header-actions">
+              <button id="markAllRead" class="notification-action-btn"><i class="fas fa-check-double"></i></button>
+              <button id="refreshNotifications" class="notification-action-btn"><i class="fas fa-sync-alt"></i></button>
+            </div>
+          </li>
+
+          <div class="notification-body" id="notificationBody">
+            <div class="notification-empty">
+              <i class="fas fa-bell-slash"></i>
+              <p><strong>No notifications</strong></p>
+              <p class="small">You're all caught up!</p>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="padding:2rem;">
+    <?= $this->renderSection('content') ?>
+  </div>
+
+</div>
+
+<?php else: ?>
+<!-- Guest Navigation -->
+<?php $uri = uri_string(); ?>
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="<?= base_url('/') ?>"><i class="fas fa-rocket"></i> ITE311-VISAYAS</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#guestNav">
+      <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="guestNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <?php
+          $guestPages = [
+            '/'        => 'Home',
+            '/about'   => 'About',
+            '/contact' => 'Contact'
+          ];
+          foreach ($guestPages as $url => $text):
+        ?>
+        <li class="nav-item">
+          <a class="nav-link <?= $uri === trim($url, '/') ? 'active' : '' ?>" 
+             href="<?= base_url($url) ?>"><?= $text ?></a>
+        </li>
+        <?php endforeach; ?>
+
+        <li class="nav-item">
+          <a class="btn btn-login" href="<?= base_url('/login') ?>">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
+<?php endif; ?>

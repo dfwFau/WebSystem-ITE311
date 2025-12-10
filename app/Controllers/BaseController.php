@@ -44,11 +44,6 @@ abstract class BaseController extends Controller
     // protected $session;
 
     /**
-     * Data array for views.
-     */
-    protected $data = [];
-
-    /**
      * @return void
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
@@ -60,13 +55,25 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = service('session');
 
-        // Load notification count if user is authenticated
-        if (session()->get('isAuthenticated')) {
-            $userId = session()->get('userId');
+        // Load notification count for logged-in users
+        $this->loadNotificationData();
+    }
+
+    /**
+     * Load notification data for the current user
+     *
+     * @return void
+     */
+    protected function loadNotificationData()
+    {
+        if (session()->get('isLoggedIn')) {
             $notificationModel = new \App\Models\NotificationModel();
-            $this->data['unreadCount'] = $notificationModel->getUnreadCount($userId);
+            $unreadCount = $notificationModel->getUnreadCount(session()->get('user_id'));
+
+            // Make unread count available to all views
+            $this->data['unreadNotificationCount'] = $unreadCount;
         } else {
-            $this->data['unreadCount'] = 0;
+            $this->data['unreadNotificationCount'] = 0;
         }
     }
 }

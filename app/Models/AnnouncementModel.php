@@ -15,8 +15,17 @@ class AnnouncementModel extends Model
         'title',
         'content',
         'created_at',
-        'updated_at',
     ];
 
-    protected $useTimestamps = false; // timestamps handled by DB defaults in migration
+    protected $useTimestamps = false;
+    protected $createdField = 'created_at';
+    protected $updatedField = '';
+
+    /**
+     * Get all announcements ordered by created_at in descending order (newest first)
+     */
+    public function getAllAnnouncements()
+    {
+        return $this->orderBy('created_at', 'DESC')->findAll();
+    }
 }

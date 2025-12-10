@@ -8,110 +8,245 @@ class CourseModel extends Model
 {
     protected $table = 'courses';
     protected $primaryKey = 'course_id';
-    protected $useAutoIncrement = true;
+
     protected $returnType = 'array';
-    protected $useSoftDeletes = false;
-    protected $protectFields = true;
+
     protected $allowedFields = [
-        'course_name',
+        'course_number',
         'description',
-        'course_code',
-        'units'
+        'units',
+        'teacher_id',
+        'academic_year',
+        'semester',
+        'term',
+        'schedule_time',
+        'schedule_date',
+        'status',
+        'created_at',
+        'updated_at',
     ];
 
-    // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat = 'datetime';
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-
-    // Validation
+    protected $useTimestamps = false; // timestamps handled by DB defaults in migration
+    
     protected $validationRules = [
-        'course_name' => 'required|min_length[3]|max_length[150]',
+        'course_number' => 'required|max_length[200]|is_unique[courses.course_number]',
         'description' => 'permit_empty',
-        'course_code' => 'required|min_length[3]|max_length[50]|is_unique[courses.course_code]',
-        'units' => 'permit_empty|integer|greater_than[0]'
+        'units' => 'permit_empty|integer|greater_than[0]|less_than[7]',
+        'teacher_id' => 'required|integer'
     ];
-
+    
     protected $validationMessages = [
-        'course_name' => [
-            'required' => 'Course name is required',
-            'min_length' => 'Course name must be at least 3 characters long',
-            'max_length' => 'Course name cannot exceed 150 characters'
-        ],
-        'course_code' => [
-            'required' => 'Course code is required',
-            'min_length' => 'Course code must be at least 3 characters long',
-            'max_length' => 'Course code cannot exceed 50 characters',
-            'is_unique' => 'Course code must be unique'
+        'course_number' => [
+            'required' => 'Course number (CN) is required.',
+            'max_length' => 'Course number cannot exceed 200 characters.',
+            'is_unique' => 'This course number already exists.'
         ],
         'units' => [
-            'integer' => 'Units must be an integer',
-            'greater_than' => 'Units must be greater than 0'
+            'integer' => 'Units must be a number.',
+            'greater_than' => 'Units must be greater than 0.',
+            'less_than' => 'Units must be less than 7.'
+        ],
+        'teacher_id' => [
+            'required' => 'Teacher ID is required.',
+            'integer' => 'Teacher ID must be a number.'
         ]
     ];
 
-    protected $skipValidation = false;
-    protected $cleanValidationRules = true;
 
     /**
-     * Get all courses
-     * 
-     * @return array Array of courses
+     * Get all available courses for students (not enrolled by the student and activated by teacher)
      */
-    public function getAllCourses()
+    public function getAvailableCoursesForStudent($studentId)
     {
-        return $this->orderBy('course_name', 'ASC')->findAll();
+        $builder = $this->db->table('courses c');
+        $builder->select('c.course_id, c.course_number, c.description, c.units, c.academic_year, c.semester, c.term, c.schedule_time, c.schedule_date, c.teacher_id, c.status, c.created_at, u.name as teacher_name');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->where('c.teacher_id IS NOT NULL');
+        $builder->where('c.status', 'active'); // Only show courses that have been activated by teachers
+        $builder->whereNotIn('c.course_id', function($query) use ($studentId) {
+            $query->select('course_id')
+                  ->from('enrollments')
+                  ->where('user_id', $studentId);
+        });
+        $builder->orderBy('c.created_at', 'DESC');
+
+        return $builder->get()->getResultArray();
     }
 
     /**
-     * Get courses not enrolled by a specific user
-     * 
-     * @param int $user_id User ID
-     * @return array Array of available courses
+     * Get all available courses (for students to browse)
      */
-    public function getAvailableCourses($user_id)
+    public function getAvailableCourses($userId)
     {
+        return $this->getAvailableCoursesForStudent($userId);
+    }
+
+    /**
+     * Get course with teacher information
+     */
+    public function getCourseWithTeacher($courseId)
+    {
+        $builder = $this->db->table('courses c');
+        $builder->select('c.*, u.name as teacher_name, u.email as teacher_email');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->where('c.course_id', $courseId);
+        
+        return $builder->get()->getRowArray();
+    }
+
+    /**
+     * Get courses created by a specific teacher with enrollment count
+     */
+    public function getCoursesByTeacher($teacherId)
+    {
+        // First get all courses for the teacher
+        $courses = $this->where('teacher_id', $teacherId)
+                       ->orderBy('created_at', 'DESC')
+                       ->findAll();
+        
+        // Get enrollment counts for each course
         $enrollmentModel = new EnrollmentModel();
         
-        // Get all courses
-        $allCourses = $this->getAllCourses();
-        
-        // Get enrolled course IDs for the user
-        $enrolledCourses = $enrollmentModel->getUserEnrollments($user_id);
-        $enrolledCourseIds = array_column($enrolledCourses, 'course_id');
-        
-        // Filter out enrolled courses
-        $availableCourses = [];
-        foreach ($allCourses as $course) {
-            if (!in_array($course['course_id'], $enrolledCourseIds)) {
-                $availableCourses[] = $course;
+        foreach ($courses as &$course) {
+            // Get student count for this course
+            $course['students'] = $enrollmentModel->getCourseEnrollmentCount($course['course_id']);
+            
+            // Set default status if not exists
+            if (!isset($course['status'])) {
+                $course['status'] = 'Active';
+            }
+            
+            // Ensure description exists
+            if (!isset($course['description']) || $course['description'] === null) {
+                $course['description'] = '';
             }
         }
         
-        return $availableCourses;
+        return $courses;
     }
 
     /**
-     * Get course details by ID
-     * 
-     * @param int $course_id Course ID
-     * @return array|null Course data or null if not found
+     * Get teacher statistics including total students, active courses, total courses, and pending courses
      */
-    public function getCourseById($course_id)
+    public function getTeacherStatistics($teacherId)
     {
-        return $this->find($course_id);
+        $statusModel = new \App\Models\EnrollmentStatusModel();
+        $enrolledStatusId = $statusModel->getStatusIdByName('enrolled');
+        $activeStatusId = $statusModel->getStatusIdByName('active');
+        $pendingStatusId = $statusModel->getStatusIdByName('pending');
+
+        // Get total students (enrolled or active in teacher's courses)
+        $totalStudentsQuery = $this->db->table('enrollments e')
+            ->select('COUNT(DISTINCT e.user_id) as total_students')
+            ->join('courses c', 'e.course_id = c.course_id')
+            ->where('c.teacher_id', $teacherId)
+            ->whereIn('e.status_id', array_filter([$enrolledStatusId, $activeStatusId]))
+            ->get()
+            ->getRowArray();
+        $totalStudents = $totalStudentsQuery ? (int)$totalStudentsQuery['total_students'] : 0;
+
+        // Get total courses taught by teacher
+        $totalCourses = $this->where('teacher_id', $teacherId)->countAllResults();
+
+        // Get active courses (courses with enrolled/active students)
+        $activeCoursesQuery = $this->db->table('courses c')
+            ->select('COUNT(DISTINCT c.course_id) as active_courses')
+            ->join('enrollments e', 'c.course_id = e.course_id')
+            ->where('c.teacher_id', $teacherId)
+            ->whereIn('e.status_id', array_filter([$enrolledStatusId, $activeStatusId]))
+            ->get()
+            ->getRowArray();
+        $activeCourses = $activeCoursesQuery ? (int)$activeCoursesQuery['active_courses'] : 0;
+
+        // Get pending courses (courses with pending enrollments)
+        $pendingCoursesQuery = $this->db->table('courses c')
+            ->select('COUNT(DISTINCT c.course_id) as pending_courses')
+            ->join('enrollments e', 'c.course_id = e.course_id')
+            ->where('c.teacher_id', $teacherId)
+            ->where('e.status_id', $pendingStatusId)
+            ->get()
+            ->getRowArray();
+        $pendingCourses = $pendingCoursesQuery ? (int)$pendingCoursesQuery['pending_courses'] : 0;
+
+        return [
+            'total_students' => $totalStudents,
+            'total_courses' => $totalCourses,
+            'active_courses' => $activeCourses,
+            'pending_courses' => $pendingCourses,
+        ];
     }
 
     /**
-     * Get courses by course code
-     * 
-     * @param string $course_code Course code
-     * @return array|null Course data or null if not found
+     * Get all courses with teacher information
      */
-    public function getCourseByCode($course_code)
+    public function getAllCoursesWithTeachers()
     {
-        return $this->where('course_code', $course_code)->first();
+        $builder = $this->db->table('courses c');
+        $builder->select('c.*, u.name as teacher_name');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->where('c.teacher_id IS NOT NULL');
+        $builder->orderBy('c.created_at', 'DESC');
+        
+        return $builder->get()->getResultArray();
     }
 
+    /**
+     * Check if a course number already exists
+     */
+    public function courseNumberExists($courseNumber, $excludeId = null)
+    {
+        $builder = $this->db->table('courses');
+        $builder->where('course_number', $courseNumber);
+        
+        if ($excludeId) {
+            $builder->where('course_id !=', $excludeId);
+        }
+        
+        return $builder->countAllResults() > 0;
+    }
+
+    /**
+     * Get total materials uploaded by a teacher across all their courses
+     */
+    public function getTotalMaterialsByTeacher($teacherId)
+    {
+        $builder = $this->db->table('materials m');
+        $builder->join('courses c', 'm.course_id = c.course_id');
+        $builder->where('c.teacher_id', $teacherId);
+
+        return $builder->countAllResults();
+    }
+
+    /**
+     * Get total number of students enrolled in a teacher's courses
+     */
+    public function getTotalEnrolledStudentsByTeacher($teacherId)
+    {
+        $statusModel = new \App\Models\EnrollmentStatusModel();
+        $enrolledStatusId = $statusModel->getStatusIdByName('enrolled');
+        $activeStatusId = $statusModel->getStatusIdByName('active');
+
+        $builder = $this->db->table('enrollments e');
+        $builder->select('COUNT(DISTINCT e.user_id) as total_students');
+        $builder->join('courses c', 'e.course_id = c.course_id');
+        $builder->where('c.teacher_id', $teacherId);
+        $builder->whereIn('e.status_id', array_filter([$enrolledStatusId, $activeStatusId]));
+
+        $result = $builder->get()->getRowArray();
+        return $result ? (int)$result['total_students'] : 0;
+    }
+
+    /**
+     * Test database connection
+     */
+    public function testConnection()
+    {
+        try {
+            $this->db->query('SELECT 1');
+            return true;
+        } catch (\Exception $e) {
+            log_message('error', 'Database connection test failed: ' . $e->getMessage());
+            return false;
+        }
+    }
 }

@@ -6,26 +6,18 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('index', $this->data); // Homepage
+        return view('page/home'); // Homepage
     }
 
     public function about()
     {
-        return view('about', $this->data); // About page
+        return view('page/about'); // About page
     }
 
     public function contact() // Contact page
     {
-        return view('contact', $this->data);
+        return view('page/contact');
     }
 
-    public function dashboard()
-    {
-        $session = session();
-        if (! $session->get('isLoggedIn')) {
-            return redirect()->to(base_url('login'));
-        }
-
-        return view('dashboard');
-    }
-}
+    
+}   

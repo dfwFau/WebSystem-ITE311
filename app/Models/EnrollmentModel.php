@@ -7,91 +7,78 @@ use CodeIgniter\Model;
 class EnrollmentModel extends Model
 {
     protected $table = 'enrollments';
-    protected $primaryKey = 'id';
-    protected $useAutoIncrement = true;
+    protected $primaryKey = 'enrollment_id';
+
     protected $returnType = 'array';
-    protected $useSoftDeletes = false;
-    protected $protectFields = true;
+
     protected $allowedFields = [
         'user_id',
         'course_id',
-        'enrollment_date'
+        'enrollment_date',
+        'status_id',
+        'created_at',
+        'updated_at',
     ];
 
-    // Dates
     protected $useTimestamps = true;
-    protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
-
-    // Validation
-    protected $validationRules = [
-        'user_id' => 'required|integer',
-        'course_id' => 'required|integer',
-        'enrollment_date' => 'permit_empty|valid_date'
-    ];
-
-    protected $validationMessages = [
-        'user_id' => [
-            'required' => 'User ID is required',
-            'integer' => 'User ID must be an integer'
-        ],
-        'course_id' => [
-            'required' => 'Course ID is required',
-            'integer' => 'Course ID must be an integer'
-        ],
-        'enrollment_date' => [
-            'valid_date' => 'Enrollment date must be a valid date'
-        ]
-    ];
-
-    protected $skipValidation = false;
-    protected $cleanValidationRules = true;
 
     /**
      * Enroll a user in a course
      * 
-     * @param array $data Enrollment data
-     * @return int|false Enrollment ID on success, false on failure
+     * @param array $data Enrollment data including user_id, course_id, and optional status
+     * @return int|false The ID of the inserted enrollment or false on failure
      */
     public function enrollUser($data)
     {
-        // Set enrollment date if not provided
-        if (!isset($data['enrollment_date'])) {
-            $data['enrollment_date'] = date('Y-m-d H:i:s');
+        $statusModel = new EnrollmentStatusModel();
+        
+        // Get status ID from status name if provided, otherwise default to 'enrolled'
+        $statusName = $data['status'] ?? 'enrolled';
+        $statusId = $statusModel->getStatusIdByName($statusName);
+        
+        if (!$statusId) {
+            // Default to enrolled if status not found
+            $statusId = $statusModel->getStatusIdByName('enrolled');
         }
 
-        // Insert the enrollment record
-        $result = $this->insert($data);
-        
-        if ($result) {
-            return $this->insertID();
-        }
-        
-        return false;
+        // Set default values
+        $enrollmentData = [
+            'user_id' => $data['user_id'],
+            'course_id' => $data['course_id'],
+            'enrollment_date' => $data['enrollment_date'] ?? date('Y-m-d H:i:s'),
+            'status_id' => $statusId,
+        ];
+
+        return $this->insert($enrollmentData);
     }
 
     /**
      * Get all courses a user is enrolled in
      * 
-     * @param int $user_id User ID
-     * @return array Array of enrolled courses
+     * @param int $user_id The user ID
+     * @return array Array of enrollment records with course details
      */
     public function getUserEnrollments($user_id)
     {
-        return $this->select('enrollments.*, courses.course_name, courses.description, courses.course_code')
-                    ->join('courses', 'courses.course_id = enrollments.course_id', 'left')
-                    ->where('enrollments.user_id', $user_id)
-                    ->orderBy('enrollments.enrollment_date', 'DESC')
-                    ->findAll();
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*, c.course_id, c.course_number, c.description, c.units, c.academic_year, c.semester, c.term, c.schedule_time, c.schedule_date, u.name as teacher_name, es.status_name as status');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('e.user_id', $user_id);
+        $builder->orderBy('e.enrollment_date', 'DESC');
+        
+        return $builder->get()->getResultArray();
     }
 
     /**
      * Check if a user is already enrolled in a specific course
      * 
-     * @param int $user_id User ID
-     * @param int $course_id Course ID
-     * @return bool True if enrolled, false if not
+     * @param int $user_id The user ID
+     * @param int $course_id The course ID
+     * @return bool True if already enrolled, false otherwise
      */
     public function isAlreadyEnrolled($user_id, $course_id)
     {
@@ -103,42 +90,184 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Get enrollment count for a specific course
+     * Get enrollment by user and course
      * 
-     * @param int $course_id Course ID
-     * @return int Number of enrollments
+     * @param int $user_id The user ID
+     * @param int $course_id The course ID
+     * @return array|null The enrollment record or null if not found
      */
-    public function getCourseEnrollmentCount($course_id)
-    {
-        return $this->where('course_id', $course_id)->countAllResults();
-    }
-
-    /**
-     * Get all enrollments for a specific course
-     * 
-     * @param int $course_id Course ID
-     * @return array Array of enrollments
-     */
-    public function getCourseEnrollments($course_id)
-    {
-        return $this->select('enrollments.*, users.name, users.email')
-                    ->join('users', 'users.id = enrollments.user_id', 'left')
-                    ->where('enrollments.course_id', $course_id)
-                    ->orderBy('enrollments.enrollment_date', 'DESC')
-                    ->findAll();
-    }
-
-    /**
-     * Remove a user's enrollment from a course
-     * 
-     * @param int $user_id User ID
-     * @param int $course_id Course ID
-     * @return bool True on success, false on failure
-     */
-    public function unenrollUser($user_id, $course_id)
+    public function getEnrollmentByUserAndCourse($user_id, $course_id)
     {
         return $this->where('user_id', $user_id)
                    ->where('course_id', $course_id)
-                   ->delete();
+                   ->first();
+    }
+
+    /**
+     * Update enrollment status
+     * 
+     * @param int $enrollment_id The enrollment ID
+     * @param string $statusName The new status name (enrolled, completed, dropped, etc.)
+     * @return bool True on success, false on failure
+     */
+    public function updateEnrollmentStatus($enrollment_id, $statusName)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $statusId = $statusModel->getStatusIdByName($statusName);
+        
+        if (!$statusId) {
+            return false;
+        }
+        
+        return $this->update($enrollment_id, ['status_id' => $statusId]);
+    }
+
+    /**
+     * Get enrollments by status name
+     * 
+     * @param string $statusName The enrollment status name
+     * @return array Array of enrollment records
+     */
+    public function getEnrollmentsByStatus($statusName)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $statusId = $statusModel->getStatusIdByName($statusName);
+        
+        if (!$statusId) {
+            return [];
+        }
+        
+        return $this->where('status_id', $statusId)->findAll();
+    }
+
+    /**
+     * Get course enrollment count
+     *
+     * @param int $course_id The course ID
+     * @return int Number of enrolled students
+     */
+    public function getCourseEnrollmentCount($course_id)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $enrolledStatusId = $statusModel->getStatusIdByName('enrolled');
+        $activeStatusId = $statusModel->getStatusIdByName('active');
+
+        // Collect valid status IDs
+        $validStatusIds = [];
+        if ($enrolledStatusId !== null) {
+            $validStatusIds[] = $enrolledStatusId;
+        }
+        if ($activeStatusId !== null) {
+            $validStatusIds[] = $activeStatusId;
+        }
+
+        $builder = $this->db->table('enrollments');
+        $builder->where('course_id', $course_id);
+
+        // Only apply whereIn if we have valid status IDs
+        if (!empty($validStatusIds)) {
+            $builder->whereIn('status_id', $validStatusIds);
+        }
+
+        return $builder->countAllResults();
+    }
+
+    /**
+     * Get available courses for a user (courses they are not enrolled in)
+     * 
+     * @param int $user_id The user ID
+     * @return array Array of available courses
+     */
+    public function getAvailableCourses($user_id)
+    {
+        $builder = $this->db->table('courses c');
+        $builder->select('c.*, u.name as teacher_name');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->where('c.teacher_id IS NOT NULL');
+        $builder->whereNotIn('c.course_id', function($query) use ($user_id) {
+            $query->select('course_id')
+                   ->from('enrollments')
+                   ->where('user_id', $user_id);
+        });
+        $builder->orderBy('c.created_at', 'DESC');
+        
+        return $builder->get()->getResultArray();
+    }
+
+    /**
+     * Get enrollments by course
+     * 
+     * @param int $courseId The course ID
+     * @return array Array of enrollment records
+     */
+    public function getEnrollmentsByCourse($courseId)
+    {
+        return $this->where('course_id', $courseId)->findAll();
+    }
+
+    /**
+     * Get students enrolled in teacher's courses
+     *
+     * @param int $teacherId The teacher ID
+     * @return array Array of student enrollment records
+     */
+    public function getStudentsByTeacher($teacherId)
+    {
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*, c.course_number, u.name as student_name, u.email, es.status_name as status');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->join('users u', 'e.user_id = u.id', 'left');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('c.teacher_id', $teacherId);
+        $builder->orderBy('e.enrollment_date', 'DESC');
+
+        return $builder->get()->getResultArray();
+    }
+
+    /**
+     * Get student details
+     *
+     * @param int $studentId The student ID
+     * @return array|null Student details or null if not found
+     */
+    public function getStudentDetails($studentId)
+    {
+        $builder = $this->db->table('users u');
+        $builder->select('u.*, r.role_name as role');
+        $builder->join('roles r', 'u.role_id = r.id', 'left');
+        $builder->where('u.id', $studentId);
+        $builder->where('r.role_name', 'student');
+
+        return $builder->get()->getRowArray();
+    }
+
+    /**
+     * Get enrollment statistics by teacher
+     *
+     * @param int $teacherId The teacher ID
+     * @return array Array with active and pending counts
+     */
+    public function getEnrollmentStatsByTeacher($teacherId)
+    {
+        $builder = $this->db->table('enrollments e');
+        $builder->select('es.status_name as status, COUNT(DISTINCT c.course_id) as course_count');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('c.teacher_id', $teacherId);
+        $builder->groupBy('es.status_name');
+
+        $results = $builder->get()->getResultArray();
+
+        $stats = ['active' => 0, 'pending' => 0];
+
+        foreach ($results as $result) {
+            if ($result['status'] === 'active') {
+                $stats['active'] = (int) $result['course_count'];
+            } elseif ($result['status'] === 'pending') {
+                $stats['pending'] = (int) $result['course_count'];
+            }
+        }
+
+        return $stats;
     }
 }

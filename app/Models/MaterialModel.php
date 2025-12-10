@@ -8,51 +8,15 @@ class MaterialModel extends Model
 {
     protected $table = 'materials';
     protected $primaryKey = 'id';
-    protected $useAutoIncrement = true;
-    protected $returnType = 'array';
-    protected $useSoftDeletes = false;
-    protected $protectFields = true;
-    protected $allowedFields = [
-        'course_id',
-        'file_name',
-        'file_path'
-    ];
-
-    // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat = 'datetime';
+    protected $allowedFields = ['course_id', 'file_name', 'file_path', 'created_at'];
+    protected $useTimestamps = false;
     protected $createdField = 'created_at';
-
-    // Validation
-    protected $validationRules = [
-        'course_id' => 'required|integer',
-        'file_name' => 'required|max_length[255]',
-        'file_path' => 'required|max_length[255]'
-    ];
-
-    protected $validationMessages = [
-        'course_id' => [
-            'required' => 'Course ID is required',
-            'integer' => 'Course ID must be an integer'
-        ],
-        'file_name' => [
-            'required' => 'File name is required',
-            'max_length' => 'File name cannot exceed 255 characters'
-        ],
-        'file_path' => [
-            'required' => 'File path is required',
-            'max_length' => 'File path cannot exceed 255 characters'
-        ]
-    ];
-
-    protected $skipValidation = false;
-    protected $cleanValidationRules = true;
 
     /**
      * Insert a new material record
      *
-     * @param array $data Material data
-     * @return bool|int Insert ID or false on failure
+     * @param array $data
+     * @return bool|int
      */
     public function insertMaterial($data)
     {
@@ -62,8 +26,8 @@ class MaterialModel extends Model
     /**
      * Get all materials for a specific course
      *
-     * @param int $course_id Course ID
-     * @return array Array of materials
+     * @param int $course_id
+     * @return array
      */
     public function getMaterialsByCourse($course_id)
     {
@@ -73,8 +37,8 @@ class MaterialModel extends Model
     /**
      * Get material by ID
      *
-     * @param int $id Material ID
-     * @return array|null Material data or null if not found
+     * @param int $id
+     * @return array|null
      */
     public function getMaterialById($id)
     {
@@ -84,11 +48,24 @@ class MaterialModel extends Model
     /**
      * Delete material by ID
      *
-     * @param int $id Material ID
-     * @return bool True on success, false on failure
+     * @param int $id
+     * @return bool
      */
     public function deleteMaterial($id)
     {
         return $this->delete($id);
+    }
+
+    /**
+     * Check if user is enrolled in course for material access
+     *
+     * @param int $course_id
+     * @param int $user_id
+     * @return bool
+     */
+    public function canAccessMaterial($course_id, $user_id)
+    {
+        $enrollmentModel = new EnrollmentModel();
+        return $enrollmentModel->isUserEnrolled($user_id, $course_id);
     }
 }

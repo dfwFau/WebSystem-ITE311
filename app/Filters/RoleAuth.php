@@ -5,6 +5,7 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\UserModel;
 
 class RoleAuth implements FilterInterface
 {
@@ -21,53 +22,43 @@ class RoleAuth implements FilterInterface
      * @param RequestInterface $request
      * @param array|null       $arguments
      *
-     * @return mixed
+     * @return RequestInterface|ResponseInterface|string|void
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        // Check if user is authenticated
-        if (!session()->get('isAuthenticated')) {
-            return redirect()->to('/login')->with('error', 'Please login to access this page.');
-        }
-
-        // Get user role
-        $userRole = session()->get('userRole');
-        $currentPath = $request->getUri()->getPath();
+        $session = session();
         
-        // Get URI segments to properly identify the route
-        $segments = $request->getUri()->getSegments();
-        $firstSegment = isset($segments[0]) ? $segments[0] : '';
-
-        // Role-based access control
-        switch ($userRole) {
-            case 'admin':
-                // Admins can access any route starting with /admin
-                if ($firstSegment === 'admin') {
-                    return; // Allow access
-                }
-                // If admin tries to access non-admin routes, redirect to unified dashboard
-                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
-                
-            case 'teacher':
-                // Teachers can access routes starting with /teacher
-                if ($firstSegment === 'teacher') {
-                    return; // Allow access
-                }
-                // If teacher tries to access non-teacher routes, redirect to unified dashboard
-                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
-                
-            case 'student':
-                // Students can access routes starting with /student and /announcements
-                if ($firstSegment === 'student' || $currentPath === '/announcements') {
-                    return; // Allow access
-                }
-                // If student tries to access non-student routes, redirect to dashboard
-                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
-                
-            default:
-                // Unknown role, deny access
-                return redirect()->to('/dashboard')->with('error', 'Access Denied: Insufficient Permissions');
+        // Check if user is logged in
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
         }
+        
+        // Check if admin forced logout by changing password
+        $userId = $session->get('user_id');
+        $loginTime = $session->get('login_time');
+        
+        if ($userId && $loginTime) {
+            try {
+                $userModel = new UserModel();
+                $user = $userModel->find($userId);
+                
+                if ($user && $user['force_logout_at']) {
+                    // Admin changed password - force logout
+                    $forceLogoutTime = strtotime($user['force_logout_at']);
+                    
+                    // If force_logout_at is after user's session login, logout the user
+                    if ($forceLogoutTime > $loginTime) {
+                        $session->destroy();
+                        return redirect()->to(base_url('login'))
+                            ->with('info', 'Your password was changed by an administrator. Please log in again.');
+                    }
+                }
+            } catch (\Exception $e) {
+                log_message('error', 'Error checking force logout: ' . $e->getMessage());
+            }
+        }
+        
+        return;
     }
 
     /**
@@ -80,10 +71,10 @@ class RoleAuth implements FilterInterface
      * @param ResponseInterface $response
      * @param array|null        $arguments
      *
-     * @return mixed
+     * @return ResponseInterface|void
      */
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Do something here
+        //
     }
 }

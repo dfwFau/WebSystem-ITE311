@@ -1,0 +1,2336 @@
+CRITICAL - 2025-11-29 12:42:24 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 12:42:39 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 12:43:34 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 12:44:11 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 12:46:30 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 12:46:38 --> ErrorException: Undefined property: App\Controllers\Course::$csrf
+[Method: POST, Route: course/enroll]
+in APPPATH\Controllers\Course.php on line 41.
+ 1 APPPATH\Controllers\Course.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Course::$csrf', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Controllers\\Course.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->enroll()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 12:49:17 --> mysqli_sql_exception: Duplicate entry 'CS101' for key 'course_code' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `co...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', NULL, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Database\Seeds\CourseSeeder.php(62): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\Seeder.php(149): App\Database\Seeds\CourseSeeder->run()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\ITE311-VISAYAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-11-29 19:16:02 --> ErrorException: Undefined variable $teacherCourses
+[Method: GET, Route: teacher/manage-courses]
+in APPPATH\Views\teacher\manage_courses.php on line 100.
+ 1 APPPATH\Views\teacher\manage_courses.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $teacherCourses', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/manage_courses', [], true)
+ 5 APPPATH\Controllers\Teacher.php(52): view('teacher/manage_courses')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:18:35 --> ErrorException: Undefined variable $teacherCourses
+[Method: GET, Route: teacher/manage-courses]
+in APPPATH\Views\teacher\manage_courses.php on line 100.
+ 1 APPPATH\Views\teacher\manage_courses.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $teacherCourses', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/manage_courses', [], true)
+ 5 APPPATH\Controllers\Teacher.php(52): view('teacher/manage_courses')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:19:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:19:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:19:09 --> ErrorException: Undefined variable $teacherCourses
+[Method: GET, Route: teacher/manage-courses]
+in APPPATH\Views\teacher\manage_courses.php on line 100.
+ 1 APPPATH\Views\teacher\manage_courses.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $teacherCourses', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/manage_courses', [], true)
+ 5 APPPATH\Controllers\Teacher.php(52): view('teacher/manage_courses')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:19:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:20:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:21:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:21:31 --> ErrorException: Undefined variable $teacherCourses
+[Method: GET, Route: teacher/manage-courses]
+in APPPATH\Views\teacher\manage_courses.php on line 100.
+ 1 APPPATH\Views\teacher\manage_courses.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $teacherCourses', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/manage_courses', [], true)
+ 5 APPPATH\Controllers\Teacher.php(52): view('teacher/manage_courses')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:21:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:21:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:21:33 --> ErrorException: Undefined variable $teacherCourses
+[Method: GET, Route: teacher/manage-courses]
+in APPPATH\Views\teacher\manage_courses.php on line 100.
+ 1 APPPATH\Views\teacher\manage_courses.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $teacherCourses', 'C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php', 100)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\ITE311-VISAYAS\\app\\Views\\teacher\\manage_courses.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('teacher/manage_courses', [], true)
+ 5 APPPATH\Controllers\Teacher.php(52): view('teacher/manage_courses')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:21:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:22:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:23:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:24:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:25:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 19:25:08 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 19:25:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: teacher/manage-courses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:25:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:25:09 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:26:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:27:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:27:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:28:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:28:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:28:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:28:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 19:28:30 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 19:28:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: teacher/manage-courses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:28:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:28:30 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:28:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:28:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 19:28:32 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 19:28:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: teacher/manage-courses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:28:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:28:32 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:29:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:29:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:30:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 19:31:09 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 19:31:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: teacher/manage-courses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:31:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 19:31:09 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Teacher.php(58): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Teacher->manageCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Teacher))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:31:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:32:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:32:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:32:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:32:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:33:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 76.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:33:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:33:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:33:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:33:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:33:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Teacher::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-11-29 19:33:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-29 19:33:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Notifications::$data is deprecated in APPPATH\Controllers\BaseController.php on line 74.
+ 1 APPPATH\Controllers\BaseController.php(59): App\Controllers\BaseController->loadNotificationData()
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:00:21 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:00:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:00:21 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:00:21 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:00:40 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:00:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:00:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:00:40 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:03:14 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:03:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:03:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:03:14 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:03:16 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:03:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:03:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:03:16 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:14:30 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:14:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:14:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:14:30 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:14:45 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:14:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:14:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:14:45 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:31:08 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:31:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:31:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:31:08 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:41:32 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:41:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:41:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:41:32 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:45:11 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:45:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:45:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:45:11 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:48:15 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:48:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:15 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:48:16 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:48:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:16 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:48:17 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:48:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:48:17 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 20:57:38 --> mysqli_sql_exception: Duplicate column name 'course_id' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\app\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-VISAYAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-11-29 20:57:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+[Method: GET, Route: course/getTeacherCourses]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:57:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-11-29 20:57:38 --> [Caused by] mysqli_sql_exception: Duplicate column name 'course_id'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = \'21\'
+AND `e`.`status` IN (\'enrolled\',\'active\')
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT DISTINCT *
+FROM `courses` `c`
+JOIN `enrollments` `e` ON `c`.`course_id` = `e`.`course_id`
+WHERE `c`.`teacher_id` = :c.teacher_id:
+AND `e`.`status` IN :e.status:
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\CourseModel.php(132): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Course.php(370): App\Models\CourseModel->getTeacherStatistics('21')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getTeacherCourses()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-11-29 21:07:28 --> mysqli_sql_exception: Duplicate entry 'CS101' for key 'course_code' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `co...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', NULL, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Database\Seeds\CourseSeeder.php(62): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\Seeder.php(149): App\Database\Seeds\CourseSeeder->run()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\ITE311-VISAYAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-11-29 21:10:01 --> mysqli_sql_exception: Duplicate entry 'CS101' for key 'course_code' in C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `co...', 0)
+#1 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(1841): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', NULL, false)
+#4 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\BaseBuilder.php(2230): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 C:\xampp\htdocs\ITE311-VISAYAS\app\Database\Seeds\CourseSeeder.php(62): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 C:\xampp\htdocs\ITE311-VISAYAS\system\Database\Seeder.php(149): App\Database\Seeds\CourseSeeder->run()
+#7 C:\xampp\htdocs\ITE311-VISAYAS\system\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#8 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run(Array)
+#9 C:\xampp\htdocs\ITE311-VISAYAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#10 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\ITE311-VISAYAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\ITE311-VISAYAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
