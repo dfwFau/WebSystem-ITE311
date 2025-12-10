@@ -170,38 +170,81 @@
 </div>
 
 <?php else: ?>
-<!-- Guest Navigation -->
+<!-- Modern Guest Navigation -->
 <?php $uri = uri_string(); ?>
-<nav class="navbar navbar-expand-lg navbar-custom">
-  <div class="container">
-    <a class="navbar-brand" href="<?= base_url('/') ?>"><i class="fas fa-rocket"></i> ITE311-VISAYAS</a>
+<nav class="navbar-modern">
+  <div class="navbar-container">
+    <!-- Brand -->
+    <div class="navbar-brand-modern">
+      <a href="<?= base_url('/') ?>" class="brand-link">
+        <div class="brand-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <span class="brand-text">ITE311-MORIL</span>
+      </a>
+    </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#guestNav">
-      <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    <!-- Mobile Toggle -->
+    <button class="navbar-mobile-toggle" id="mobileNavToggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="guestNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <!-- Navigation Links -->
+    <div class="navbar-menu" id="navbarMenu">
+      <ul class="navbar-nav-modern">
         <?php
           $guestPages = [
-            '/'        => 'Home',
-            '/about'   => 'About',
-            '/contact' => 'Contact'
+            '/'        => ['text' => 'Home', 'icon' => 'home'],
+            '/about'   => ['text' => 'About', 'icon' => 'info-circle'],
+            '/contact' => ['text' => 'Contact', 'icon' => 'envelope']
           ];
           foreach ($guestPages as $url => $text):
+            $isActive = ($uri === trim($url, '/') || ($uri === '' && $url === '/')) ? 'active' : '';
         ?>
-        <li class="nav-item">
-          <a class="nav-link <?= $uri === trim($url, '/') ? 'active' : '' ?>" 
-             href="<?= base_url($url) ?>"><?= $text ?></a>
+        <li class="navbar-item-modern">
+          <a href="<?= base_url($url) ?>" class="navbar-link-modern <?= $isActive ?>">
+            <i class="fas fa-<?= $text['icon'] ?>"></i>
+            <span><?= $text['text'] ?></span>
+          </a>
         </li>
         <?php endforeach; ?>
-
-        <li class="nav-item">
-          <a class="btn btn-login" href="<?= base_url('/login') ?>">Login</a>
-        </li>
       </ul>
+
+      <!-- CTA Button -->
+      <div class="navbar-cta">
+        <a href="<?= base_url('/login') ?>" class="btn-navbar-login">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Login</span>
+        </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- Add Mobile Navbar Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileToggle = document.getElementById('mobileNavToggle');
+  const navbarMenu = document.getElementById('navbarMenu');
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', function() {
+      navbarMenu.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    const navLinks = navbarMenu.querySelectorAll('.navbar-link-modern');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navbarMenu.classList.remove('active');
+        mobileToggle.classList.remove('active');
+      });
+    });
+  }
+});
+</script>
 
 <?php endif; ?>
