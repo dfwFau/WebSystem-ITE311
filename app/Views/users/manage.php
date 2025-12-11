@@ -6,644 +6,107 @@ Manage Users
 
 <?= $this->section('content') ?>
 
-<style>
-/* ========================================================================== */
-/*                    MODERN USER MANAGEMENT CARDS                           */
-/* ========================================================================== */
-
-.users-management-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.users-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-6);
-  padding: var(--space-6);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(229, 231, 235, 0.5);
-  box-shadow: var(--shadow-md);
-}
-
-.users-header h1 {
-  margin: 0;
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: var(--gray-900);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.search-and-add {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.search-container {
-  position: relative;
-}
-
-.search-input-group {
-  display: flex;
-  align-items: center;
-  background: white;
-  border: 2px solid var(--gray-200);
-  border-radius: var(--radius-full);
-  padding: var(--space-1);
-  transition: var(--transition-base);
-  box-shadow: var(--shadow-sm);
-}
-
-.search-input-group:focus-within {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  padding: var(--space-3) var(--space-4);
-  font-size: 0.95rem;
-  color: var(--gray-700);
-  background: transparent;
-  flex: 1;
-  min-width: 280px;
-}
-
-.search-btn {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border: none;
-  color: white;
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: var(--transition-base);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.search-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-add-user {
-  background: linear-gradient(135deg, var(--success) 0%, var(--primary) 100%);
-  color: white;
-  border: none;
-  padding: var(--space-4) var(--space-6);
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  transition: var(--transition-base);
-  box-shadow: var(--shadow-md);
-}
-
-.btn-add-user:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl);
-  color: white;
-}
-
-.btn-add-user i {
-  font-size: 1.1rem;
-}
-
-/* Users Grid */
-.users-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--space-6);
-  margin-bottom: var(--space-8);
-}
-
-.user-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(229, 231, 235, 0.5);
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  transition: var(--transition-base);
-  box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
-}
-
-.user-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: rgba(14, 165, 233, 0.3);
-}
-
-.user-card.current-user {
-  border-color: var(--warning);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(249, 250, 251, 0.95) 100%);
-}
-
-.user-card.current-user::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(135deg, var(--warning) 0%, var(--accent) 100%);
-}
-
-.user-card-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  margin-bottom: var(--space-4);
-}
-
-.user-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: white;
-  font-size: 1.25rem;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition-base);
-}
-
-.user-avatar:hover {
-  transform: scale(1.05);
-}
-
-.user-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.user-name {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--gray-900);
-  margin-bottom: var(--space-1);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.user-email {
-  font-size: 0.875rem;
-  color: var(--gray-500);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: var(--space-2);
-}
-
-.user-id {
-  font-size: 0.75rem;
-  color: var(--gray-400);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.user-details {
-  margin-bottom: var(--space-5);
-}
-
-.role-section {
-  margin-bottom: var(--space-4);
-}
-
-.role-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--gray-700);
-  margin-bottom: var(--space-2);
-  display: block;
-}
-
-.role-selector {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.role-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: var(--shadow-sm);
-}
-
-.role-badge.admin {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
-  color: var(--danger);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.role-badge.teacher {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%);
-  color: var(--secondary);
-  border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
-.role-badge.student {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-  color: var(--success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-
-
-  .modal {
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-content {
-    background-color: #fff;
-    padding: 0;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .modal-header {
-    background: #f9fafb;
-    padding: 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .modal-header h2 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111827;
-  }
-
-  .modal-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #6b7280;
-  }
-
-  .modal-close:hover {
-    color: #111827;
-  }
-
-  .modal-body {
-    padding: 1.5rem;
-  }
-
-  .modal-footer {
-    padding: 1.5rem;
-    border-top: 1px solid #e5e7eb;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-  }
-
-  .btn-cancel {
-    padding: 0.5rem 1rem;
-    background: #e5e7eb;
-    color: #111827;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    font-weight: 500;
-  }
-
-  .btn-cancel:hover {
-    background: #d1d5db;
-  }
-
-  .modal-confirmation-content {
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  .confirmation-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-  }
-
-  .confirmation-icon.confirmation-danger {
-    background: #fee2e2;
-    color: #991b1b;
-  }
-
-  .confirmation-icon.confirmation-success {
-    background: #d1fae5;
-    color: #065f46;
-  }
-
-  .modal-confirmation-content h3 {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #111827;
-    word-break: break-word;
-  }
-
-  .confirmation-message {
-    margin: 0 0 1rem;
-    color: #6b7280;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .confirmation-warning {
-    margin: 1rem 0 0;
-    color: #b91c1c;
-    font-size: 0.85rem;
-    font-weight: 500;
-    background: #fee2e2;
-    padding: 0.75rem;
-    border-radius: 4px;
-  }
-
-  .confirmation-warning i {
-    margin-right: 0.5rem;
-  }
-
-  .btn-edit {
-    padding: 0.5rem 1rem;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  .btn-edit:hover {
-    background: #1d4ed8;
-  }
-
-  .btn-edit:disabled {
-    background: #d1d5db;
-    cursor: not-allowed;
-  }
-
-  .status-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .status-badge-success {
-    background: #d1fae5;
-    color: #065f46;
-  }
-
-  .status-badge-danger {
-    background: #fee2e2;
-    color: #991b1b;
-  }
-
-  .btn-save-role {
-    padding: 0.5rem 1rem;
-    background: #059669;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-left: 0.5rem;
-  }
-
-  .btn-save-role:hover {
-    background: #047857;
-  }
-
-  .btn-save-role:disabled {
-    background: #d1d5db;
-    cursor: not-allowed;
-  }
-
-  .action-buttons {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .alert {
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .alert-success {
-    background: #d1fae5;
-    color: #065f46;
-    border: 1px solid #a7f3d0;
-  }
-
-  .alert-danger {
-    background: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fecaca;
-  }
-
-  .empty-state {
-    text-align: center;
-    padding: 3rem;
-    color: #6b7280;
-  }
-
-  .user-email {
-    color: #6b7280;
-    font-size: 0.875rem;
-  }
-
-  .user-name {
-    font-weight: 500;
-    color: #111827;
-  }
-
-  .loading-spinner {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 0.6s linear infinite;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-</style>
-
-<div class="users-management-container">
-  <div class="users-header">
-    <h1>User Management</h1>
-    <div class="search-and-add">
-      <div class="search-container">
-        <div class="search-input-group">
-          <input type="text" id="user-search-input" class="search-input" placeholder="Search users by name, email, or role..." value="">
-          <button class="search-btn" id="user-search-btn">
-            <i class="fas fa-search"></i>
-            Search
-          </button>
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <h2>User Management</h2>
+            <a href="<?= base_url('manageusers/create') ?>" class="btn btn-success">
+                <i class="fas fa-user-plus"></i> Add User
+            </a>
         </div>
-      </div>
-      <a href="<?= base_url('manageusers/create') ?>" class="btn-add-user">
-        <i class="fas fa-user-plus"></i>
-        Add User
-      </a>
     </div>
-  </div>
 
-  <?php if (session()->getFlashdata('success')): ?>
-    <div class="alert alert-success">
-      <i class="fas fa-check-circle"></i>
-      <?= session()->getFlashdata('success') ?>
-    </div>
-  <?php endif; ?>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="mb-3">
+                        <input type="text" id="user-search-input" class="form-control" placeholder="Search users by name, email, or role...">
+                    </div>
 
-  <?php if (session()->getFlashdata('error')): ?>
-    <div class="alert alert-danger">
-      <i class="fas fa-exclamation-circle"></i>
-      <?= session()->getFlashdata('error') ?>
-    </div>
-  <?php endif; ?>
+                    <?php if (session()->getFlashdata('success')): ?>
+                        <div class="alert alert-success">
+                            <i class="fas fa-check-circle"></i> <?= session()->getFlashdata('success') ?>
+                        </div>
+                    <?php endif; ?>
 
-  <?php if (empty($users)): ?>
-    <div class="empty-state">
-      <i class="fas fa-users"></i>
-      <h3>No users found</h3>
-      <p>There are no users in the system yet. Create your first user to get started.</p>
-    </div>
-  <?php else: ?>
-    <div class="users-grid">
-      <?php foreach ($users as $user): ?>
-        <?php
-          $isCurrentUser = ($user['id'] == ($currentUserId ?? null));
-          $userRole = $user['role'] ?? 'student';
-          $initials = strtoupper(substr($user['name'], 0, 1));
-        ?>
-        <div class="user-card <?= $isCurrentUser ? 'current-user' : '' ?>" data-user-id="<?= $user['id'] ?>">
-          <?php if ($isCurrentUser): ?>
-            <div class="current-user-indicator">
-              <i class="fas fa-user"></i> You
+                    <?php if (session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger">
+                            <i class="fas fa-exclamation-circle"></i> <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (empty($users)): ?>
+                        <div class="text-center py-5">
+                            <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                            <h4>No users found</h4>
+                            <p class="text-muted">There are no users in the system yet. Create your first user to get started.</p>
+                        </div>
+                    <?php else: ?>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($users as $user): ?>
+                                        <?php
+                                        $isCurrentUser = ($user['id'] == ($currentUserId ?? null));
+                                        $userRole = $user['role'] ?? 'student';
+                                        ?>
+                                        <tr>
+                                            <td>
+                                                <?= esc($user['name']) ?>
+                                                <?php if ($isCurrentUser): ?>
+                                                    <span class="badge bg-info ms-1">You</span>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td><?= esc($user['email']) ?></td>
+                                            <td>
+                                                <span class="badge bg-<?= $userRole === 'admin' ? 'danger' : ($userRole === 'teacher' ? 'primary' : 'success') ?>">
+                                                    <?= ucfirst(esc($userRole)) ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-<?= $user['deleted_at'] ? 'secondary' : 'success' ?>">
+                                                    <?= $user['deleted_at'] ? 'Deleted' : 'Active' ?>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"
+                                                        onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')"
+                                                        <?= $user['deleted_at'] ? 'disabled' : '' ?>>
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </button>
+                                                <?php if ($user['deleted_at']): ?>
+                                                    <button class="btn btn-sm btn-outline-warning"
+                                                            onclick="restoreUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')">
+                                                        <i class="fas fa-undo"></i> Restore
+                                                    </button>
+                                                <?php else: ?>
+                                                    <button class="btn btn-sm btn-outline-danger"
+                                                            onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
+                                                            <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
+                                                        <i class="fas fa-trash"></i> Delete
+                                                    </button>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
-          <?php endif; ?>
-
-          <div class="user-card-header">
-            <div class="user-avatar">
-              <?= $initials ?>
-            </div>
-            <div class="user-info">
-              <div class="user-name"><?= esc($user['name']) ?></div>
-              <div class="user-email"><?= esc($user['email']) ?></div>
-              <div class="user-id">#<?= $user['id'] ?></div>
-            </div>
-          </div>
-
-          <div class="user-details">
-            <div class="role-section">
-              <label class="role-label">
-                <i class="fas fa-user-tag"></i>
-                Role
-              </label>
-              <span class="role-badge <?= esc($userRole) ?>">
-                <i class="fas fa-<?= $userRole === 'admin' ? 'crown' : ($userRole === 'teacher' ? 'chalkboard-teacher' : 'graduation-cap') ?>"></i>
-                <?= ucfirst(esc($userRole)) ?>
-              </span>
-            </div>
-
-            <div class="status-section">
-              <span class="status-badge <?= $user['deleted_at'] ? 'deleted' : 'active' ?>">
-                <i class="fas fa-<?= $user['deleted_at'] ? 'times-circle' : 'check-circle' ?>"></i>
-                <?= $user['deleted_at'] ? 'Deleted' : 'Active' ?>
-              </span>
-            </div>
-          </div>
-
-          <div class="user-actions">
-            <button class="btn-action btn-edit"
-                    onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')"
-                    <?= $user['deleted_at'] ? 'disabled title="Cannot edit deleted users"' : '' ?>>
-              <i class="fas fa-edit"></i>
-              Edit
-            </button>
-            <?php if ($user['deleted_at']): ?>
-              <button class="btn-action btn-restore"
-                      onclick="restoreUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')">
-                <i class="fas fa-undo"></i>
-                Restore
-              </button>
-            <?php else: ?>
-              <button class="btn-action btn-delete"
-                      onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
-                      <?= $user['id'] == session()->get('user_id') ? 'disabled title="You cannot delete your own account"' : '' ?>>
-                <i class="fas fa-trash"></i>
-                Delete
-              </button>
-            <?php endif; ?>
-          </div>
         </div>
-      <?php endforeach; ?>
     </div>
-  <?php endif; ?>
 </div>
 
 <!-- Delete User Confirmation Modal -->
@@ -1093,9 +556,9 @@ function showAlert(type, message) {
     ${message}
   `;
 
-  // Insert at the top of the container
-  const container = document.querySelector('.users-table-container > div[style*="padding"]');
-  container.insertBefore(alert, container.firstChild);
+  // Insert at the top of the card body
+  const cardBody = document.querySelector('.card-body');
+  cardBody.insertBefore(alert, cardBody.firstChild);
 
   // Auto-remove after 5 seconds
   setTimeout(() => {
@@ -1108,14 +571,14 @@ function showAlert(type, message) {
 // User search functionality
 function performUserSearch() {
   const searchTerm = document.getElementById('user-search-input').value.toLowerCase().trim();
-  const rows = document.querySelectorAll('.users-table tbody tr');
-  const noResults = document.querySelector('.no-results');
+  const rows = document.querySelectorAll('tbody tr');
   let visibleCount = 0;
 
   rows.forEach(row => {
-    const name = row.querySelector('.user-name').textContent.toLowerCase();
-    const email = row.querySelector('.user-email').textContent.toLowerCase();
-    const role = row.querySelector('.role-badge').textContent.toLowerCase();
+    const cells = row.querySelectorAll('td');
+    const name = cells[0].textContent.toLowerCase();
+    const email = cells[1].textContent.toLowerCase();
+    const role = cells[2].textContent.toLowerCase();
 
     const matches = name.includes(searchTerm) ||
                    email.includes(searchTerm) ||
@@ -1128,38 +591,18 @@ function performUserSearch() {
       row.style.display = 'none';
     }
   });
-
-  // Show/hide no results message
-  if (noResults) {
-    if (visibleCount === 0 && searchTerm !== '') {
-      noResults.style.display = 'block';
-    } else {
-      noResults.style.display = 'none';
-    }
-  }
 }
 
 // Initialize search functionality
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('user-search-input');
-  const searchBtn = document.getElementById('user-search-btn');
 
-  if (searchInput && searchBtn) {
+  if (searchInput) {
     // Search on input change with debounce
     let searchTimeout;
     searchInput.addEventListener('input', function() {
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(performUserSearch, 300);
-    });
-
-    // Search on button click
-    searchBtn.addEventListener('click', performUserSearch);
-
-    // Search on Enter key
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        performUserSearch();
-      }
     });
   }
 });
@@ -1271,4 +714,3 @@ document.getElementById('editUserForm')?.addEventListener('submit', function(e) 
 </script>
 
 <?= $this->endSection() ?>
-

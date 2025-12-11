@@ -1,4 +1,4 @@
-<?= $this->extend('template') ?>
+e<?= $this->extend('template') ?>
 
 <?= $this->section('title') ?>Register<?= $this->endSection() ?>
 
@@ -370,95 +370,93 @@
   }
 </style>
 
-<div class="container py-5 register-container">
-  <div class="row justify-content-center">
-    <div class="col-md-7 col-lg-6">
-      <div class="card register-card border-0">
-        <div class="register-header">
-          <div class="register-icon">
-            <i class="fas fa-user-plus"></i>
-          </div>
-          <h3>Create Account</h3>
-          <p>Join us today and get started!</p>
-        </div>
-        <div class="register-body">
-
-          <?php if (session()->getFlashdata('register_error')): ?>
-            <div class="alert alert-danger alert-modern">
-              <i class="fas fa-exclamation-circle me-2"></i><?= session()->getFlashdata('register_error') ?>
-            </div>
-          <?php endif; ?>
-          
-          <?php if (session()->getFlashdata('register_success')): ?>
-            <div class="alert alert-success alert-modern">
-              <i class="fas fa-check-circle me-2"></i><?= session()->getFlashdata('register_success') ?>
-            </div>
-          <?php endif; ?>
-
-          <form method="post" action="<?= base_url('/register') ?>">
-            <?= csrf_field() ?>
-            
-            <div class="form-floating-custom">
-              <i class="fas fa-user input-icon"></i>
-              <input type="text" class="form-control" id="name" name="name" 
-                     placeholder=" " required value="<?= old('name') ?>">
-              <label for="name">Full Name</label>
-            </div>
-
-            <div class="form-floating-custom">
-              <i class="fas fa-envelope input-icon"></i>
-              <input type="email" class="form-control" id="email" name="email" 
-                     placeholder=" " required value="<?= old('email') ?>">
-              <label for="email">Email Address</label>
-            </div>
-
-            <div class="form-floating-custom">
-              <i class="fas fa-lock input-icon"></i>
-              <input type="password" class="form-control" id="password" name="password" 
-                     placeholder=" " required>
-              <label for="password">Password</label>
-              <span class="input-group-addon" onclick="togglePassword('password', this)">
-                <i class="fas fa-eye"></i>
-              </span>
-              <div class="password-strength">
-                <div class="strength-bar">
-                  <div class="strength-bar-fill" id="strengthBar"></div>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow" style="border-radius: 15px; border: none;">
+                <div class="card-header bg-success text-white text-center py-4" style="border-radius: 15px 15px 0 0 !important; border: none;">
+                    <i class="fas fa-user-plus fa-2x mb-2"></i>
+                    <h4 class="mb-1">Create Your Account</h4>
+                    <p class="mb-0 small opacity-75">Join us and start your learning journey</p>
                 </div>
-                <small id="strengthText"></small>
-              </div>
+                <div class="card-body p-4">
+                    <?php if (session()->getFlashdata('register_error')): ?>
+                        <div class="alert alert-danger border-0" style="border-radius: 10px;">
+                            <i class="fas fa-exclamation-circle me-2"></i><?= session()->getFlashdata('register_error') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('register_success')): ?>
+                        <div class="alert alert-success border-0" style="border-radius: 10px;">
+                            <i class="fas fa-check-circle me-2"></i><?= session()->getFlashdata('register_success') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="post" action="<?= base_url('/register') ?>">
+                        <?= csrf_field() ?>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold">
+                                <i class="fas fa-user text-success me-1"></i>Full Name
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                   value="<?= old('name') ?>" required
+                                   style="border-radius: 10px; border: 2px solid #e9ecef;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">
+                                <i class="fas fa-envelope text-success me-1"></i>Email Address
+                            </label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   value="<?= old('email') ?>" required
+                                   style="border-radius: 10px; border: 2px solid #e9ecef;">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-bold">
+                                <i class="fas fa-lock text-success me-1"></i>Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" name="password" required
+                                       style="border-radius: 10px 0 0 10px; border: 2px solid #e9ecef; border-right: none;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')"
+                                        style="border-radius: 0 10px 10px 0; border: 2px solid #e9ecef; border-left: none;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password_confirm" class="form-label fw-bold">
+                                <i class="fas fa-lock text-success me-1"></i>Confirm Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required
+                                       style="border-radius: 10px 0 0 10px; border: 2px solid #e9ecef; border-right: none;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password_confirm')"
+                                        style="border-radius: 0 10px 10px 0; border: 2px solid #e9ecef; border-left: none;">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100 py-2 mb-3"
+                                style="border-radius: 10px; font-weight: 600;">
+                            <i class="fas fa-user-plus me-2"></i>Create Account
+                        </button>
+                    </form>
+
+                    <div class="text-center">
+                        <span class="text-muted">Already have an account?</span>
+                        <a href="<?= base_url('/login') ?>" class="text-decoration-none fw-bold text-success ms-1">
+                            Sign in
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-floating-custom">
-              <i class="fas fa-lock input-icon"></i>
-              <input type="password" class="form-control" id="password_confirm" name="password_confirm" 
-                     placeholder=" " required>
-              <label for="password_confirm">Confirm Password</label>
-              <span class="input-group-addon" onclick="togglePassword('password_confirm', this)">
-                <i class="fas fa-eye"></i>
-              </span>
-            </div>
-
-            <button type="submit" class="btn btn-register-submit">
-              <i class="fas fa-user-plus me-2"></i>Create Account
-            </button>
-          </form>
-
-          <div class="divider">
-            <span>or</span>
-          </div>
         </div>
-      </div>
-      
-      <div class="login-link">
-        <p>
-          Already have an account? 
-          <a href="<?= base_url('/login') ?>">
-            Sign In <i class="fas fa-arrow-right ms-1"></i>
-          </a>
-        </p>
-      </div>
     </div>
-  </div>
 </div>
 
 <script>
