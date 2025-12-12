@@ -101,4 +101,195 @@ class Teacher extends BaseController
             'searchQuery' => $searchQuery
         ]));
     }
+
+    public function manageStudents()
+    {
+        // Role-based access control is handled by the RoleAuth filter
+        $teacherId = session()->get('user_id');
+        $courseModel = new \App\Models\CourseModel();
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $userModel = new \App\Models\UserModel();
+        $statusModel = new \App\Models\EnrollmentStatusModel();
+
+        // Get search and filter parameters
+        $searchQuery = $this->request->getGet('search');
+        $yearLevel = $this->request->getGet('year_level');
+        $program = $this->request->getGet('program');
+        $status = $this->request->getGet('status');
+        $courseId = $this->request->getGet('course_id');
+
+        // Get teacher's courses for the dropdown
+        $courses = $courseModel->getCoursesByTeacher($teacherId);
+
+        // Set default course if none selected
+        if (empty($courseId) && !empty($courses)) {
+            $courseId = $courses[0]['course_id'];
+        }
+
+        // Get course details for header
+        $selectedCourse = null;
+        if ($courseId) {
+            $selectedCourse = $courseModel->getCourseWithTeacher($courseId);
+        }
+
+        // Get students enrolled in the selected course
+        $students = [];
+        if ($courseId) {
+            $enrollments = $enrollmentModel->getEnrollmentsByCourse($courseId);
+
+            foreach ($enrollments as $enrollment) {
+                $student = $userModel->find($enrollment['user_id']);
+                if ($student) {
+                    // Add enrollment info to student data
+                    $student['enrollment_id'] = $enrollment['enrollment_id'];
+                    $student['enrollment_date'] = $enrollment['enrollment_date'];
+                    $student['status'] = $enrollment['status'];
+                    $student['status_id'] = $enrollment['status_id'];
+
+                    // Add additional fields (these might need to be added to users table)
+                    $student['student_id'] = $student['id']; // Using user ID as student ID
+                    $student['program'] = $student['name'] ?? 'Not specified'; // Placeholder
+                    $student['year_level'] = 'Not specified'; // Placeholder
+                    $student['section'] = 'Not specified'; // Placeholder
+
+                    $students[] = $student;
+                }
+            }
+        }
+
+        // Apply filters
+        if (!empty($searchQuery)) {
+            $searchLower = strtolower($searchQuery);
+            $students = array_filter($students, function($student) use ($searchLower) {
+                return strpos(strtolower($student['name'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($student['email'] ?? ''), $searchLower) !== false ||
+                       strpos(strtolower($student['student_id'] ?? ''), $searchLower) !== false;
+            });
+        }
+
+        if (!empty($yearLevel)) {
+            $students = array_filter($students, function($student) use ($yearLevel) {
+                return ($student['year_level'] ?? '') === $yearLevel;
+            });
+        }
+
+        if (!empty($program)) {
+            $students = array_filter($students, function($student) use ($program) {
+                return ($student['program'] ?? '') === $program;
+            });
+        }
+
+        if (!empty($status)) {
+            $students = array_filter($students, function($student) use ($status) {
+                return ($student['status'] ?? '') === $status;
+            });
+        }
+
+        // Get unique values for filter dropdowns
+        $yearLevels = array_unique(array_column($students, 'year_level'));
+        $programs = array_unique(array_column($students, 'program'));
+        $statuses = ['Active', 'Inactive', 'Dropped'];
+
+        return view('teacher/manage_students', array_merge($this->data, [
+            'title' => 'Manage Students',
+            'userName' => session()->get('userName'),
+            'userEmail' => session()->get('userEmail'),
+            'userRole' => session()->get('userRole'),
+            'courses' => $courses,
+            'selectedCourse' => $selectedCourse,
+            'students' => array_values($students), // Re-index array
+            'searchQuery' => $searchQuery,
+            'yearLevel' => $yearLevel,
+            'program' => $program,
+            'status' => $status,
+            'courseId' => $courseId,
+            'yearLevels' => array_filter($yearLevels), // Remove empty values
+            'programs' => array_filter($programs), // Remove empty values
+            'statuses' => $statuses
+        ]));
+    }
+
+    public function getStudentDetails()
+    {
+        $studentId = $this->request->getGet('student_id');
+        $courseId = $this->request->getGet('course_id');
+
+        if (!$studentId || !$courseId) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid parameters']);
+        }
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $userModel = new \App\Models\UserModel();
+
+        $enrollment = $enrollmentModel->getEnrollmentByUserAndCourse($studentId, $courseId);
+        $student = $userModel->find($studentId);
+
+        if (!$enrollment || !$student) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Student or enrollment not found']);
+        }
+
+        $statusModel = new \App\Models\EnrollmentStatusModel();
+        $statusName = $statusModel->getStatusNameById($enrollment['status_id']);
+
+        $studentDetails = [
+            'student_id' => $student['id'],
+            'full_name' => $student['name'],
+            'email' => $student['email'],
+            'program' => $student['name'] ?? 'Not specified', // Placeholder
+            'year_level' => 'Not specified', // Placeholder
+            'section' => 'Not specified', // Placeholder
+            'enrollment_date' => $enrollment['enrollment_date'],
+            'status' => $statusName
+        ];
+
+        return $this->response->setJSON(['success' => true, 'student' => $studentDetails]);
+    }
+
+    public function updateStudentStatus()
+    {
+        $enrollmentId = $this->request->getPost('enrollment_id');
+        $statusName = $this->request->getPost('status');
+        $remarks = $this->request->getPost('remarks');
+
+        if (!$enrollmentId || !$statusName) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid parameters']);
+        }
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $statusModel = new \App\Models\EnrollmentStatusModel();
+
+        $statusId = $statusModel->getStatusIdByName($statusName);
+        if (!$statusId) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid status']);
+        }
+
+        $updated = $enrollmentModel->update($enrollmentId, [
+            'status_id' => $statusId,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        if ($updated) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Status updated successfully']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to update status']);
+        }
+    }
+
+    public function removeStudent()
+    {
+        $enrollmentId = $this->request->getPost('enrollment_id');
+
+        if (!$enrollmentId) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid enrollment ID']);
+        }
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $deleted = $enrollmentModel->delete($enrollmentId);
+
+        if ($deleted) {
+            return $this->response->setJSON(['success' => true, 'message' => 'Student removed from course']);
+        } else {
+            return $this->response->setJSON(['success' => false, 'message' => 'Failed to remove student']);
+        }
+    }
 }

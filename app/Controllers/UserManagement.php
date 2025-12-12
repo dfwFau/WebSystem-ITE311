@@ -148,8 +148,8 @@ class UserManagement extends BaseController
             ])->setStatusCode(404);
         }
 
-        // Soft delete user
-        $this->userModel->delete($userId);
+        // Hard delete user
+        $this->userModel->delete($userId, true);
 
         return $this->response->setJSON([
             'success' => true,
@@ -451,4 +451,3 @@ class UserManagement extends BaseController
         }
     }
 }
-

@@ -65,29 +65,14 @@ $routes->get('/manageusers/create', 'UserManagement::create');
 $routes->post('/manageusers/create', 'UserManagement::create');
 $routes->post('/manageusers/update-role', 'UserManagement::updateRole');
 $routes->post('/manageusers/delete', 'UserManagement::delete');
-$routes->post('/manageusers/restore', 'UserManagement::restore');
 $routes->post('/manageusers/edit', 'UserManagement::edit');
+
+$routes->get('/teacher/manage-students', 'Teacher::manageStudents', ['filter' => 'roleauth']);
+$routes->get('/teacher/get-student-details', 'Teacher::getStudentDetails', ['filter' => 'roleauth']);
+$routes->post('/teacher/update-student-status', 'Teacher::updateStudentStatus', ['filter' => 'roleauth']);
+$routes->post('/teacher/remove-student', 'Teacher::removeStudent', ['filter' => 'roleauth']);
 
 // Admin Course Management
 $routes->get('/admin/courses', 'Admin::courses');
 $routes->get('/admin/courses/create', 'Admin::createCourse');
 $routes->post('/admin/courses/create', 'Admin::createCourse');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,12 +18,12 @@ class Student extends BaseController
     {
         // Role-based access control is handled by the RoleAuth filter
         $enrollmentModel = new \App\Models\EnrollmentModel();
-        $materialModel = new \App\Models\MaterialModel();
         $courseModel = new \App\Models\CourseModel();
+        $materialModel = new \App\Models\MaterialModel();
 
         $userId = session()->get('userId');
         $searchQuery = $this->request->getGet('search');
-        
+
         $enrollments = $enrollmentModel->getUserEnrollments($userId);
 
         // Filter enrollments based on search query
@@ -43,20 +43,21 @@ class Student extends BaseController
             $enrollment['materials'] = $materialModel->getMaterialsByCourse($enrollment['course_id']);
         }
 
-        // Also get courses available to enroll (not yet enrolled)
-        $availableCourses = $courseModel->getAvailableCourses($userId);
+        // Get available courses (not enrolled by the user)
+        $availableCourses = $courseModel->getAvailableCoursesForStudent($userId);
 
         return view('student/courses', array_merge($this->data, [
             'title' => 'My Courses',
             'userName' => session()->get('userName'),
             'userEmail' => session()->get('userEmail'),
             'userRole' => session()->get('userRole'),
-            'enrollments' => $enrollments
+            'enrollments' => $enrollments,
+            'availableCourses' => $availableCourses
         ]));
     }
 
     /**
-     * Enroll the current student in a course
+     * Apply for enrollment in a course (requires teacher approval)
      *
      * @param int|null $course_id
      * @return \CodeIgniter\HTTP\RedirectResponse
@@ -76,19 +77,20 @@ class Student extends BaseController
         $enrollmentModel = new \App\Models\EnrollmentModel();
 
         if ($enrollmentModel->isAlreadyEnrolled($userId, (int) $course_id)) {
-            return redirect()->back()->with('error', 'You are already enrolled in this course.');
+            return redirect()->back()->with('error', 'You have already applied for or are enrolled in this course.');
         }
 
         $result = $enrollmentModel->enrollUser([
             'user_id' => $userId,
             'course_id' => (int) $course_id,
+            'status' => 'pending' // Set status to pending for teacher approval
         ]);
 
         if ($result) {
-            return redirect()->back()->with('success', 'Enrolled successfully.');
+            return redirect()->back()->with('success', 'Application submitted successfully. Waiting for teacher approval.');
         }
 
-        return redirect()->back()->with('error', 'Enrollment failed.');
+        return redirect()->back()->with('error', 'Application failed.');
     }
     
     public function grades()

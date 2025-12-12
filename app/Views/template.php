@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="<?= csrf_hash() ?>" />
+  <meta name="csrf-name" content="<?= csrf_token() ?>" />
   <title><?= $this->renderSection('title') ?></title>
 
   <!-- Icons + Bootstrap -->
@@ -18,35 +20,35 @@
 /* ========================================================================== */
 
 :root {
-  /* Modern Gradient Color Palette */
-  --primary: #0ea5e9;
-  --primary-dark: #0284c7;
-  --primary-light: #38bdf8;
-  --primary-hover: #0284c7;
-  --secondary: #06b6d4;
-  --accent: #f43f5e;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  
-  /* Rich Neutrals */
+  /* Single Color Green Theme */
+  --primary: #73AF6F;
+  --primary-dark: #5a8f58;
+  --primary-light: #8bbf84;
+  --primary-hover: #5a8f58;
+  --secondary: #64748b;
+  --accent: #73AF6F;
+  --success: #73AF6F;
+  --warning: #d97706;
+  --danger: #dc2626;
+
+  /* Clean Neutrals */
   --white: #ffffff;
-  --gray-50: #f9fafb;
-  --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
-  --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
-  --gray-500: #6b7280;
-  --gray-600: #4b5563;
-  --gray-700: #374151;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
-  
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
   /* Layout Dimensions */
-  --sidebar-width: 280px;
-  --sidebar-collapsed: 80px;
-  --topbar-height: 70px;
-  
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 200px;
+  --topbar-height: 64px;
+
   /* Spacing System */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -55,25 +57,24 @@
   --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
-  
+
   /* Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
   --radius-full: 9999px;
-  
-  /* Modern Shadows */
-  --shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, 0.06);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-  
-  /* Smooth Transitions */
-  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Minimal Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Clean Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
 }
 
 /* ========================================================================== */
@@ -97,7 +98,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: var(--gray-700);
-  background: linear-gradient(135deg, var(--gray-50) 0%, #f0f9ff 100%);
+  background: var(--gray-50);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -146,10 +147,9 @@ button {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 250, 251, 0.98) 100%);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
-  box-shadow: var(--shadow-md);
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar-container {
@@ -178,7 +178,7 @@ button {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -196,10 +196,7 @@ button {
 .brand-text {
   font-size: 1.25rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #73AF6F;
   letter-spacing: -0.5px;
 }
 
@@ -250,7 +247,7 @@ button {
 
 .navbar-link-modern.active {
   color: white;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   box-shadow: var(--shadow-md);
 }
 
@@ -408,26 +405,20 @@ button {
 }
 
 /* ========================================================================== */
-/*                    MODERN SIDEBAR WITH GLASS EFFECT                        */
+/*                    SIMPLE SIDEBAR DESIGN                                  */
 /* ========================================================================== */
 .sidebar-wrapper {
   position: fixed;
   left: 0;
   top: 0;
-  width: var(--sidebar-width);
+  width: var(--sidebar-collapsed);
   height: 100vh;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border-right: 1px solid rgba(229, 231, 235, 0.5);
+  background: var(--white);
+  border-right: 1px solid var(--gray-200);
   display: flex;
   flex-direction: column;
   transition: width var(--transition-base);
   z-index: 1000;
-  box-shadow: var(--shadow-lg);
-}
-
-.sidebar-wrapper.collapsed {
-  width: var(--sidebar-collapsed);
 }
 
 /* Sidebar Overlay */
@@ -451,11 +442,11 @@ button {
 .sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--space-6);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  border-bottom: 1px solid var(--gray-200);
   min-height: var(--topbar-height);
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+  background: var(--gray-50);
 }
 
 .sidebar-brand {
@@ -464,50 +455,17 @@ button {
   gap: var(--space-3);
   color: var(--gray-900);
   text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: 700;
   transition: var(--transition-base);
   white-space: nowrap;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .sidebar-brand i {
-  font-size: 1.75rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.25rem;
+  color: var(--primary);
   flex-shrink: 0;
-}
-
-.sidebar-wrapper.collapsed .sidebar-brand span {
-  opacity: 0;
-  width: 0;
-}
-
-.sidebar-toggle {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border: none;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition-base);
-  flex-shrink: 0;
-  font-size: 1rem;
-}
-
-.sidebar-toggle:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-md);
 }
 
 /* User Profile Section */
@@ -527,7 +485,7 @@ button {
   width: 45px;
   height: 45px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -587,17 +545,17 @@ button {
 }
 
 .user-role-badge.admin {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.1) 100%);
+  background: rgba(239, 68, 68, 0.1);
   color: var(--danger);
 }
 
 .user-role-badge.teacher {
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(20, 184, 166, 0.1) 100%);
+  background: rgba(20, 184, 166, 0.1);
   color: var(--success);
 }
 
 .user-role-badge.student {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.1) 100%);
+  background: rgba(6, 182, 212, 0.1);
   color: var(--secondary);
 }
 
@@ -676,16 +634,14 @@ button {
 }
 
 .nav-link-sidebar:hover {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+  background: var(--gray-100);
   color: var(--primary);
-  transform: translateX(2px);
 }
 
 .nav-link-sidebar.active {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: var(--primary);
   color: white;
   font-weight: 600;
-  box-shadow: var(--shadow-md);
 }
 
 .nav-link-sidebar.active::before {
@@ -750,23 +706,18 @@ button {
 .top-bar {
   position: fixed;
   top: 0;
-  left: var(--sidebar-width);
+  left: var(--sidebar-collapsed);
   right: 0;
   height: var(--topbar-height);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-6);
   transition: left var(--transition-base);
   z-index: 900;
-  box-shadow: var(--shadow-md);
-}
-
-.main-content.sidebar-collapsed .top-bar {
-  left: var(--sidebar-collapsed);
+  box-shadow: var(--shadow-sm);
 }
 
 .mobile-toggle {
@@ -819,7 +770,7 @@ button {
 }
 
 .notification-bell-topbar:hover {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   color: white;
   transform: scale(1.05);
 }
@@ -828,7 +779,7 @@ button {
   position: absolute;
   top: -4px;
   right: -4px;
-  background: linear-gradient(135deg, var(--danger) 0%, var(--accent) 100%);
+  background: #dc2626;
   color: white;
   font-size: 0.625rem;
   font-weight: 700;
@@ -975,7 +926,7 @@ button {
 }
 
 .notification-mark-read {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   border: none;
   color: white;
   padding: 5px 12px;
@@ -1015,16 +966,12 @@ button {
 /*                         MAIN CONTENT AREA                                  */
 /* ========================================================================== */
 .main-content {
-  margin-left: var(--sidebar-width);
+  margin-left: var(--sidebar-collapsed);
   margin-top: var(--topbar-height);
   padding: var(--space-8);
   min-height: calc(100vh - var(--topbar-height));
   transition: margin-left var(--transition-base);
-  background: linear-gradient(135deg, var(--gray-50) 0%, #f0f9ff 100%);
-}
-
-.main-content.sidebar-collapsed {
-  margin-left: var(--sidebar-collapsed);
+  background: var(--gray-50);
 }
 
 body:not(.has-sidebar) .main-content {
@@ -1036,16 +983,12 @@ body:not(.has-sidebar) .main-content {
 /*                    MODERN PROFESSIONAL FOOTER                              */
 /* ========================================================================== */
 .footer-custom {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-  border-top: 1px solid rgba(229, 231, 235, 0.5);
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
   padding: var(--space-8) 0 var(--space-6);
   margin-top: auto;
-  margin-left: var(--sidebar-width);
-  transition: margin-left var(--transition-base);
-}
-
-.sidebar-wrapper.collapsed ~ .main-content ~ .footer-custom {
   margin-left: var(--sidebar-collapsed);
+  transition: margin-left var(--transition-base);
 }
 
 body:not(.has-sidebar) .footer-custom {
@@ -1235,7 +1178,7 @@ body:not(.has-sidebar) .footer-custom {
   h2 { font-size: 1.375rem; }
   h3 { font-size: 1.125rem; }
 }
-  </style>
+  </style>                                                                  
 </head>
 
 <body id="mainBody" class="<?= session()->get('isLoggedIn') ? 'has-sidebar' : '' ?>">
@@ -1274,13 +1217,13 @@ class SidebarManager {
   }
 
   setupEventListeners() {
-    // Desktop sidebar toggle
-    if (this.sidebarToggle) {
-      this.sidebarToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.toggleCollapsed();
-      });
-    }
+    // Desktop sidebar toggle - DISABLED: sidebar is permanently collapsed
+    // if (this.sidebarToggle) {
+    //   this.sidebarToggle.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     this.toggleCollapsed();
+    //   });
+    // }
 
     // Mobile toggle
     if (this.mobileToggle) {
@@ -1538,6 +1481,9 @@ $(document).ready(function() {
     $.ajax({
       url: "<?php echo base_url('/notifications/mark_all_read') ?>",
       type: 'POST',
+      data: {
+        [document.querySelector('meta[name="csrf-name"]').getAttribute('content')]: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
       dataType: 'json',
       success: function(res) {
         console.log('Mark all read response:', res);
@@ -1604,6 +1550,9 @@ $(document).ready(function() {
     $.ajax({
       url: "<?php echo base_url('/notifications/mark_read/') ?>" + notificationId,
       type: 'POST',
+      data: {
+        [document.querySelector('meta[name="csrf-name"]').getAttribute('content')]: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
       dataType: 'json',
       success: function(res) {
         console.log('AJAX success response:', res);

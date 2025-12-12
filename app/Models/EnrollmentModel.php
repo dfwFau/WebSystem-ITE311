@@ -173,36 +173,46 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Get available courses for a user (courses they are not enrolled in)
-     * 
+     * Get available courses for a user (courses they are not enrolled in or have pending applications for)
+     *
      * @param int $user_id The user ID
      * @return array Array of available courses
      */
     public function getAvailableCourses($user_id)
     {
+        $statusModel = new EnrollmentStatusModel();
+        $enrolledStatusId = $statusModel->getStatusIdByName('enrolled');
+        $activeStatusId = $statusModel->getStatusIdByName('active');
+
         $builder = $this->db->table('courses c');
         $builder->select('c.*, u.name as teacher_name');
         $builder->join('users u', 'c.teacher_id = u.id', 'left');
         $builder->where('c.teacher_id IS NOT NULL');
-        $builder->whereNotIn('c.course_id', function($query) use ($user_id) {
+        $builder->whereNotIn('c.course_id', function($query) use ($user_id, $enrolledStatusId, $activeStatusId) {
             $query->select('course_id')
                    ->from('enrollments')
-                   ->where('user_id', $user_id);
+                   ->where('user_id', $user_id)
+                   ->whereIn('status_id', array_filter([$enrolledStatusId, $activeStatusId])); // Exclude only enrolled/active courses
         });
         $builder->orderBy('c.created_at', 'DESC');
-        
+
         return $builder->get()->getResultArray();
     }
 
     /**
      * Get enrollments by course
-     * 
+     *
      * @param int $courseId The course ID
      * @return array Array of enrollment records
      */
     public function getEnrollmentsByCourse($courseId)
     {
-        return $this->where('course_id', $courseId)->findAll();
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*, es.status_name as status');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('e.course_id', $courseId);
+
+        return $builder->get()->getResultArray();
     }
 
     /**

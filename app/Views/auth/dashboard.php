@@ -275,7 +275,13 @@
             </a>
           </div>
           <div class="col-lg-3 col-md-6 mb-3">
-            <a href="<?= base_url('courses/create') ?>" class="btn btn-outline-success btn-block">
+            <a href="<?= base_url('teacher/manage-students') ?>" class="btn btn-outline-success btn-block">
+              <i class="fas fa-users fa-lg mb-2"></i><br>
+              <span>Manage Students</span>
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-3">
+            <a href="<?= base_url('courses/create') ?>" class="btn btn-outline-info btn-block">
               <i class="fas fa-plus fa-lg mb-2"></i><br>
               <span>Create Course</span>
             </a>
@@ -286,9 +292,11 @@
               <span>Make Announcement</span>
             </a>
           </div>
-          <div class="col-lg-3 col-md-6 mb-3">
+        </div>
+        <div class="row mt-3">
+          <div class="col-12">
             <?php if (!empty($teacherCourses)): ?>
-              <a href="<?= base_url('admin/course/' . $teacherCourses[0]['course_id'] . '/upload') ?>" class="btn btn-outline-info btn-block">
+              <a href="<?= base_url('admin/course/' . $teacherCourses[0]['course_id'] . '/upload') ?>" class="btn btn-outline-secondary btn-block">
                 <i class="fas fa-upload fa-lg mb-2"></i><br>
                 <span>Upload Material</span>
               </a>

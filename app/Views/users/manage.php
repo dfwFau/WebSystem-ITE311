@@ -74,28 +74,18 @@ Manage Users
                                                 </span>
                                             </td>
                                             <td>
-                                                <span class="badge bg-<?= $user['deleted_at'] ? 'secondary' : 'success' ?>">
-                                                    <?= $user['deleted_at'] ? 'Deleted' : 'Active' ?>
-                                                </span>
+                                                <span class="badge bg-success">Active</span>
                                             </td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary me-1"
-                                                        onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')"
-                                                        <?= $user['deleted_at'] ? 'disabled' : '' ?>>
+                                                        onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </button>
-                                                <?php if ($user['deleted_at']): ?>
-                                                    <button class="btn btn-sm btn-outline-warning"
-                                                            onclick="restoreUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')">
-                                                        <i class="fas fa-undo"></i> Restore
-                                                    </button>
-                                                <?php else: ?>
-                                                    <button class="btn btn-sm btn-outline-danger"
-                                                            onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
-                                                            <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
-                                                        <i class="fas fa-trash"></i> Delete
-                                                    </button>
-                                                <?php endif; ?>
+                                                <button class="btn btn-sm btn-outline-danger"
+                                                        onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
+                                                        <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
+                                                    <i class="fas fa-trash"></i> Delete
+                                                </button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -123,7 +113,7 @@ Manage Users
         </div>
         <h3 id="deleteUserName"></h3>
         <p class="confirmation-message">
-          Are you sure you want to delete this user? This will soft-delete the user (they will not be permanently removed from the database).
+          Are you sure you want to delete this user? This will permanently remove the user from the database.
         </p>
         <p class="confirmation-warning">
           <i class="fas fa-exclamation-triangle"></i>
@@ -141,33 +131,7 @@ Manage Users
   </div>
 </div>
 
-<!-- Restore User Confirmation Modal -->
-<div id="restoreUserModal" class="modal" style="display: none;">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Confirm Restore</h2>
-      <button class="modal-close" onclick="closeRestoreModal()">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-confirmation-content">
-        <div class="confirmation-icon confirmation-success">
-          <i class="fas fa-undo"></i>
-        </div>
-        <h3 id="restoreUserName"></h3>
-        <p class="confirmation-message">
-          Are you sure you want to restore this user? The user will be restored to active status.
-        </p>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn-cancel" onclick="closeRestoreModal()">Cancel</button>
-      <button type="button" class="btn-restore" id="confirmRestoreBtn" onclick="confirmRestore()">
-        <i class="fas fa-undo"></i>
-        Restore User
-      </button>
-    </div>
-  </div>
-</div>
+
 
 <!-- Edit User Modal -->
 <div id="editUserModal" class="modal" style="display: none;">
@@ -355,6 +319,13 @@ Manage Users
 
 <script>
 
+// Helper function to get cookie value
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
 
 function deleteUser(userId, userName) {
   // Show the delete modal instead of confirm dialog
@@ -375,7 +346,7 @@ function closeDeleteModal() {
 function confirmDelete() {
   const userId = window.currentDeleteUserId;
   const userName = window.currentDeleteUserName;
-  
+
   if (!userId || !userName) {
     showAlert('danger', 'Error: User information missing');
     closeDeleteModal();
@@ -384,8 +355,8 @@ function confirmDelete() {
 
   // Hide the modal and proceed with deletion
   closeDeleteModal();
-  
-  const deleteBtn = document.querySelector(`button.btn-delete[onclick*="${userId}"]`);
+
+  const deleteBtn = document.querySelector(`button.btn-outline-danger[onclick*="${userId}"]`);
   if (!deleteBtn) {
     showAlert('danger', 'Error: Delete button not found');
     return;
@@ -395,40 +366,26 @@ function confirmDelete() {
   deleteBtn.disabled = true;
   deleteBtn.innerHTML = '<span class="loading-spinner"></span> Deleting...';
 
+  // Get CSRF token from cookie
+  const csrfToken = getCookie('csrf_cookie_name');
+
+  // Create form data with CSRF token
+  const formData = new FormData();
+  formData.append('user_id', userId);
+  formData.append('csrf_test_name', csrfToken);
+
   fetch('<?= base_url('manageusers/delete') ?>', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
       'X-Requested-With': 'XMLHttpRequest'
     },
-    body: `user_id=${encodeURIComponent(userId)}`
+    body: formData
   })
   .then(response => response.json())
   .then(data => {
     if (data.success) {
-      const row = document.querySelector(`tr[data-user-id="${userId}"]`);
-      if (row) {
-        const statusBadge = row.querySelector('.status-badge');
-        if (statusBadge) {
-          statusBadge.className = 'status-badge status-badge-danger';
-          statusBadge.textContent = 'Deleted';
-        }
-        
-        const editBtn = row.querySelector('.btn-edit');
-        if (editBtn) {
-          editBtn.disabled = true;
-          editBtn.title = 'Cannot edit deleted users';
-        }
-        
-        const restoreButton = document.createElement('button');
-        restoreButton.className = 'btn-restore';
-        restoreButton.setAttribute('onclick', `restoreUser(${userId}, '${userName}')`);
-        restoreButton.innerHTML = '<i class="fas fa-undo"></i> Restore';
-        
-        deleteBtn.replaceWith(restoreButton);
-      }
-      
-      showAlert('success', data.message);
+      // Reload the page to show updated user list
+      location.reload();
     } else {
       showAlert('danger', data.message);
       deleteBtn.disabled = false;
@@ -443,103 +400,14 @@ function confirmDelete() {
   });
 }
 
-function restoreUser(userId, userName) {
-  // Show the restore modal instead of confirm dialog
-  document.getElementById('restoreUserName').textContent = `Restore "${userName}"?`;
-  document.getElementById('restoreUserModal').style.display = 'flex';
-  
-  // Store the user ID for confirmation
-  window.currentRestoreUserId = userId;
-  window.currentRestoreUserName = userName;
-}
 
-function closeRestoreModal() {
-  document.getElementById('restoreUserModal').style.display = 'none';
-  window.currentRestoreUserId = null;
-  window.currentRestoreUserName = null;
-}
-
-function confirmRestore() {
-  const userId = window.currentRestoreUserId;
-  const userName = window.currentRestoreUserName;
-  
-  if (!userId || !userName) {
-    showAlert('danger', 'Error: User information missing');
-    closeRestoreModal();
-    return;
-  }
-
-  // Hide the modal and proceed with restore
-  closeRestoreModal();
-
-  const restoreBtn = document.querySelector(`button.btn-restore[onclick*="${userId}"]`);
-  if (!restoreBtn) {
-    showAlert('danger', 'Error: Restore button not found');
-    return;
-  }
-
-  const originalHTML = restoreBtn.innerHTML;
-  restoreBtn.disabled = true;
-  restoreBtn.innerHTML = '<span class="loading-spinner"></span> Restoring...';
-
-  fetch('<?= base_url('manageusers/restore') ?>', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'X-Requested-With': 'XMLHttpRequest'
-    },
-    body: `user_id=${encodeURIComponent(userId)}`
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      const row = document.querySelector(`tr[data-user-id="${userId}"]`);
-      if (row) {
-        const statusBadge = row.querySelector('.status-badge');
-        if (statusBadge) {
-          statusBadge.className = 'status-badge status-badge-success';
-          statusBadge.textContent = 'Active';
-        }
-        
-        const editBtn = row.querySelector('.btn-edit');
-        if (editBtn) {
-          editBtn.disabled = false;
-          editBtn.title = '';
-        }
-        
-        const deleteButton = document.createElement('button');
-        deleteButton.className = 'btn-delete';
-        deleteButton.setAttribute('onclick', `deleteUser(${userId}, '${userName}')`);
-        deleteButton.innerHTML = '<i class="fas fa-trash"></i> Delete';
-        
-        restoreBtn.replaceWith(deleteButton);
-      }
-      
-      showAlert('success', data.message);
-    } else {
-      showAlert('danger', data.message);
-      restoreBtn.disabled = false;
-      restoreBtn.innerHTML = originalHTML;
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    showAlert('danger', 'An error occurred while restoring the user.');
-    restoreBtn.disabled = false;
-    restoreBtn.innerHTML = originalHTML;
-  });
-}
 
 // Close modals when clicking outside
 window.onclick = function(event) {
   const deleteModal = document.getElementById('deleteUserModal');
-  const restoreModal = document.getElementById('restoreUserModal');
-  
+
   if (event.target === deleteModal) {
     closeDeleteModal();
-  }
-  if (event.target === restoreModal) {
-    closeRestoreModal();
   }
 };
 
@@ -659,10 +527,14 @@ document.getElementById('editUserForm')?.addEventListener('submit', function(e) 
   saveBtn.disabled = true;
   saveBtn.innerHTML = '<span class="loading-spinner"></span> Saving...';
 
+  // Get CSRF token from cookie
+  const csrfToken = getCookie('csrf_cookie_name');
+
   const formData = new FormData();
   formData.append('user_id', userId);
   formData.append('name', name);
   formData.append('email', email);
+  formData.append('csrf_test_name', csrfToken);
   if (password) {
     formData.append('password', password);
   }

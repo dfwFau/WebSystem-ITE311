@@ -5,626 +5,48 @@
 <?= $this->section('content') ?>
 
 <style>
-  /* Modern Professional Dashboard Styling - Optimized for Sidebar */
+  /* Redesigned Courses Dashboard Template with #73AF6F Theme */
+
   :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    --info-gradient: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  }
-
-  /* Override main-content for dashboard to size based on content only */
-  .main-content {
-    min-height: auto;
-  }
-
-  /* Dashboard Container - Adjusted for Sidebar */
-  .dashboard-content {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f5 100%);
-    min-height: auto;
-    padding: 0;
-    margin-bottom: 0;
-  }
-
-  /* Content Cards */
-  .content-card-modern {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 250, 251, 0.95) 100%);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 0;
-    border: 1px solid rgba(229, 231, 235, 0.5);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .content-card-modern:hover {
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-  }
-
-  .card-header-modern {
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: none;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
-  }
-
-  .card-header-modern h5 {
-    color: #fff;
-    font-weight: 800;
-    font-size: 1.15rem;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    letter-spacing: -0.5px;
-  }
-
-  .card-header-modern .btn-modern {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .card-header-modern .btn-modern:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-  }
-
-  .card-header-modern .btn-modern:active {
-    transform: translateY(0);
-  }
-
-  /* Modern Table Styling */
-  .table-modern {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-
-  .table-modern thead {
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .table-modern thead th {
-    padding: 1.25rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: white;
-    border: none;
-    white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
-  }
-
-  .table-modern tbody tr {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-bottom: 1px solid rgba(229, 231, 235, 0.3);
-  }
-
-  .table-modern tbody tr:hover {
-    background: linear-gradient(135deg, rgba(14, 165, 233, 0.04) 0%, rgba(6, 182, 212, 0.04) 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.08);
-  }
-
-  .table-modern tbody td {
-    padding: 1rem 1.25rem;
-    color: #334155;
-    vertical-align: middle;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-
-  .table-modern tbody td:first-child {
-    font-weight: 700;
-    color: #0ea5e9;
-  }
-
-  /* Enhanced Badge Styling */
-  .badge-modern {
-    padding: 8px 14px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    display: inline-block;
-    border: 1px solid transparent;
-  }
-
-  .badge-modern.success {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-  }
-
-  .badge-modern.primary {
-    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-    color: #0ea5e9;
-    border: 1px solid rgba(14, 165, 233, 0.3);
-  }
-
-  .badge-modern.warning {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.3);
-  }
-
-  .badge-modern.danger {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(244, 63, 94, 0.1) 100%);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-  }
-
-  /* Action Buttons */
-  .btn-action-modern {
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .view-materials-btn {
-    padding: 8px 14px;
-    font-size: 0.75rem;
-  }
-
-  .btn-action-modern.primary {
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
-  }
-
-  .btn-action-modern.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
-  }
-
-  .btn-action-modern.primary:active {
-    transform: translateY(-1px);
-  }
-
-  .btn-action-modern.success {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-  }
-
-  .btn-action-modern.success:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
-  }
-
-  .btn-action-modern.success:active {
-    transform: translateY(-1px);
-  }
-
-  .btn-action-modern.warning {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-  }
-
-  .btn-action-modern.warning:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
-  }
-
-  .btn-action-modern.outline {
-    background: transparent;
-    color: #0ea5e9;
-    border: 1.5px solid #0ea5e9;
-  }
-
-  .btn-action-modern.outline:hover {
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-    color: #fff;
-    border-color: transparent;
-    transform: translateY(-3px);
-  }
-
-  .btn-action-modern.danger {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-  }
-
-  .btn-action-modern.danger:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
-  }
-
-  .btn-action-modern.danger:active {
-    transform: translateY(-1px);
-  }
-
-  .btn-action-modern.success {
-    background: var(--success-gradient);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-  }
-
-  .btn-action-modern.success:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-  }
-
-  .btn-action-modern.outline {
-    background: transparent;
-    color: #667eea;
-    border: 2px solid #667eea;
-  }
-
-  .btn-action-modern.outline:hover {
-    background: var(--primary-gradient);
-    color: #fff;
-    border-color: transparent;
-  }
-
-  .btn-action-modern.danger {
-    background: var(--danger-gradient);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
-  }
-
-  .btn-action-modern.danger:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
-  }
-
-  /* Badge Styling */
-  .badge-modern {
-    padding: 0.4rem 0.85rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .badge-modern.success {
-    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-    color: #065f46;
-  }
-
-  .badge-modern.primary {
-    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-    color: #1e40af;
-  }
-
-  /* Empty State */
-  .empty-state-modern {
-    text-align: center;
-    padding: 3.5rem 2rem;
-    color: #94a3b8;
-  }
-
-  .empty-state-modern i {
-    font-size: 3.5rem;
-    margin-bottom: 1.25rem;
-    opacity: 0.3;
-    display: block;
-  }
-
-  .empty-state-modern h6 {
-    font-weight: 700;
-    color: #64748b;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-
-  .empty-state-modern p {
-    font-size: 0.875rem;
-    margin: 0;
-  }
-
-  /* Responsive Grid Layout */
-  .dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 1rem;
-  }
-
-  /* Materials Modal */
-  .materials-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    z-index: 1050;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .materials-modal.show {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .materials-modal-content {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow: hidden;
-    animation: slideUp 0.4s ease;
-  }
-
-  @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-
-  .materials-modal-header {
-    background: var(--primary-gradient);
-    padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-  }
-
-  .materials-modal-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .materials-modal-close {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .materials-modal-close:hover {
-    background: rgba(255,255,255,0.3);
-    transform: scale(1.1);
-  }
-
-  .materials-modal-body {
-    padding: 2rem;
-    max-height: 60vh;
-    overflow-y: auto;
-  }
-
-  .materials-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .material-item-pro {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-radius: 16px;
-    padding: 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .material-item-pro:hover {
-    transform: translateX(4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .material-info-pro {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .material-icon-pro {
-    width: 48px;
-    height: 48px;
-    background: var(--info-gradient);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-
-  .material-details-pro {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .material-name-pro {
-    font-weight: 600;
-    color: #1e293b;
-    margin: 0 0 0.25rem 0;
-    font-size: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .material-date-pro {
-    color: #64748b;
-    font-size: 0.85rem;
-    margin: 0;
-  }
-
-  .material-download-btn {
-    background: var(--success-gradient);
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    text-decoration: none;
-  }
-
-  .material-download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
-  }
-
-  .materials-empty {
-    text-align: center;
+    --primary-green: #73AF6F;
+    --primary-green-light: #8bbf84;
+    --primary-green-dark: #5a8f58;
+    --secondary-green: #64748b;
+    --accent-green: #73AF6F;
+    --success-green: #73AF6F;
+    --background-light: #f8fafc;
+    --background-card: rgba(255, 255, 255, 0.98);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: rgba(115, 175, 111, 0.2);
+    --shadow-light: 0 4px 12px rgba(115, 175, 111, 0.1);
+    --shadow-hover: 0 8px 24px rgba(115, 175, 111, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Main Container */
+  .courses-dashboard {
+    background: linear-gradient(135deg, var(--background-light) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+  }
+
+  /* Header Section */
+  .dashboard-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
     padding: 3rem 2rem;
-    color: #94a3b8;
-  }
-
-  .materials-empty i {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.3;
-    display: block;
-  }
-
-  .materials-empty h6 {
-    font-weight: 700;
-    color: #64748b;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-  }
-
-  .materials-empty p {
-    font-size: 0.95rem;
-    margin: 0;
-  }
-
-  /* Search Bar Styles */
-  .search-bar-container {
     margin-bottom: 2rem;
-    margin-top: 2rem;
-  }
-
-  .search-input-group {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
-    border: 1px solid rgba(14, 165, 233, 0.3);
-    transition: all 0.3s ease;
-    background: white;
-  }
-
-  .search-input-group:focus-within {
-    border-color: #0ea5e9;
-    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25);
-  }
-
-  .search-icon {
-    background: #0ea5e9;
-    border: none;
-    color: white;
-    border-radius: 0;
-    padding: 12px 16px;
-    font-weight: 600;
-  }
-
-  .search-input {
-    border: none;
-    border-radius: 0;
-    font-size: 0.95rem;
-    padding: 12px 16px;
-    font-weight: 500;
-  }
-
-  .search-input:focus {
-    box-shadow: none;
-    border: none;
-  }
-
-  .search-input::placeholder {
-    color: #9ca3af;
-  }
-
-  .clear-search-btn {
-    border: none;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(244, 63, 94, 0.1) 100%);
-    color: #ef4444;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    padding: 12px 16px;
-    font-weight: 600;
-    border-left: 1px solid rgba(229, 231, 235, 0.3);
-  }
-
-  .clear-search-btn:hover {
-    background: #ef4444;
-    color: white;
-  }
-
-  /* Courses Page Header */
-  .courses-page-header {
-    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
-    padding: 2.5rem 2rem;
-    margin-bottom: 2rem;
-    border-radius: 0;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     color: white;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 12px 24px rgba(14, 165, 233, 0.2);
+    box-shadow: var(--shadow-light);
   }
 
-  .courses-page-header::before {
+  .dashboard-header::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -632,436 +54,1086 @@
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    animation: pulse-gradient 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
 
-  .courses-header {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(120deg); }
+    66% { transform: translateY(5px) rotate(240deg); }
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 1;
     flex-wrap: wrap;
     gap: 1.5rem;
   }
 
-  .courses-header h2 {
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-title h1 {
     margin: 0;
-    font-size: 1.875rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: white;
     letter-spacing: -0.5px;
+  }
+
+  .header-title i {
+    font-size: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary-green {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-primary-green:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-secondary-green {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+  }
+
+  .btn-secondary-green:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Stats Cards */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-green-light));
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Content Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Main Content Card */
+  .main-content-card {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+  }
+
+  .content-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    padding: 1.5rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .content-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .content-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: white;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(115, 175, 111, 0.1);
+  }
+
+  .search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-green);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .search-btn:hover {
+    background: var(--primary-green-dark);
+  }
+
+  /* Course Cards Grid */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .course-card-new {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .course-card-new:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .course-card-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    padding: 1.25rem 1.5rem;
+    color: white;
+    position: relative;
+  }
+
+  .course-code {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .course-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .course-status.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .course-status.pending {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  .course-card-body {
+    padding: 1.5rem;
+  }
+
+  .course-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(115, 175, 111, 0.1);
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .info-value {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .course-card-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn-course {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-course.primary {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .btn-course.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(115, 175, 111, 0.4);
+  }
+
+  .btn-course.secondary {
+    background: rgba(115, 175, 111, 0.1);
+    color: var(--primary-green);
+    border: 1px solid var(--primary-green);
+  }
+
+  .btn-course.secondary:hover {
+    background: var(--primary-green);
+    color: white;
+  }
+
+  .btn-course.danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border: 1px solid #dc2626;
+  }
+
+  .btn-course.danger:hover {
+    background: #dc2626;
+    color: white;
+  }
+
+  /* Sidebar Panel */
+  .sidebar-panel {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    height: fit-content;
+    sticky: top;
+    top: 2rem;
+  }
+
+  .panel-section {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .panel-section:last-child {
+    border-bottom: none;
+  }
+
+  .panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .panel-title i {
+    color: var(--primary-green);
+  }
+
+  .quick-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .quick-stat {
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
 
-  .btn-add-course {
-    padding: 12px 24px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
+  .quick-stat-icon {
+    width: 35px;
+    height: 35px;
+    background: rgba(115, 175, 111, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none;
+    justify-content: center;
+    color: var(--primary-green);
+    font-size: 1rem;
   }
 
-  .btn-add-course:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-    color: white;
+  .quick-stat-info {
+    flex: 1;
+  }
+
+  .quick-stat-value {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+  }
+
+  .quick-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .recent-activity {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .activity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(115, 175, 111, 0.1);
+  }
+
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+
+  .activity-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(115, 175, 111, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .activity-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .activity-text {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .activity-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+  }
+
+  .empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+    color: var(--primary-green);
+  }
+
+  .empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-state p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Loading State */
+  .loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 
   /* Responsive Design */
-  @media (max-width: 992px) {
-    .dashboard-content {
-      padding: 0;
-    }
-
-    .dashboard-grid {
+  @media (max-width: 1024px) {
+    .content-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
-    .search-bar-container {
-      margin-bottom: 1.5rem;
-    }
-
-    .search-input {
-      font-size: 0.9rem;
-      padding: 0.6rem 0.8rem;
+    .sidebar-panel {
+      order: -1;
     }
   }
 
   @media (max-width: 768px) {
-    .dashboard-content {
-      padding: 0;
+    .dashboard-header {
+      padding: 2rem 1rem;
     }
 
-    .table-modern {
-      font-size: 0.85rem;
+    .header-title h1 {
+      font-size: 2rem;
     }
 
-    .table-modern thead th,
-    .table-modern tbody td {
-      padding: 0.75rem 0.875rem;
+    .header-actions {
+      flex-direction: column;
+      width: 100%;
     }
 
-    .btn-action-modern {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.85rem;
+    .btn-primary-green,
+    .btn-secondary-green {
+      width: 100%;
+      justify-content: center;
     }
 
-    .search-bar-container {
-      margin-bottom: 1rem;
+    .content-grid {
+      padding: 0 1rem;
     }
 
-    .search-input-group {
-      border-radius: 20px;
+    .courses-grid {
+      grid-template-columns: 1fr;
+      padding: 1rem;
     }
 
-    .search-input {
-      font-size: 0.85rem;
-      padding: 0.5rem 0.7rem;
+    .stats-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
   }
 
-  /* Complete Data Table Styling */
-  .table-complete-data {
-    font-size: 0.7rem;
-  }
+  @media (max-width: 480px) {
+    .header-title {
+      flex-direction: column;
+      text-align: center;
+    }
 
-  .table-complete-data thead th {
-    padding: 0.4rem 0.35rem;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e5e9f0 100%);
-    font-weight: 700;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #334155;
-    border-bottom: 2px solid #cbd5e1;
-    white-space: nowrap;
-  }
+    .header-title h1 {
+      font-size: 1.75rem;
+    }
 
-  .table-complete-data tbody tr {
-    border-bottom: 1px solid #e2e8f0;
-    transition: background-color 0.2s ease;
-  }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
 
-  .table-complete-data tbody tr:hover {
-    background-color: #f8fafc;
-  }
+    .course-card-actions {
+      flex-direction: column;
+    }
 
-  .table-complete-data tbody td {
-    padding: 0.35rem 0.35rem;
-    color: #334155;
-    vertical-align: middle;
-  }
-
-  .table-complete-data tbody td strong {
-    color: #1e293b;
-    font-weight: 700;
-  }
-
-  /* CN Column Styling */
-  .table-complete-data tbody td:first-child {
-    min-width: 100px;
-  }
-
-  .table-complete-data tbody td:first-child div {
-    line-height: 1.2;
-  }
-
-  .table-complete-data .btn-action-modern {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.6rem;
-  }
-
-  .table-responsive {
-    border-radius: 0 0 18px 18px;
-    overflow-x: auto;
-  }
-
-  .table-responsive::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .table-responsive::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 10px;
-  }
-
-  .table-responsive::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-  }
-
-  .table-responsive::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    .btn-course {
+      width: 100%;
+    }
   }
 </style>
 
-<!-- Courses Page Header -->
-<div class="courses-page-header">
-  <div class="courses-header">
-    <h2><i class="fas fa-book"></i> Manage Courses</h2>
-    <?php if (($userRole ?? '') === 'admin'): ?>
-      <a href="<?= base_url('courses/create') ?>" class="btn-add-course">
-        <i class="fas fa-plus-circle"></i> Add New Course
-      </a>
-    <?php endif; ?>
-  </div>
-</div>
 
-<div class="dashboard-content">
-  <!-- Role-based Content -->
-  <?php if (($userRole ?? '') === 'admin'): ?>
-    <!-- Admin All Courses -->
 
-    <!-- Admin Alert Container -->
-    <div id="admin-alert-container"></div>
-
-    <!-- Search Bar -->
-    <div class="search-bar-container mb-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 col-12">
-          <div class="input-group search-input-group">
-            <input type="text" id="admin-course-search-input" class="form-control search-input" placeholder="Search courses by name, code, or teacher..." value="">
-            <button class="btn btn-primary search-icon" id="admin-search-btn">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
+<!-- Role-based Content -->
+<?php if (($userRole ?? '') === 'admin'): ?>
+  <div class="courses-dashboard">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+      <div class="header-content">
+        <div class="header-title">
+          <i class="fas fa-graduation-cap"></i>
+          <h1>Courses Dashboard</h1>
+        </div>
+        <div class="header-actions">
+          <a href="<?= base_url('courses/create') ?>" class="btn-primary-green">
+            <i class="fas fa-plus"></i>
+            Add Course
+          </a>
+          <a href="#" class="btn-secondary-green">
+            <i class="fas fa-sync-alt"></i>
+            Refresh
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- All Courses Table -->
-    <div class="content-card-modern">
-      <div class="card-header-modern">
-        <h5>
-          <i class="fas fa-graduation-cap"></i>
-          All Courses
-        </h5>
-        <div style="display: flex; gap: 0.5rem;">
-          <a href="<?= base_url('courses/create') ?>" class="btn-modern" style="text-decoration: none;">
-            <i class="fas fa-plus"></i> Add Course
-          </a>
-          <button class="btn-modern" onclick="refreshAllCourses()">
-            <i class="fas fa-sync-alt"></i> Refresh
-          </button>
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-book"></i>
         </div>
+        <div class="stat-value"><?= count($allCourses ?? []) ?></div>
+        <div class="stat-label">Total Courses</div>
       </div>
 
-      <div class="table-responsive">
-        <?php if (!empty($allCourses ?? [])): ?>
-          <table class="table-modern">
-            <thead>
-              <tr>
-                <th>CN</th>
-                <th>Teacher</th>
-                <th>Description</th>
-                <th>Units</th>
-                <th>Academic Year</th>
-                <th>Semester</th>
-                <th>Term</th>
-                <th>Schedule Date</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach ($allCourses as $course): ?>
-                <tr>
-                  <td>
-                    <div><strong><?= esc($course['course_number'] ?? '') ?></strong></div>
-                  </td>
-                  <td><?= esc($course['teacher_name'] ?? 'N/A') ?></td>
-                  <td><?= esc(substr($course['description'] ?? 'No description', 0, 50)) ?>...</td>
-                  <td><?= esc($course['units'] ?? 3) ?></td>
-                  <td><?= esc($course['academic_year'] ?? 'N/A') ?></td>
-                  <td><?= esc($course['semester'] ?? 'N/A') ?></td>
-                  <td><?= esc($course['term'] ?? 'N/A') ?></td>
-                  <td>
-                    <?php 
-                      $scheduleDate = $course['schedule_date'] ?? '';
-                      if ($scheduleDate) {
-                        echo date('M d, Y', strtotime($scheduleDate));
-                      } else {
-                        echo 'N/A';
-                      }
-                    ?>
-                  </td>
-                  <td><span class="badge-modern success">Active</span></td>
-                  <td>
-                    <button class="btn-action-modern danger delete-admin-course-btn"
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-value">
+          <?php
+            $totalStudents = 0;
+            foreach (($allCourses ?? []) as $course) {
+              $totalStudents += $course['students'] ?? 0;
+            }
+            echo $totalStudents;
+          ?>
+        </div>
+        <div class="stat-label">Enrolled Students</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="stat-value"><?= count($allCourses ?? []) ?></div>
+        <div class="stat-label">Active Courses</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-value">0</div>
+        <div class="stat-label">Pending Approval</div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content Area -->
+      <div class="main-content-card">
+        <div class="content-header">
+          <div class="content-title">
+            <i class="fas fa-graduation-cap"></i>
+            All Courses
+          </div>
+          <div class="content-actions">
+            <div class="search-container">
+              <input type="text" class="search-input" id="course-search-input" placeholder="Search courses..." value="">
+              <button class="search-btn" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="courses-grid">
+          <!-- Course Cards for Admin -->
+          <?php if (!empty($allCourses ?? [])): ?>
+            <?php foreach ($allCourses as $course): ?>
+              <div class="course-card-new">
+                <div class="course-card-header">
+                  <div class="course-code"><?= esc($course['course_number'] ?? '') ?></div>
+                  <div class="course-status active">Active</div>
+                </div>
+                <div class="course-card-body">
+                  <div class="course-info">
+                    <div class="info-item">
+                      <span class="info-label">TEACHER</span>
+                      <span class="info-value"><?= esc($course['teacher_name'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">UNITS</span>
+                      <span class="info-value"><?= esc($course['units'] ?? '3') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">ACADEMIC YEAR</span>
+                      <span class="info-value"><?= esc($course['academic_year'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">SEMESTER</span>
+                      <span class="info-value"><?= esc($course['semester'] ?? 'N/A') ?> - <?= esc($course['term'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">SCHEDULE</span>
+                      <span class="info-value">
+                        <?php
+                          $scheduleTime = $course['schedule_time'] ?? '';
+                          $scheduleDate = $course['schedule_date'] ?? '';
+                          if ($scheduleTime) {
+                            echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
+                          } else {
+                            echo 'N/A';
+                          }
+                          if ($scheduleDate) {
+                            echo ' on ' . date('M d, Y', strtotime($scheduleDate));
+                          }
+                        ?>
+                      </span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">DESCRIPTION</span>
+                      <span class="info-value" title="<?= esc($course['description'] ?? '') ?>">
+                        <?= esc(substr($course['description'] ?? 'No description', 0, 40)) ?><?= strlen($course['description'] ?? '') > 40 ? '...' : '' ?>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="course-card-actions">
+                    <button class="btn-course primary" onclick="window.location.href='<?= base_url('admin/course/') ?><?= esc($course['course_id'] ?? '') ?>/upload'">
+                      <i class="fas fa-eye"></i> View
+                    </button>
+                    <button class="btn-course danger delete-admin-course-btn"
                             data-course-id="<?= esc($course['course_id'] ?? '') ?>"
                             data-course-name="<?= esc($course['course_number'] ?? '') ?>">
                       <i class="fas fa-trash"></i> Delete
                     </button>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            </tbody>
-          </table>
-        <?php else: ?>
-          <div class="empty-state-modern">
-            <i class="fas fa-book"></i>
-            <h6>No Courses Yet</h6>
-            <p>Start by creating your first course!</p>
-          </div>
-        <?php endif; ?>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <div class="empty-state">
+              <i class="fas fa-book"></i>
+              <h3>No Courses Yet</h3>
+              <p>Start by creating your first course to get started!</p>
+            </div>
+          <?php endif; ?>
+        </div>
       </div>
-      <div id="admin-search-no-results" class="empty-state-modern" style="display: none;">
-        <i class="fas fa-search"></i>
-        <h6>No courses found matching your search.</h6>
-        <p>Try adjusting your search terms.</p>
+
+      <!-- Sidebar Panel -->
+      <div class="sidebar-panel">
+        <!-- Quick Stats -->
+        <div class="panel-section">
+          <div class="panel-title">
+            <i class="fas fa-chart-bar"></i>
+            Quick Stats
+          </div>
+          <div class="quick-stats">
+            <div class="quick-stat">
+              <div class="quick-stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="quick-stat-info">
+                <div class="quick-stat-value">
+                  <?php
+                    $totalStudents = 0;
+                    foreach (($allCourses ?? []) as $course) {
+                      $totalStudents += $course['students'] ?? 0;
+                    }
+                    echo $totalStudents;
+                  ?>
+                </div>
+                <div class="quick-stat-label">Total Students</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <div class="quick-stat-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="quick-stat-info">
+                <div class="quick-stat-value"><?= count($allCourses ?? []) ?></div>
+                <div class="quick-stat-label">Active Courses</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="panel-section">
+          <div class="panel-title">
+            <i class="fas fa-clock"></i>
+            Recent Activity
+          </div>
+          <div class="recent-activity">
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">New course created</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">Student enrolled</div>
+                <div class="activity-time">5 hours ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Alert Container -->
+    <div id="admin-alert-container"></div>
+  </div>
 
   <?php elseif (($userRole ?? '') === 'teacher'): ?>
-    <!-- Teacher Courses -->
-
-    <!-- Teacher Alert Container -->
-    <div id="teacher-alert-container"></div>
-
-    <!-- Search Bar -->
-    <div class="search-bar-container mb-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 col-12">
-          <div class="input-group search-input-group">
-            <input type="text" id="teacher-course-search-input" class="form-control search-input" placeholder="Search courses by name or code..." value="">
-            <button class="btn search-btn" id="teacher-search-btn">
-              <i class="bi bi-search"></i> Search
-            </button>
-          </div>
+  <div class="courses-dashboard">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header">
+      <div class="header-content">
+        <div class="header-title">
+          <i class="fas fa-graduation-cap"></i>
+          <h1>Courses Dashboard</h1>
+        </div>
+        <div class="header-actions">
+          <a href="<?= base_url('courses/create') ?>" class="btn-primary-green">
+            <i class="fas fa-plus"></i>
+            Add Course
+          </a>
+          <a href="#" class="btn-secondary-green">
+            <i class="fas fa-sync-alt"></i>
+            Refresh
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Courses Grid -->
-    <div class="dashboard-grid">
-      <!-- My Courses Table -->
-      <div class="content-card-modern">
-        <div class="card-header-modern">
-          <h5>
+    <!-- Stats Section -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="stat-value"><?= count($teacherCourses ?? []) ?></div>
+        <div class="stat-label">My Courses</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-value"><?= $totalEnrolledStudents ?? 0 ?></div>
+        <div class="stat-label">Total Students</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="stat-value">
+          <?php
+            $activeCount = 0;
+            foreach (($teacherCourses ?? []) as $course) {
+              if (($course['status'] ?? '') === 'active') $activeCount++;
+            }
+            echo $activeCount;
+          ?>
+        </div>
+        <div class="stat-label">Active Courses</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div class="stat-value">
+          <?php
+            $pendingCount = 0;
+            foreach (($teacherCourses ?? []) as $course) {
+              if (($course['status'] ?? '') === 'pending') $pendingCount++;
+            }
+            echo $pendingCount;
+          ?>
+        </div>
+        <div class="stat-label">Pending Approval</div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content Area -->
+      <div class="main-content-card">
+        <div class="content-header">
+          <div class="content-title">
             <i class="fas fa-graduation-cap"></i>
             My Courses
-            <?php if (isset($totalEnrolledStudents) && $totalEnrolledStudents > 0): ?>
-              <span class="badge-modern primary" style="margin-left: 0.5rem; font-size: 0.8rem;">
-                <i class="fas fa-users"></i> <?= esc($totalEnrolledStudents) ?> Students
-              </span>
-            <?php endif; ?>
-          </h5>
-          <div style="display: flex; gap: 0.5rem;">
-
+          </div>
+          <div class="content-actions">
+            <div class="search-container">
+              <input type="text" class="search-input" id="course-search-input" placeholder="Search courses..." value="">
+              <button class="search-btn" id="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="table-responsive">
+        <div class="courses-grid">
+          <!-- Course Cards for Teacher -->
           <?php if (!empty($teacherCourses ?? [])): ?>
-            <table class="table-modern">
-              <thead>
-                <tr>
-                  <th>CN</th>
-                  <th>Description</th>
-                  <th>Units</th>
-                  <th>Academic Year</th>
-                  <th>Semester</th>
-                  <th>Term</th>
-                  <th>Schedule Time</th>
-                  <th>Schedule Date</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($teacherCourses as $course): ?>
-                  <tr>
-                    <td>
-                      <div><strong><?= esc($course['course_number'] ?? '') ?></strong></div>
-                    </td>
-                    <td><?= esc(substr($course['description'] ?? 'No description', 0, 50)) ?>...</td>
-                    <td><?= esc($course['units'] ?? 3) ?></td>
-                    <td><?= esc($course['academic_year'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['semester'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['term'] ?? 'N/A') ?></td>
-                    <td>
-                      <?php 
-                        $scheduleTime = $course['schedule_time'] ?? '';
-                        if ($scheduleTime) {
-                          echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td>
-                      <?php 
-                        $scheduleDate = $course['schedule_date'] ?? '';
-                        if ($scheduleDate) {
-                          echo date('M d, Y', strtotime($scheduleDate));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td>
-                      <?php 
-                        $status = $course['status'] ?? 'pending';
-                        if ($status === 'pending'): 
-                      ?>
-                        <span class="badge-modern" style="background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%); color: #92400e;">Pending</span>
-                      <?php elseif ($status === 'active'): ?>
-                        <span class="badge-modern success">
-                          Enrolled 
-                          <span style="background: rgba(255,255,255,0.3); padding: 0.1rem 0.4rem; border-radius: 50px; margin-left: 0.3rem;">
-                            <?= esc($course['students'] ?? 0) ?>
-                          </span>
-                        </span>
-                      <?php else: ?>
-                        <span class="badge-modern success"><?= esc($status) ?></span>
-                      <?php endif; ?>
-                    </td>
-                  <td>
+            <?php foreach ($teacherCourses as $course): ?>
+              <div class="course-card-new">
+                <div class="course-card-header">
+                  <div class="course-code"><?= esc($course['course_number'] ?? '') ?></div>
+                  <div class="course-status <?php
+                    $status = $course['status'] ?? 'pending';
+                    echo $status === 'active' ? 'active' : 'pending';
+                  ?>">
+                    <?php
+                      if ($status === 'active') {
+                        echo 'Active (' . esc($course['students'] ?? 0) . ' students)';
+                      } else {
+                        echo 'Pending';
+                      }
+                    ?>
+                  </div>
+                </div>
+                <div class="course-card-body">
+                  <div class="course-info">
+                    <div class="info-item">
+                      <span class="info-label">UNITS</span>
+                      <span class="info-value"><?= esc($course['units'] ?? '3') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">ACADEMIC YEAR</span>
+                      <span class="info-value"><?= esc($course['academic_year'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">SEMESTER</span>
+                      <span class="info-value"><?= esc($course['semester'] ?? 'N/A') ?> - <?= esc($course['term'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">SCHEDULE</span>
+                      <span class="info-value">
+                        <?php
+                          $scheduleTime = $course['schedule_time'] ?? '';
+                          $scheduleDate = $course['schedule_date'] ?? '';
+                          if ($scheduleTime) {
+                            echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
+                          } else {
+                            echo 'N/A';
+                          }
+                          if ($scheduleDate) {
+                            echo ' on ' . date('M d, Y', strtotime($scheduleDate));
+                          }
+                        ?>
+                      </span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">DESCRIPTION</span>
+                      <span class="info-value" title="<?= esc($course['description'] ?? '') ?>">
+                        <?= esc(substr($course['description'] ?? 'No description', 0, 40)) ?><?= strlen($course['description'] ?? '') > 40 ? '...' : '' ?>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="course-card-actions">
+                    <button class="btn-course primary" onclick="window.location.href='<?= base_url('admin/course/') ?><?= esc($course['course_id'] ?? '') ?>/upload'">
+                      <i class="fas fa-eye"></i> Manage
+                    </button>
                     <?php if (($course['status'] ?? 'active') === 'pending'): ?>
-                      <button class="btn-action-modern success activate-course-btn"
+                      <button class="btn-course success activate-course-btn"
                               data-course-id="<?= esc($course['course_id'] ?? '') ?>"
                               data-course-name="<?= esc($course['course_number'] ?? '') ?>">
                         <i class="fas fa-play"></i> Activate
                       </button>
-                    <?php else: ?>
-                      <button class="btn-action-modern primary view-teacher-course-btn"
-                              data-course-id="<?= esc($course['course_id'] ?? '') ?>"
-                              data-course-name="<?= esc($course['course_number'] ?? '') ?>"
-                              disabled>
-                          <i class="fas fa-check"></i> Enrolled
-                      </button>
                     <?php endif; ?>
-                  </td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           <?php else: ?>
-            <div class="empty-state-modern">
+            <div class="empty-state">
               <i class="fas fa-book"></i>
-              <h6>No Courses Yet</h6>
+              <h3>No Courses Yet</h3>
               <p>Start by creating your first course!</p>
             </div>
           <?php endif; ?>
         </div>
-        <div id="teacher-search-no-results" class="empty-state-modern" style="display: none;">
-          <i class="fas fa-search"></i>
-          <h6>No courses found matching your search.</h6>
-          <p>Try adjusting your search terms.</p>
+      </div>
+
+      <!-- Sidebar Panel -->
+      <div class="sidebar-panel">
+        <!-- Quick Stats -->
+        <div class="panel-section">
+          <div class="panel-title">
+            <i class="fas fa-chart-bar"></i>
+            Quick Stats
+          </div>
+          <div class="quick-stats">
+            <div class="quick-stat">
+              <div class="quick-stat-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="quick-stat-info">
+                <div class="quick-stat-value"><?= count($teacherCourses ?? []) ?></div>
+                <div class="quick-stat-label">Courses</div>
+              </div>
+            </div>
+            <div class="quick-stat">
+              <div class="quick-stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="quick-stat-info">
+                <div class="quick-stat-value"><?= $totalEnrolledStudents ?? 0 ?></div>
+                <div class="quick-stat-label">Students</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="panel-section">
+          <div class="panel-title">
+            <i class="fas fa-clock"></i>
+            Recent Activity
+          </div>
+          <div class="recent-activity">
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">Student enrolled</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-file-upload"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">Material uploaded</div>
+                <div class="activity-time">1 day ago</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div id="teacher-alert-container"></div>
+  </div>
 
 
 
@@ -1085,90 +1157,71 @@
       }
     </style>
 
-    <!-- Search Bar -->
-    <div class="search-bar-container mb-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 col-12">
-          <div class="input-group search-input-group">
-            <input type="text" id="course-search-input" class="form-control search-input" placeholder="Search courses by name or code..." value="">
-            <button class="btn search-btn" id="search-btn">
-              <i class="bi bi-search"></i> Search
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Courses Grid -->
     <div class="dashboard-grid">
       <!-- Enrolled Courses -->
       <div class="content-card-modern">
-        <div class="card-header-modern">
-          <h5>
-            <i class="fas fa-book-reader"></i>
-            My Enrolled Courses
-          </h5>
+        <div class="card-header-modern" style="flex-direction: column; align-items: stretch;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h5>
+              <i class="fas fa-book-reader"></i>
+              My Enrolled Courses
+            </h5>
+          </div>
+          <!-- Search Bar in header -->
+          <div class="input-group search-input-group" style="max-width: 500px;">
+            <input type="text" id="course-search-input" class="form-control search-input" placeholder="Search courses by name or code..." value="">
+            <button class="btn btn-primary search-icon" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
         </div>
-        <div class="table-responsive">
+        <div class="card-container">
           <?php if (!empty($enrolledCourses ?? [])): ?>
-            <table class="table-modern table-complete-data">
-              <thead>
-                <tr>
-                  <th>CN</th>
-                  <th>Units</th>
-                  <th>Instructor</th>
-                  <th>Academic Year</th>
-                  <th>Semester</th>
-                  <th>Term</th>
-                  <th>Schedule Time</th>
-                  <th>Schedule Date</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($enrolledCourses as $course): ?>
-                  <tr>
-                    <td>
-                      <div><strong><?= esc($course['course_number'] ?? '') ?></strong></div>
-                    </td>
-                    <td><?= esc($course['units'] ?? '0') ?></td>
-                    <td><?= esc($course['teacher_name'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['academic_year'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['semester'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['term'] ?? 'N/A') ?></td>
-                    <td>
-                      <?php 
-                        $scheduleTime = $course['schedule_time'] ?? '';
-                        if ($scheduleTime) {
-                          echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td>
-                      <?php 
-                        $scheduleDate = $course['schedule_date'] ?? '';
-                        if ($scheduleDate) {
-                          echo date('M d, Y', strtotime($scheduleDate));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td><span class="badge-modern success">Enrolled</span></td>
-                    <td>
-                      <button class="btn-action-modern primary view-materials-btn"
-                              data-course-id="<?= esc($course['course_id'] ?? '') ?>"
-                              data-course-name="<?= esc($course['course_number'] ?? '') ?>">
-                        <i class="fas fa-eye"></i> View
-                      </button>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
+            <?php foreach ($enrolledCourses as $course): ?>
+              <div class="course-card">
+                <div class="card-header">
+                  <h4><i class="fas fa-book"></i> <?= esc($course['course_number'] ?? '') ?></h4>
+                  <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                  <div class="card-item">
+                    <strong>Units:</strong> <?= esc($course['units'] ?? '0') ?>
+                  </div>
+                  <div class="card-item">
+                    <strong>Instructor:</strong> <?= esc($course['teacher_name'] ?? 'N/A') ?>
+                  </div>
+                  <div class="card-item">
+                    <strong>Academic Year:</strong> <?= esc($course['academic_year'] ?? 'N/A') ?>
+                  </div>
+                  <div class="card-item">
+                    <strong>Semester:</strong> <?= esc($course['semester'] ?? 'N/A') ?> | <strong>Term:</strong> <?= esc($course['term'] ?? 'N/A') ?>
+                  </div>
+                  <div class="card-item">
+                    <strong>Schedule:</strong>
+                    <?php 
+                      $scheduleTime = $course['schedule_time'] ?? '';
+                      $scheduleDate = $course['schedule_date'] ?? '';
+                      if ($scheduleTime) {
+                        echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
+                      } else {
+                        echo 'N/A';
+                      }
+                      if ($scheduleDate) {
+                        echo ' on ' . date('M d, Y', strtotime($scheduleDate));
+                      }
+                    ?>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button class="btn-action-modern primary view-materials-btn"
+                          data-course-id="<?= esc($course['course_id'] ?? '') ?>"
+                          data-course-name="<?= esc($course['course_number'] ?? '') ?>">
+                    <i class="fas fa-eye"></i> View Materials
+                  </button>
+                </div>
+              </div>
+            <?php endforeach; ?>
           <?php else: ?>
             <div class="empty-state-modern">
               <i class="fas fa-book-reader"></i>

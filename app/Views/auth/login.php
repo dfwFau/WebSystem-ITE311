@@ -25,6 +25,8 @@
                     <?php endif; ?>
 
                     <form action="<?= base_url('login') ?>" method="post">
+                        <?= csrf_field() ?>
+
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">
                                 <i class="fas fa-envelope text-primary me-1"></i>Email Address

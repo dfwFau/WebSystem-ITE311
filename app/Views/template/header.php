@@ -43,7 +43,6 @@
     <a href="<?= base_url('/dashboard') ?>" class="sidebar-brand">
       <i class="fas fa-rocket"></i><span>ITE311-MORIL</span>
     </a>
-    <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
   </div>
 
   <!-- User Info -->
