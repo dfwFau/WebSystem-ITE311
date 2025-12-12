@@ -205,9 +205,6 @@
 
   /* Content Grid */
   .content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -661,6 +658,561 @@
       width: 100%;
     }
   }
+
+  /* Student Courses Dashboard Styles */
+
+  .student-courses-section {
+    background: linear-gradient(135deg, var(--background-light) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+    margin-top: 40px;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content-card-modern {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .card-header-modern {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    padding: 1.5rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .card-header-modern h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .card-container {
+    padding: 2rem;
+  }
+
+  .course-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .course-card .card-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    padding: 1.25rem 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .course-card .card-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+  }
+
+  .course-card .card-body {
+    padding: 1.5rem;
+  }
+
+  .card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(115, 175, 111, 0.1);
+  }
+
+  .card-item:last-child {
+    border-bottom: none;
+  }
+
+  .card-item strong {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .course-card .card-footer {
+    padding: 1.5rem;
+    background: rgba(115, 175, 111, 0.02);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .btn-action-modern {
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    min-width: 120px;
+  }
+
+  .btn-action-modern.primary {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .btn-action-modern.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(115, 175, 111, 0.4);
+  }
+
+  .btn-action-modern.success {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .btn-action-modern.success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+  }
+
+  .table-modern {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+  }
+
+  .table-modern thead {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+  }
+
+  .table-modern th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .table-modern td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+  }
+
+  .table-modern tbody tr {
+    transition: var(--transition);
+  }
+
+  .table-modern tbody tr:hover {
+    background: rgba(115, 175, 111, 0.02);
+  }
+
+  .table-complete-data {
+    margin: 0;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .empty-state-modern {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+  }
+
+  .empty-state-modern i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+    color: var(--primary-green);
+  }
+
+  .empty-state-modern h6 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-state-modern p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .badge-modern {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-modern.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+
+  .badge-modern.primary {
+    background: rgba(115, 175, 111, 0.1);
+    color: var(--primary-green);
+  }
+
+  .search-input-group {
+    position: relative;
+    max-width: 500px;
+  }
+
+  .search-input-group .search-input {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: white;
+  }
+
+  .search-input-group .search-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(115, 175, 111, 0.1);
+  }
+
+  .search-input-group .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-green);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .search-input-group .search-icon:hover {
+    background: var(--primary-green-dark);
+  }
+
+  /* Materials Modal Styles */
+  .materials-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .materials-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .materials-modal-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .materials-modal-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .materials-modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .materials-modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+  }
+
+  .materials-modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .materials-modal-body {
+    padding: 2rem;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .materials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .material-item-pro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(115, 175, 111, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .material-item-pro:hover {
+    background: rgba(115, 175, 111, 0.05);
+    transform: translateY(-1px);
+  }
+
+  .material-icon-pro {
+    width: 40px;
+    height: 40px;
+    background: rgba(115, 175, 111, 0.1);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    font-size: 1.2rem;
+  }
+
+  .material-details-pro {
+    flex: 1;
+  }
+
+  .material-name-pro {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .material-date-pro {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .material-download-btn {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .material-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(115, 175, 111, 0.4);
+  }
+
+  .materials-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-secondary);
+  }
+
+  .materials-empty i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+    color: var(--primary-green);
+  }
+
+  .materials-empty h6 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .materials-empty p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Responsive for Student Dashboard */
+  @media (max-width: 768px) {
+    .student-courses-section {
+      padding: 1rem 0;
+      margin-top: 20px;
+    }
+
+    .dashboard-grid {
+      padding: 0 1rem;
+      gap: 1.5rem;
+    }
+
+    .card-header-modern {
+      padding: 1rem 1.5rem;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .card-header-modern h5 {
+      font-size: 1.1rem;
+    }
+
+    .card-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .course-card .card-body {
+      padding: 1rem;
+    }
+
+    .course-card .card-footer {
+      padding: 1rem;
+    }
+
+    .btn-action-modern {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .table-modern th,
+    .table-modern td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .materials-modal-content {
+      width: 95%;
+      margin: 1rem;
+    }
+
+    .materials-modal-body {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .dashboard-grid {
+      padding: 0 0.5rem;
+    }
+
+    .content-card-modern {
+      margin-bottom: 1rem;
+    }
+
+    .card-container {
+      padding: 1rem 0.5rem;
+    }
+
+    .course-card {
+      margin-bottom: 1rem;
+    }
+
+    .course-card .card-header h4 {
+      font-size: 1rem;
+    }
+
+    .card-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .materials-list {
+      gap: 0.75rem;
+    }
+
+    .material-item-pro {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .material-details-pro {
+      width: 100%;
+    }
+  }
 </style>
 
 
@@ -676,10 +1228,12 @@
           <h1>Courses Dashboard</h1>
         </div>
         <div class="header-actions">
+          <?php if (($userRole ?? '') === 'admin'): ?>
           <a href="<?= base_url('courses/create') ?>" class="btn-primary-green">
             <i class="fas fa-plus"></i>
             Add Course
           </a>
+          <?php endif; ?>
           <a href="#" class="btn-secondary-green">
             <i class="fas fa-sync-alt"></i>
             Refresh
@@ -802,8 +1356,8 @@
                     </div>
                   </div>
                   <div class="course-card-actions">
-                    <button class="btn-course primary" onclick="window.location.href='<?= base_url('admin/course/') ?><?= esc($course['course_id'] ?? '') ?>/upload'">
-                      <i class="fas fa-eye"></i> View
+                    <button class="btn-course secondary" onclick="window.location.href='<?= base_url('courses/edit/') ?><?= esc($course['course_id'] ?? '') ?>'">
+                      <i class="fas fa-edit"></i> Edit
                     </button>
                     <button class="btn-course danger delete-admin-course-btn"
                             data-course-id="<?= esc($course['course_id'] ?? '') ?>"
@@ -823,73 +1377,6 @@
           <?php endif; ?>
         </div>
       </div>
-
-      <!-- Sidebar Panel -->
-      <div class="sidebar-panel">
-        <!-- Quick Stats -->
-        <div class="panel-section">
-          <div class="panel-title">
-            <i class="fas fa-chart-bar"></i>
-            Quick Stats
-          </div>
-          <div class="quick-stats">
-            <div class="quick-stat">
-              <div class="quick-stat-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="quick-stat-info">
-                <div class="quick-stat-value">
-                  <?php
-                    $totalStudents = 0;
-                    foreach (($allCourses ?? []) as $course) {
-                      $totalStudents += $course['students'] ?? 0;
-                    }
-                    echo $totalStudents;
-                  ?>
-                </div>
-                <div class="quick-stat-label">Total Students</div>
-              </div>
-            </div>
-            <div class="quick-stat">
-              <div class="quick-stat-icon">
-                <i class="fas fa-book"></i>
-              </div>
-              <div class="quick-stat-info">
-                <div class="quick-stat-value"><?= count($allCourses ?? []) ?></div>
-                <div class="quick-stat-label">Active Courses</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="panel-section">
-          <div class="panel-title">
-            <i class="fas fa-clock"></i>
-            Recent Activity
-          </div>
-          <div class="recent-activity">
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-plus-circle"></i>
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">New course created</div>
-                <div class="activity-time">2 hours ago</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Student enrolled</div>
-                <div class="activity-time">5 hours ago</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Alert Container -->
@@ -906,10 +1393,12 @@
           <h1>Courses Dashboard</h1>
         </div>
         <div class="header-actions">
+          <?php if (($userRole ?? '') === 'admin' || ($userRole ?? '') === 'teacher'): ?>
           <a href="<?= base_url('courses/create') ?>" class="btn-primary-green">
             <i class="fas fa-plus"></i>
             Add Course
           </a>
+          <?php endif; ?>
           <a href="#" class="btn-secondary-green">
             <i class="fas fa-sync-alt"></i>
             Refresh
@@ -1068,65 +1557,6 @@
               <p>Start by creating your first course!</p>
             </div>
           <?php endif; ?>
-        </div>
-      </div>
-
-      <!-- Sidebar Panel -->
-      <div class="sidebar-panel">
-        <!-- Quick Stats -->
-        <div class="panel-section">
-          <div class="panel-title">
-            <i class="fas fa-chart-bar"></i>
-            Quick Stats
-          </div>
-          <div class="quick-stats">
-            <div class="quick-stat">
-              <div class="quick-stat-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="quick-stat-info">
-                <div class="quick-stat-value"><?= count($teacherCourses ?? []) ?></div>
-                <div class="quick-stat-label">Courses</div>
-              </div>
-            </div>
-            <div class="quick-stat">
-              <div class="quick-stat-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div class="quick-stat-info">
-                <div class="quick-stat-value"><?= $totalEnrolledStudents ?? 0 ?></div>
-                <div class="quick-stat-label">Students</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="panel-section">
-          <div class="panel-title">
-            <i class="fas fa-clock"></i>
-            Recent Activity
-          </div>
-          <div class="recent-activity">
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Student enrolled</div>
-                <div class="activity-time">2 hours ago</div>
-              </div>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon">
-                <i class="fas fa-file-upload"></i>
-              </div>
-              <div class="activity-content">
-                <div class="activity-text">Material uploaded</div>
-                <div class="activity-time">1 day ago</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

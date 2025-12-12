@@ -7,18 +7,30 @@ Add New User
 <?= $this->section('content') ?>
 
 <style>
+  /* Redesigned Create User Template with #73AF6F Theme */
+
   :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --border-radius: 16px;
-    --transition: all 0.3s ease;
+    --primary-green: #73AF6F;
+    --primary-green-light: #8bbf84;
+    --primary-green-dark: #5a8f58;
+    --secondary-green: #64748b;
+    --accent-green: #73AF6F;
+    --success-green: #73AF6F;
+    --background-light: #f8fafc;
+    --background-card: rgba(255, 255, 255, 0.98);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: rgba(115, 175, 111, 0.2);
+    --shadow-light: 0 4px 12px rgba(115, 175, 111, 0.1);
+    --shadow-hover: 0 8px 24px rgba(115, 175, 111, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .add-user-page {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e2e8f5 100%);
+    background: linear-gradient(135deg, var(--background-light) 0%, #e8f5e8 100%);
     min-height: calc(100vh - 200px);
     padding: 2rem 1rem;
   }
@@ -26,22 +38,42 @@ Add New User
   .add-user-container {
     max-width: 700px;
     margin: 0 auto;
-    background: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
     overflow: hidden;
     transition: var(--transition);
   }
 
   .add-user-container:hover {
-    box-shadow: var(--card-shadow-hover);
+    box-shadow: var(--shadow-hover);
   }
 
   .add-user-header {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
     padding: 2rem;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .add-user-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(120deg); }
+    66% { transform: translateY(5px) rotate(240deg); }
   }
 
   .add-user-header h2 {
@@ -52,12 +84,16 @@ Add New User
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .add-user-header p {
     margin: 0.5rem 0 0 0;
     opacity: 0.9;
     font-size: 1rem;
+    position: relative;
+    z-index: 1;
   }
 
   .add-user-body {
@@ -72,7 +108,7 @@ Add New User
     display: block;
     margin-bottom: 0.75rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 0.95rem;
     display: flex;
     align-items: center;
@@ -85,15 +121,15 @@ Add New User
   }
 
   .form-label i {
-    color: #667eea;
+    color: var(--primary-green);
     font-size: 1rem;
   }
 
   .form-control {
     width: 100%;
     padding: 1rem 1.25rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
     font-size: 1rem;
     font-family: inherit;
     background: #fff;
@@ -103,8 +139,8 @@ Add New User
 
   .form-control:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 4px rgba(115, 175, 111, 0.1);
     transform: translateY(-1px);
   }
 
@@ -116,8 +152,8 @@ Add New User
   .form-select {
     width: 100%;
     padding: 1rem 1.25rem;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
     font-size: 1rem;
     background: #fff;
     cursor: pointer;
@@ -132,8 +168,8 @@ Add New User
 
   .form-select:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 4px rgba(115, 175, 111, 0.1);
     transform: translateY(-1px);
   }
 
@@ -243,7 +279,7 @@ Add New User
     justify-content: center;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #001339ff;
   }
 
   @media (max-width: 576px) {
@@ -277,14 +313,14 @@ Add New User
   }
 
   .btn-primary {
-    background: var(--primary-gradient);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 4px 15px rgba(115, 175, 111, 0.3);
   }
 
   .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 25px rgba(115, 175, 111, 0.4);
   }
 
   .btn-secondary {
@@ -519,4 +555,3 @@ form.addEventListener('submit', function(e) {
 </script>
 
 <?= $this->endSection() ?>
-

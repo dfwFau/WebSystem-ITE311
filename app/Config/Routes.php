@@ -27,6 +27,8 @@ $routes->get('/dashboard', 'Auth::dashboard');
 $routes->get('/courses', 'Course::index');
 $routes->get('/courses/create', 'Course::create');
 $routes->post('/courses/create', 'Course::create');
+$routes->get('/courses/edit/(:num)', 'Course::edit/$1');
+$routes->post('/courses/edit/(:num)', 'Course::edit/$1');
 $routes->post('/course/enroll', 'Course::enroll');
 $routes->get('/course/search', 'Course::search');
 $routes->post('/course/search', 'Course::search');
@@ -76,3 +78,14 @@ $routes->post('/teacher/remove-student', 'Teacher::removeStudent', ['filter' => 
 $routes->get('/admin/courses', 'Admin::courses');
 $routes->get('/admin/courses/create', 'Admin::createCourse');
 $routes->post('/admin/courses/create', 'Admin::createCourse');
+
+// Student Routes
+$routes->get('/student/courses', 'Student::courses', ['filter' => 'roleauth']);
+$routes->get('/student/enroll/(:num)', 'Student::enroll/$1');
+$routes->post('/student/enroll/(:num)', 'Student::enroll/$1');
+$routes->get('/student/dashboard', 'Student::dashboard', ['filter' => 'roleauth']);
+$routes->get('/student/grades', 'Student::grades', ['filter' => 'roleauth']);
+$routes->get('/student/assignments', 'Student::assignments', ['filter' => 'roleauth']);
+
+// Materials access for students
+$routes->get('/materials/get/(:num)', 'Materials::get/$1');

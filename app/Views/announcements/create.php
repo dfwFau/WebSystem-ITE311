@@ -8,7 +8,7 @@ Create Announcement
 
 <style>
   :root {
-    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-gradient: linear-gradient(135deg, #73AF6F 0%, #5a8f58 100%);
     --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
     --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -23,7 +23,7 @@ Create Announcement
     padding: 2rem 1rem;
   }
 
-  .create-announcement-container {
+  .create-announcement-card {
     max-width: 800px;
     margin: 0 auto;
     background: #fff;
@@ -33,7 +33,7 @@ Create Announcement
     transition: var(--transition);
   }
 
-  .create-announcement-container:hover {
+  .create-announcement-card:hover {
     box-shadow: var(--card-shadow-hover);
   }
 
@@ -85,7 +85,7 @@ Create Announcement
   }
 
   .form-label i {
-    color: #667eea;
+    color: #73AF6F;
     font-size: 1rem;
   }
 
@@ -103,8 +103,8 @@ Create Announcement
 
   .form-control:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    border-color: #73AF6F;
+    box-shadow: 0 0 0 4px rgba(115, 175, 111, 0.1);
     transform: translateY(-1px);
   }
 
@@ -116,7 +116,7 @@ Create Announcement
   textarea.form-control {
     min-height: 200px;
     resize: vertical;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .form-help {
@@ -133,21 +133,13 @@ Create Announcement
   }
 
   .char-counter {
-    font-size: 0.8rem;
-    color: #94a3b8;
     text-align: right;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
   }
 
-  .char-counter.warning {
-    color: #f59e0b;
-  }
-
-  .char-counter.danger {
-    color: #ef4444;
-  }
-
-  .alert {
+  .alert-modern {
     padding: 1.25rem 1.5rem;
     border-radius: 12px;
     margin-bottom: 2rem;
@@ -158,32 +150,26 @@ Create Announcement
     font-size: 0.95rem;
   }
 
-  .alert-danger {
-    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-    color: #991b1b;
-  }
-
-  .alert-success {
+  .alert-modern.success {
     background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
     color: #065f46;
   }
 
-  .alert i {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    margin-top: 0.25rem;
+  .alert-modern.danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #991b1b;
   }
 
-  .alert ul {
+  .alert-modern ul {
     margin: 0.5rem 0 0 0;
     padding-left: 1.5rem;
   }
 
-  .alert li {
+  .alert-modern li {
     margin-bottom: 0.25rem;
   }
 
-  .btn-group {
+  .btn-group-modern {
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -193,12 +179,12 @@ Create Announcement
   }
 
   @media (max-width: 576px) {
-    .btn-group {
+    .btn-group-modern {
       flex-direction: column;
     }
   }
 
-  .btn {
+  .btn-modern {
     padding: 1rem 2rem;
     border: none;
     border-radius: 12px;
@@ -216,48 +202,32 @@ Create Announcement
     overflow: hidden;
   }
 
-  .btn:disabled {
+  .btn-modern:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none !important;
   }
 
-  .btn-primary {
+  .btn-modern.primary {
     background: var(--primary-gradient);
-    color: white;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(115, 175, 111, 0.3);
   }
 
-  .btn-primary:hover:not(:disabled) {
+  .btn-modern.primary:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 8px 25px rgba(115, 175, 111, 0.4);
   }
 
-  .btn-secondary {
+  .btn-modern.secondary {
     background: #f1f5f9;
     color: #475569;
     border: 2px solid #e2e8f0;
   }
 
-  .btn-secondary:hover:not(:disabled) {
+  .btn-modern.secondary:hover:not(:disabled) {
     background: #e2e8f0;
     transform: translateY(-2px);
-  }
-
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #667eea;
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    transition: var(--transition);
-  }
-
-  .back-link:hover {
-    color: #764ba2;
-    transform: translateX(-4px);
   }
 
   @media (max-width: 992px) {
@@ -285,7 +255,7 @@ Create Announcement
       gap: 0.5rem;
     }
 
-    .btn {
+    .btn-modern {
       min-width: auto;
       padding: 0.875rem 1.5rem;
     }
@@ -293,7 +263,7 @@ Create Announcement
 </style>
 
 <div class="create-announcement-page">
-  <div class="create-announcement-container">
+  <div class="create-announcement-card">
     <div class="create-announcement-header">
       <h1>
         <i class="fas fa-bullhorn"></i>
@@ -303,13 +273,9 @@ Create Announcement
     </div>
 
     <div class="create-announcement-body">
-      <a href="<?= base_url('dashboard') ?>" class="back-link">
-        <i class="fas fa-arrow-left"></i>
-        Back to Dashboard
-      </a>
-
+      <!-- Flash Messages -->
       <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success">
+        <div class="alert-modern success">
           <i class="fas fa-check-circle"></i>
           <div>
             <strong>Success!</strong> <?= session()->getFlashdata('success') ?>
@@ -318,7 +284,7 @@ Create Announcement
       <?php endif; ?>
 
       <?php if (session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger">
+        <div class="alert-modern danger">
           <i class="fas fa-exclamation-circle"></i>
           <div>
             <strong>Error!</strong> <?= session()->getFlashdata('error') ?>
@@ -327,7 +293,7 @@ Create Announcement
       <?php endif; ?>
 
       <?php if (session()->getFlashdata('errors')): ?>
-        <div class="alert alert-danger">
+        <div class="alert-modern danger">
           <i class="fas fa-exclamation-circle"></i>
           <div>
             <strong>Please fix the following errors:</strong>
@@ -349,11 +315,11 @@ Create Announcement
             Announcement Title
             <span class="required">*</span>
           </label>
-          <input 
-            type="text" 
-            id="title" 
-            name="title" 
-            class="form-control" 
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
             value="<?= old('title') ?>"
             required
             minlength="3"
@@ -373,10 +339,10 @@ Create Announcement
             Announcement Content
             <span class="required">*</span>
           </label>
-          <textarea 
-            id="content" 
-            name="content" 
-            class="form-control" 
+          <textarea
+            id="content"
+            name="content"
+            class="form-control"
             required
             minlength="10"
             maxlength="5000"
@@ -389,12 +355,13 @@ Create Announcement
           <div class="char-counter" id="contentCounter">0 / 5000</div>
         </div>
 
-        <div class="btn-group">
-          <button type="submit" class="btn btn-primary" id="submitBtn">
+        <!-- Button Group -->
+        <div class="btn-group-modern">
+          <button type="submit" class="btn-modern primary" id="submitBtn">
             <i class="fas fa-paper-plane"></i>
             Publish Announcement
           </button>
-          <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary">
+          <a href="<?= base_url('dashboard') ?>" class="btn-modern secondary">
             <i class="fas fa-arrow-left"></i>
             Cancel
           </a>
@@ -403,6 +370,75 @@ Create Announcement
     </div>
   </div>
 </div>
+
+<style>
+  .welcome-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+  }
+
+  .card {
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .card-header {
+    border-radius: 12px 12px 0 0 !important;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 1.25rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .alert {
+    border-radius: 8px;
+    border: none;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+
+  .text-primary {
+    color: #007bff !important;
+  }
+
+  .text-danger {
+    color: #dc3545 !important;
+  }
+
+  .text-muted {
+    color: #6c757d !important;
+  }
+
+  @media (max-width: 768px) {
+    .welcome-card {
+      padding: 15px;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .btn-lg {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -479,4 +515,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?= $this->endSection() ?>
-

@@ -6,97 +6,680 @@ Manage Users
 
 <?= $this->section('content') ?>
 
-<div class="container py-4">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-between align-items-center">
-            <h2>User Management</h2>
-            <a href="<?= base_url('manageusers/create') ?>" class="btn btn-success">
-                <i class="fas fa-user-plus"></i> Add User
-            </a>
-        </div>
+<style>
+  /* Redesigned User Management Dashboard Template with #73AF6F Theme */
+
+  :root {
+    --primary-green: #73AF6F;
+    --primary-green-light: #8bbf84;
+    --primary-green-dark: #5a8f58;
+    --secondary-green: #64748b;
+    --accent-green: #73AF6F;
+    --success-green: #73AF6F;
+    --background-light: #f8fafc;
+    --background-card: rgba(255, 255, 255, 0.98);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: rgba(115, 175, 111, 0.2);
+    --shadow-light: 0 4px 12px rgba(115, 175, 111, 0.1);
+    --shadow-hover: 0 8px 24px rgba(115, 175, 111, 0.15);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Main Container */
+  .users-dashboard {
+    background: linear-gradient(135deg, var(--background-light) 0%, #e8f5e8 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+  }
+
+  /* Header Section */
+  .dashboard-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+  }
+
+  .dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(120deg); }
+    66% { transform: translateY(5px) rotate(240deg); }
+  }
+
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-title h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .header-title i {
+    font-size: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary-green {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-primary-green:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-secondary-green {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+  }
+
+  .btn-secondary-green:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Stats Cards */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-green-light));
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Content Grid */
+  .content-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Main Content Card */
+  .main-content-card {
+    background: var(--background-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+  }
+
+  .content-header {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    padding: 1.5rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .content-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .content-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .search-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px 45px 10px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    background: white;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(115, 175, 111, 0.1);
+  }
+
+  .search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-green);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .search-btn:hover {
+    background: var(--primary-green-dark);
+  }
+
+  /* Table Styles */
+  .table-modern {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+  }
+
+  .table-modern thead {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+  }
+
+  .table-modern th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .table-modern td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+  }
+
+  .table-modern tbody tr {
+    transition: var(--transition);
+  }
+
+  .table-modern tbody tr:hover {
+    background: rgba(115, 175, 111, 0.02);
+  }
+
+  .badge-modern {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-modern.admin {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+  }
+
+  .badge-modern.teacher {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+  }
+
+  .badge-modern.student {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+
+  .badge-modern.you {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+  }
+
+  .badge-modern.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+
+  .btn-action-modern {
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    min-width: 80px;
+  }
+
+  .btn-action-modern.primary {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(115, 175, 111, 0.3);
+  }
+
+  .btn-action-modern.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(115, 175, 111, 0.4);
+  }
+
+  .btn-action-modern.danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+    border: 1px solid #dc2626;
+  }
+
+  .btn-action-modern.danger:hover {
+    background: #dc2626;
+    color: white;
+  }
+
+  .btn-action-modern.danger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+  }
+
+  .empty-state i {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.3;
+    color: var(--primary-green);
+  }
+
+  .empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-state p {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Alert Styles */
+  .alert-modern {
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-light);
+  }
+
+  .alert-modern.success {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+  }
+
+  .alert-modern.danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    color: #991b1b;
+  }
+
+  .alert-modern i {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-header {
+      padding: 2rem 1rem;
+    }
+
+    .header-title h1 {
+      font-size: 2rem;
+    }
+
+    .header-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-primary-green,
+    .btn-secondary-green {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .content-grid {
+      padding: 0 1rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-title {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .header-title h1 {
+      font-size: 1.75rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="users-dashboard">
+  <!-- Dashboard Header -->
+  <div class="dashboard-header">
+    <div class="header-content">
+      <div class="header-title">
+        <i class="fas fa-users"></i>
+        <h1>User Management</h1>
+      </div>
+      <div class="header-actions">
+        <a href="<?= base_url('manageusers/create') ?>" class="btn-primary-green">
+          <i class="fas fa-user-plus"></i>
+          Add User
+        </a>
+        <a href="#" class="btn-secondary-green" onclick="refreshUsers()">
+          <i class="fas fa-sync-alt"></i>
+          Refresh
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="stat-value"><?= count($users ?? []) ?></div>
+      <div class="stat-label">Total Users</div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="mb-3">
-                        <input type="text" id="user-search-input" class="form-control" placeholder="Search users by name, email, or role...">
-                    </div>
-
-                    <?php if (session()->getFlashdata('success')): ?>
-                        <div class="alert alert-success">
-                            <i class="fas fa-check-circle"></i> <?= session()->getFlashdata('success') ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (session()->getFlashdata('error')): ?>
-                        <div class="alert alert-danger">
-                            <i class="fas fa-exclamation-circle"></i> <?= session()->getFlashdata('error') ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if (empty($users)): ?>
-                        <div class="text-center py-5">
-                            <i class="fas fa-users fa-3x text-muted mb-3"></i>
-                            <h4>No users found</h4>
-                            <p class="text-muted">There are no users in the system yet. Create your first user to get started.</p>
-                        </div>
-                    <?php else: ?>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($users as $user): ?>
-                                        <?php
-                                        $isCurrentUser = ($user['id'] == ($currentUserId ?? null));
-                                        $userRole = $user['role'] ?? 'student';
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <?= esc($user['name']) ?>
-                                                <?php if ($isCurrentUser): ?>
-                                                    <span class="badge bg-info ms-1">You</span>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td><?= esc($user['email']) ?></td>
-                                            <td>
-                                                <span class="badge bg-<?= $userRole === 'admin' ? 'danger' : ($userRole === 'teacher' ? 'primary' : 'success') ?>">
-                                                    <?= ucfirst(esc($userRole)) ?>
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-success">Active</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-primary me-1"
-                                                        onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')">
-                                                    <i class="fas fa-edit"></i> Edit
-                                                </button>
-                                                <button class="btn btn-sm btn-outline-danger"
-                                                        onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
-                                                        <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
-                                                    <i class="fas fa-trash"></i> Delete
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <div class="stat-value">
+        <?php
+          $adminCount = 0;
+          foreach (($users ?? []) as $user) {
+            if (($user['role'] ?? '') === 'admin') $adminCount++;
+          }
+          echo $adminCount;
+        ?>
+      </div>
+      <div class="stat-label">Administrators</div>
     </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-chalkboard-teacher"></i>
+      </div>
+      <div class="stat-value">
+        <?php
+          $teacherCount = 0;
+          foreach (($users ?? []) as $user) {
+            if (($user['role'] ?? '') === 'teacher') $teacherCount++;
+          }
+          echo $teacherCount;
+        ?>
+      </div>
+      <div class="stat-label">Teachers</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <div class="stat-value">
+        <?php
+          $studentCount = 0;
+          foreach (($users ?? []) as $user) {
+            if (($user['role'] ?? '') === 'student') $studentCount++;
+          }
+          echo $studentCount;
+        ?>
+      </div>
+      <div class="stat-label">Students</div>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="content-grid">
+    <!-- Main Content Area -->
+    <div class="main-content-card">
+      <div class="content-header">
+        <div class="content-title">
+          <i class="fas fa-users"></i>
+          All Users
+        </div>
+        <div class="content-actions">
+          <div class="search-container">
+            <input type="text" class="search-input" id="user-search-input" placeholder= >
+            <button class="search-btn" id="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 2rem;">
+        <?php if (session()->getFlashdata('success')): ?>
+          <div class="alert-modern success">
+            <i class="fas fa-check-circle"></i>
+            <?= session()->getFlashdata('success') ?>
+          </div>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')): ?>
+          <div class="alert-modern danger">
+            <i class="fas fa-exclamation-circle"></i>
+            <?= session()->getFlashdata('error') ?>
+          </div>
+        <?php endif; ?>
+
+        <?php if (empty($users)): ?>
+          <div class="empty-state">
+            <i class="fas fa-users"></i>
+            <h3>No Users Found</h3>
+            <p>There are no users in the system yet. Create your first user to get started.</p>
+          </div>
+        <?php else: ?>
+          <div class="table-responsive">
+            <table class="table-modern">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($users as $user): ?>
+                  <?php
+                  $isCurrentUser = ($user['id'] == ($currentUserId ?? null));
+                  $userRole = $user['role'] ?? 'student';
+                  ?>
+                  <tr>
+                    <td>
+                      <?= esc($user['name']) ?>
+                      <?php if ($isCurrentUser): ?>
+                        <span class="badge-modern you ms-2">You</span>
+                      <?php endif; ?>
+                    </td>
+                    <td><?= esc($user['email']) ?></td>
+                    <td>
+                      <span class="badge-modern <?= $userRole ?>">
+                        <?= ucfirst(esc($userRole)) ?>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="badge-modern success">Active</span>
+                    </td>
+                    <td>
+                      <button class="btn-action-modern primary me-2"
+                              onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')">
+                        <i class="fas fa-edit"></i> Edit
+                      </button>
+                      <button class="btn-action-modern danger"
+                              onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
+                              <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
+                        <i class="fas fa-trash"></i> Delete
+                      </button>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alert Container -->
+  <div id="alert-container"></div>
 </div>
 
 <!-- Delete User Confirmation Modal -->

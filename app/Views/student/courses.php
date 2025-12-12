@@ -1107,4 +1107,159 @@
 }
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('enrolled-course-search-input');
+    const searchBtn = document.getElementById('enrolled-search-btn');
+
+    // Function to perform search
+    function performSearch() {
+        const searchQuery = searchInput.value.trim();
+        const currentUrl = new URL(window.location);
+
+        if (searchQuery) {
+            currentUrl.searchParams.set('search', searchQuery);
+        } else {
+            currentUrl.searchParams.delete('search');
+        }
+
+        // Reload the page with the search parameter
+        window.location.href = currentUrl.toString();
+    }
+
+    // Handle search button click
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+    }
+
+    // Handle Enter key press in search input
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+
+        // Set initial value from URL parameter if exists
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            searchInput.value = searchParam;
+        }
+    }
+
+    // Handle enrollment buttons
+    const enrollButtons = document.querySelectorAll('.enroll-btn');
+    enrollButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const courseId = this.getAttribute('data-course-id');
+            const courseName = this.getAttribute('data-course-name');
+
+            if (confirm(`Are you sure you want to enroll in ${courseName}?`)) {
+                // Create a form to submit the enrollment request
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `/student/enroll/${courseId}`;
+
+                const csrfToken = document.querySelector('meta[name="csrf-token"]');
+                if (csrfToken) {
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'csrf_token';
+                    hiddenInput.value = csrfToken.getAttribute('content');
+                    form.appendChild(hiddenInput);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+
+    // Handle view materials buttons
+    const viewMaterialsButtons = document.querySelectorAll('.view-materials-btn');
+    viewMaterialsButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const courseId = this.getAttribute('data-course-id');
+            const courseName = this.getAttribute('data-course-name');
+
+            // Show loading state
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            this.disabled = true;
+
+            // Fetch materials via AJAX
+            fetch(`/materials/get/${courseId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const modal = document.getElementById('materialsModal');
+                    const modalTitle = document.getElementById('materialsModalTitle');
+                    const modalBody = document.getElementById('materialsModalBody');
+
+                    modalTitle.textContent = `Materials for ${courseName}`;
+                    modalBody.innerHTML = '';
+
+                    if (data.success && data.materials && data.materials.length > 0) {
+                        const materialsList = document.createElement('div');
+                        materialsList.className = 'materials-list';
+
+                        data.materials.forEach(material => {
+                            const materialItem = document.createElement('div');
+                            materialItem.className = 'material-item';
+                            materialItem.innerHTML = `
+                                <div class="material-info">
+                                    <h6>${material.title}</h6>
+                                    <p>${material.description || 'No description'}</p>
+                                    <small>Uploaded: ${new Date(material.created_at).toLocaleDateString()}</small>
+                                </div>
+                                <a href="/uploads/materials/${material.file_path}" class="btn btn-sm btn-primary" download>
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            `;
+                            materialsList.appendChild(materialItem);
+                        });
+
+                        modalBody.appendChild(materialsList);
+                    } else {
+                        modalBody.innerHTML = '<p class="text-center text-muted">No materials available for this course.</p>';
+                    }
+
+                    modal.style.display = 'flex';
+
+                    // Reset button state
+                    this.innerHTML = '<i class="fas fa-eye"></i> View Materials';
+                    this.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error fetching materials:', error);
+                    alert('Error loading materials. Please try again.');
+
+                    // Reset button state
+                    this.innerHTML = '<i class="fas fa-eye"></i> View Materials';
+                    this.disabled = false;
+                });
+        });
+    });
+
+    // Handle modal close
+    const modalClose = document.getElementById('materialsModalClose');
+    if (modalClose) {
+        modalClose.addEventListener('click', function() {
+            document.getElementById('materialsModal').style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('materialsModal');
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+</script>
+
 <?= $this->endSection() ?>

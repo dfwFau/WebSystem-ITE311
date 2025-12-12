@@ -115,6 +115,22 @@ public function upload($course_id)
     }
 
     // -----------------------------------------------------------
+    // GET MATERIALS FOR AJAX (Student access)
+    // -----------------------------------------------------------
+    public function get($course_id)
+    {
+        $materialModel = new MaterialModel();
+
+        // Get materials for the course
+        $materials = $materialModel->getMaterialsByCourse($course_id);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'materials' => $materials
+        ]);
+    }
+
+    // -----------------------------------------------------------
     // DOWNLOAD MATERIAL
     // -----------------------------------------------------------
     public function download($material_id)
