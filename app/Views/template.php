@@ -278,7 +278,7 @@ button {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: #73AF6F;
   color: white;
   text-decoration: none;
   font-weight: 600;

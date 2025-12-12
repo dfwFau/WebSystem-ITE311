@@ -939,7 +939,7 @@ function confirmDelete() {
   // Hide the modal and proceed with deletion
   closeDeleteModal();
 
-  const deleteBtn = document.querySelector(`button.btn-outline-danger[onclick*="${userId}"]`);
+  const deleteBtn = document.querySelector(`button.btn-action-modern.danger[onclick*="${userId}"]`);
   if (!deleteBtn) {
     showAlert('danger', 'Error: Delete button not found');
     return;

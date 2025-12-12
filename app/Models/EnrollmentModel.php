@@ -252,6 +252,31 @@ class EnrollmentModel extends Model
     }
 
     /**
+     * Get pending enrollments by teacher
+     *
+     * @param int $teacherId The teacher ID
+     * @return array Array of pending enrollment records
+     */
+    public function getPendingEnrollmentsByTeacher($teacherId)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $pendingStatusId = $statusModel->getStatusIdByName('pending');
+
+        if (!$pendingStatusId) {
+            return [];
+        }
+
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->where('c.teacher_id', $teacherId);
+        $builder->where('e.status_id', $pendingStatusId);
+        $builder->orderBy('e.created_at', 'DESC');
+
+        return $builder->get()->getResultArray();
+    }
+
+    /**
      * Get enrollment statistics by teacher
      *
      * @param int $teacherId The teacher ID

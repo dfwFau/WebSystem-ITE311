@@ -930,21 +930,34 @@
   }
 
   .search-input-group .search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--primary-green);
-    border: none;
-    color: white;
-    padding: 8px 15px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: var(--transition);
+    position: absolute !important;
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: var(--primary-green) !important;
+    border: none !important;
+    color: white !important;
+    padding: 8px 15px !important;
+    border-radius: var(--radius-sm) !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    z-index: 10 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .search-input-group .search-icon:hover {
-    background: var(--primary-green-dark);
+    background: var(--primary-green-dark) !important;
+  }
+
+  .search-input-group {
+    position: relative !important;
+  }
+
+  .search-input-group .search-input {
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   /* Materials Modal Styles */
@@ -1294,14 +1307,6 @@
             <i class="fas fa-graduation-cap"></i>
             All Courses
           </div>
-          <div class="content-actions">
-            <div class="search-container">
-              <input type="text" class="search-input" id="course-search-input" placeholder="Search courses..." value="">
-              <button class="search-btn" id="search-btn">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
         </div>
 
         <div class="courses-grid">
@@ -1467,14 +1472,6 @@
             <i class="fas fa-graduation-cap"></i>
             My Courses
           </div>
-          <div class="content-actions">
-            <div class="search-container">
-              <input type="text" class="search-input" id="course-search-input" placeholder="Search courses..." value="">
-              <button class="search-btn" id="search-btn">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
         </div>
 
         <div class="courses-grid">
@@ -1568,186 +1565,258 @@
 
 
   <?php elseif (($userRole ?? '') === 'student'): ?>
-    <!-- Student Courses -->
-    <div class="student-courses-section">
-
-    <!-- Alert Container -->
-    <div id="alert-container"></div>
-
-    <style>
-      /* Adjust student courses section to avoid covering header */
-      .student-courses-section {
-        margin-top: 40px; /* Adjust this value as needed to clear the header */
-      }
-      .search-bar-container {
-        margin-top: 20px; /* Additional margin for search bar */
-      }
-      .dashboard-grid {
-        margin-top: 20px; /* Additional margin for tables */
-      }
-    </style>
-
-    <!-- Courses Grid -->
-    <div class="dashboard-grid">
-      <!-- Enrolled Courses -->
-      <div class="content-card-modern">
-        <div class="card-header-modern" style="flex-direction: column; align-items: stretch;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <h5>
-              <i class="fas fa-book-reader"></i>
-              My Enrolled Courses
-            </h5>
+    <!-- Student Courses Dashboard - Updated to match Teacher Dashboard -->
+    <div class="courses-dashboard">
+      <!-- Dashboard Header -->
+      <div class="dashboard-header">
+        <div class="header-content">
+          <div class="header-title">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>My Courses Dashboard</h1>
           </div>
-          <!-- Search Bar in header -->
-          <div class="input-group search-input-group" style="max-width: 500px;">
-            <input type="text" id="course-search-input" class="form-control search-input" placeholder="Search courses by name or code..." value="">
-            <button class="btn btn-primary search-icon" id="search-btn">
-              <i class="fas fa-search"></i>
-            </button>
+          <div class="header-actions">
+            <a href="#" class="btn-secondary-green">
+              <i class="fas fa-sync-alt"></i>
+              Refresh
+            </a>
           </div>
-        </div>
-        <div class="card-container">
-          <?php if (!empty($enrolledCourses ?? [])): ?>
-            <?php foreach ($enrolledCourses as $course): ?>
-              <div class="course-card">
-                <div class="card-header">
-                  <h4><i class="fas fa-book"></i> <?= esc($course['course_number'] ?? '') ?></h4>
-                  <span class="status-dot"></span>
-                </div>
-                <div class="card-body">
-                  <div class="card-item">
-                    <strong>Units:</strong> <?= esc($course['units'] ?? '0') ?>
-                  </div>
-                  <div class="card-item">
-                    <strong>Instructor:</strong> <?= esc($course['teacher_name'] ?? 'N/A') ?>
-                  </div>
-                  <div class="card-item">
-                    <strong>Academic Year:</strong> <?= esc($course['academic_year'] ?? 'N/A') ?>
-                  </div>
-                  <div class="card-item">
-                    <strong>Semester:</strong> <?= esc($course['semester'] ?? 'N/A') ?> | <strong>Term:</strong> <?= esc($course['term'] ?? 'N/A') ?>
-                  </div>
-                  <div class="card-item">
-                    <strong>Schedule:</strong>
-                    <?php 
-                      $scheduleTime = $course['schedule_time'] ?? '';
-                      $scheduleDate = $course['schedule_date'] ?? '';
-                      if ($scheduleTime) {
-                        echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
-                      } else {
-                        echo 'N/A';
-                      }
-                      if ($scheduleDate) {
-                        echo ' on ' . date('M d, Y', strtotime($scheduleDate));
-                      }
-                    ?>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <button class="btn-action-modern primary view-materials-btn"
-                          data-course-id="<?= esc($course['course_id'] ?? '') ?>"
-                          data-course-name="<?= esc($course['course_number'] ?? '') ?>">
-                    <i class="fas fa-eye"></i> View Materials
-                  </button>
-                </div>
-              </div>
-            <?php endforeach; ?>
-          <?php else: ?>
-            <div class="empty-state-modern">
-              <i class="fas fa-book-reader"></i>
-              <h6>No Enrolled Courses</h6>
-              <p>Browse available courses to get started!</p>
-            </div>
-          <?php endif; ?>
-        </div>
-        <div id="search-no-results" class="empty-state-modern" style="display: none;">
-          <i class="fas fa-search"></i>
-          <h6>No courses found matching your search.</h6>
-          <p>Try adjusting your search terms.</p>
         </div>
       </div>
 
-      <!-- Available Courses -->
-      <div class="content-card-modern">
-        <div class="card-header-modern">
-          <h5>
-            <i class="fas fa-plus-circle"></i>
-            Available Courses
-          </h5>
+      <!-- Stats Section -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stat-value"><?= count($enrolledCourses ?? []) ?></div>
+          <div class="stat-label">Enrolled Courses</div>
         </div>
-        <div class="table-responsive">
-          <?php if (!empty($availableCourses ?? [])): ?>
-            <table class="table-modern table-complete-data">
-              <thead>
-                <tr>
-                  <th>CN</th>
-                  <th>Units</th>
-                  <th>Instructor</th>
-                  <th>Academic Year</th>
-                  <th>Semester</th>
-                  <th>Term</th>
-                  <th>Schedule Time</th>
-                  <th>Schedule Date</th>
-                  <th>Description</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach ($availableCourses as $course): ?>
-                  <tr>
-                    <td>
-                      <div><strong><?= esc($course['course_number'] ?? '') ?></strong></div>
-                    </td>
-                    <td><?= esc($course['units'] ?? '0') ?></td>
-                    <td><?= esc($course['teacher_name'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['academic_year'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['semester'] ?? 'N/A') ?></td>
-                    <td><?= esc($course['term'] ?? 'N/A') ?></td>
-                    <td>
-                      <?php 
-                        $scheduleTime = $course['schedule_time'] ?? '';
-                        if ($scheduleTime) {
-                          echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td>
-                      <?php 
-                        $scheduleDate = $course['schedule_date'] ?? '';
-                        if ($scheduleDate) {
-                          echo date('M d, Y', strtotime($scheduleDate));
-                        } else {
-                          echo 'N/A';
-                        }
-                      ?>
-                    </td>
-                    <td>
-                      <span title="<?= esc($course['description'] ?? '') ?>">
-                        <?= esc(substr($course['description'] ?? '', 0, 30)) ?><?= strlen($course['description'] ?? '') > 30 ? '...' : '' ?>
-                      </span>
-                    </td>
-                    <td>
-                      <button class="btn-action-modern success enroll-btn"
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <div class="stat-value"><?= count($availableCourses ?? []) ?></div>
+          <div class="stat-label">Available Courses</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="stat-value">
+            <?php
+              // Get total materials count for enrolled courses
+              $totalMaterials = 0;
+              if (!empty($enrolledCourses ?? [])) {
+                $materialModel = new \App\Models\MaterialModel();
+                foreach ($enrolledCourses as $course) {
+                  $materials = $materialModel->where('course_id', $course['course_id'])->findAll();
+                  $totalMaterials += count($materials);
+                }
+              }
+              echo $totalMaterials;
+            ?>
+          </div>
+          <div class="stat-label">Course Materials</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="stat-value">
+            <?php
+              // Get total assignments count for enrolled courses
+              $totalAssignments = 0;
+              if (!empty($enrolledCourses ?? [])) {
+                $assignmentModel = new \App\Models\AssignmentModel();
+                foreach ($enrolledCourses as $course) {
+                  $assignments = $assignmentModel->where('course_id', $course['course_id'])->findAll();
+                  $totalAssignments += count($assignments);
+                }
+              }
+              echo $totalAssignments;
+            ?>
+          </div>
+          <div class="stat-label">Assignments</div>
+        </div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="content-grid">
+        <!-- Main Content Area -->
+        <div class="main-content-card">
+          <div class="content-header">
+            <div class="content-title">
+              <i class="fas fa-graduation-cap"></i>
+              My Enrolled Courses
+            </div>
+            <div class="content-actions">
+              <div class="search-container">
+                <input type="text" class="search-input" id="student-course-search-input" placeholder="Search enrolled courses..." value="">
+                <button class="search-btn" id="student-search-btn">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="courses-grid">
+            <!-- Course Cards for Student - Enrolled Courses -->
+            <?php if (!empty($enrolledCourses ?? [])): ?>
+              <?php foreach ($enrolledCourses as $course): ?>
+                <div class="course-card-new">
+                  <div class="course-card-header">
+                    <div class="course-code"><?= esc($course['course_number'] ?? '') ?></div>
+                    <div class="course-status active">Enrolled</div>
+                  </div>
+                  <div class="course-card-body">
+                    <div class="course-info">
+                      <div class="info-item">
+                        <span class="info-label">INSTRUCTOR</span>
+                        <span class="info-value"><?= esc($course['teacher_name'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">UNITS</span>
+                        <span class="info-value"><?= esc($course['units'] ?? '3') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">ACADEMIC YEAR</span>
+                        <span class="info-value"><?= esc($course['academic_year'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">SEMESTER</span>
+                        <span class="info-value"><?= esc($course['semester'] ?? 'N/A') ?> - <?= esc($course['term'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">SCHEDULE</span>
+                        <span class="info-value">
+                          <?php
+                            $scheduleTime = $course['schedule_time'] ?? '';
+                            $scheduleDate = $course['schedule_date'] ?? '';
+                            if ($scheduleTime) {
+                              echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
+                            } else {
+                              echo 'N/A';
+                            }
+                            if ($scheduleDate) {
+                              echo ' on ' . date('M d, Y', strtotime($scheduleDate));
+                            }
+                          ?>
+                        </span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">DESCRIPTION</span>
+                        <span class="info-value" title="<?= esc($course['description'] ?? '') ?>">
+                          <?= esc(substr($course['description'] ?? 'No description', 0, 40)) ?><?= strlen($course['description'] ?? '') > 40 ? '...' : '' ?>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="course-card-actions">
+                      <button class="btn-course primary view-materials-btn"
+                              data-course-id="<?= esc($course['course_id'] ?? '') ?>"
+                              data-course-name="<?= esc($course['course_number'] ?? '') ?>">
+                        <i class="fas fa-eye"></i> View Materials
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <div class="empty-state">
+                <i class="fas fa-book"></i>
+                <h3>No Enrolled Courses</h3>
+                <p>Browse available courses below to get started!</p>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+
+        <!-- Available Courses Section -->
+        <div class="main-content-card">
+          <div class="content-header">
+            <div class="content-title">
+              <i class="fas fa-plus-circle"></i>
+              Available Courses
+            </div>
+          </div>
+
+          <div class="courses-grid">
+            <!-- Course Cards for Student - Available Courses -->
+            <?php if (!empty($availableCourses ?? [])): ?>
+              <?php foreach ($availableCourses as $course): ?>
+                <div class="course-card-new">
+                  <div class="course-card-header">
+                    <div class="course-code"><?= esc($course['course_number'] ?? '') ?></div>
+                    <div class="course-status active">Available</div>
+                  </div>
+                  <div class="course-card-body">
+                    <div class="course-info">
+                      <div class="info-item">
+                        <span class="info-label">INSTRUCTOR</span>
+                        <span class="info-value"><?= esc($course['teacher_name'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">UNITS</span>
+                        <span class="info-value"><?= esc($course['units'] ?? '3') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">ACADEMIC YEAR</span>
+                        <span class="info-value"><?= esc($course['academic_year'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">SEMESTER</span>
+                        <span class="info-value"><?= esc($course['semester'] ?? 'N/A') ?> - <?= esc($course['term'] ?? 'N/A') ?></span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">SCHEDULE</span>
+                        <span class="info-value">
+                          <?php
+                            $scheduleTime = $course['schedule_time'] ?? '';
+                            $scheduleDate = $course['schedule_date'] ?? '';
+                            if ($scheduleTime) {
+                              echo esc(\App\Helpers\TimeHelper::to12HourFormat($scheduleTime));
+                            } else {
+                              echo 'N/A';
+                            }
+                            if ($scheduleDate) {
+                              echo ' on ' . date('M d, Y', strtotime($scheduleDate));
+                            }
+                          ?>
+                        </span>
+                      </div>
+                      <div class="info-item">
+                        <span class="info-label">DESCRIPTION</span>
+                        <span class="info-value" title="<?= esc($course['description'] ?? '') ?>">
+                          <?= esc(substr($course['description'] ?? 'No description', 0, 40)) ?><?= strlen($course['description'] ?? '') > 40 ? '...' : '' ?>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="course-card-actions">
+                      <button class="btn-course success enroll-btn"
                               data-course-id="<?= esc($course['course_id'] ?? '') ?>"
                               data-course-name="<?= esc($course['course_number'] ?? '') ?>">
                         <i class="fas fa-plus"></i> Enroll
                       </button>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
-          <?php else: ?>
-            <div class="empty-state-modern">
-              <i class="fas fa-check-circle"></i>
-              <h6>All Courses Enrolled</h6>
-              <p>You're enrolled in all available courses!</p>
-            </div>
-          <?php endif; ?>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <div class="empty-state">
+                <i class="fas fa-check-circle"></i>
+                <h3>All Courses Enrolled</h3>
+                <p>You're enrolled in all available courses!</p>
+              </div>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
+
+      <!-- Alert Container -->
+      <div id="alert-container"></div>
     </div>
 
   <?php else: ?>
@@ -1872,23 +1941,23 @@ $(document).ready(function() {
 
     // Function to perform search on enrolled courses only
     function performSearch() {
-        const searchTerm = document.getElementById('course-search-input').value.toLowerCase().trim();
-        const enrolledTable = document.querySelector('.content-card-modern'); // First table (enrolled courses)
-        const rows = enrolledTable.querySelectorAll('tbody tr');
+        const searchTerm = document.getElementById('student-course-search-input').value.toLowerCase().trim();
+        const enrolledCard = document.querySelector('.content-card-modern'); // First card (enrolled courses)
+        const courseCards = enrolledCard.querySelectorAll('.course-card');
         const noResultsDiv = document.getElementById('search-no-results');
         let visibleCount = 0;
 
-        rows.forEach(row => {
-            const courseCode = row.querySelector('td:first-child').textContent.toLowerCase();
-            const courseName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+        courseCards.forEach(card => {
+            const courseCode = card.querySelector('.card-header h4')?.textContent.toLowerCase() || '';
+            const courseInfo = card.textContent.toLowerCase();
 
-            const matches = courseCode.includes(searchTerm) || courseName.includes(searchTerm);
+            const matches = courseCode.includes(searchTerm) || courseInfo.includes(searchTerm);
 
             if (matches) {
-                row.style.display = '';
+                card.style.display = '';
                 visibleCount++;
             } else {
-                row.style.display = 'none';
+                card.style.display = 'none';
             }
         });
 
@@ -1903,8 +1972,8 @@ $(document).ready(function() {
     }
 
     // Initialize student search functionality
-    const studentSearchInput = document.getElementById('course-search-input');
-    const studentSearchBtn = document.getElementById('search-btn');
+    const studentSearchInput = document.getElementById('student-course-search-input');
+    const studentSearchBtn = document.getElementById('student-search-btn');
 
     if (studentSearchInput && studentSearchBtn) {
         // Search on input change with debounce

@@ -292,4 +292,132 @@ class Teacher extends BaseController
             return $this->response->setJSON(['success' => false, 'message' => 'Failed to remove student']);
         }
     }
+
+    /**
+     * Get pending enrollment applications for teacher's courses
+     */
+    public function getPendingEnrollments()
+    {
+        $teacherId = session()->get('user_id');
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $courseModel = new \App\Models\CourseModel();
+        $userModel = new \App\Models\UserModel();
+
+        // Get all pending enrollments for this teacher's courses
+        $pendingEnrollments = $enrollmentModel->getPendingEnrollmentsByTeacher($teacherId);
+
+        // Format the data for display
+        $formattedEnrollments = [];
+        foreach ($pendingEnrollments as $enrollment) {
+            $student = $userModel->find($enrollment['user_id']);
+            $course = $courseModel->find($enrollment['course_id']);
+
+            if ($student && $course) {
+                $formattedEnrollments[] = [
+                    'enrollment_id' => $enrollment['enrollment_id'],
+                    'student_id' => $student['id'],
+                    'student_name' => $student['name'],
+                    'student_email' => $student['email'],
+                    'course_id' => $course['course_id'],
+                    'course_number' => $course['course_number'],
+                    'course_name' => $course['description'],
+                    'enrollment_date' => $enrollment['enrollment_date'],
+                    'application_date' => $enrollment['created_at'] ?? $enrollment['enrollment_date']
+                ];
+            }
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'pendingEnrollments' => $formattedEnrollments
+        ]);
+    }
+
+    /**
+     * Approve or reject enrollment application
+     */
+    public function processEnrollmentApplication()
+    {
+        $enrollmentId = $this->request->getPost('enrollment_id');
+        $action = $this->request->getPost('action'); // 'approve' or 'reject'
+        $remarks = $this->request->getPost('remarks') ?? '';
+
+        if (!$enrollmentId || !in_array($action, ['approve', 'reject'])) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid parameters'
+            ]);
+        }
+
+        $enrollmentModel = new \App\Models\EnrollmentModel();
+        $userModel = new \App\Models\UserModel();
+        $courseModel = new \App\Models\CourseModel();
+        $notificationModel = new \App\Models\NotificationModel();
+
+        // Get enrollment details
+        $enrollment = $enrollmentModel->find($enrollmentId);
+        if (!$enrollment) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Enrollment application not found'
+            ]);
+        }
+
+        // Check if teacher owns this course
+        $course = $courseModel->find($enrollment['course_id']);
+        if (!$course || $course['teacher_id'] != session()->get('user_id')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Access denied'
+            ]);
+        }
+
+        // Get student details for notification
+        $student = $userModel->find($enrollment['user_id']);
+
+        if ($action === 'approve') {
+            // Update enrollment status to 'enrolled'
+            $result = $enrollmentModel->updateEnrollmentStatus($enrollmentId, 'enrolled');
+
+            if ($result) {
+                // Notify student of approval
+                $notificationData = [
+                    'user_id' => $enrollment['user_id'],
+                    'message' => "Congratulations! Your enrollment application for {$course['course_number']} has been approved. You can now access the course materials.",
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+                $notificationModel->insert($notificationData);
+
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'Enrollment application approved successfully'
+                ]);
+            }
+        } elseif ($action === 'reject') {
+            // Delete the pending enrollment
+            $result = $enrollmentModel->delete($enrollmentId);
+
+            if ($result) {
+                // Notify student of rejection
+                $notificationData = [
+                    'user_id' => $enrollment['user_id'],
+                    'message' => "Unfortunately, your enrollment application for {$course['course_number']} has been rejected." . (!empty($remarks) ? " Reason: {$remarks}" : ""),
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+                $notificationModel->insert($notificationData);
+
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'Enrollment application rejected'
+                ]);
+            }
+        }
+
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Failed to process enrollment application'
+        ]);
+    }
 }

@@ -231,9 +231,9 @@ class UserManagement extends BaseController
             if ($name === '') {
                 $errors[] = 'Name is required.';
             } else {
-                // Validate name - no special characters allowed
-                if (!preg_match('/^[a-zA-Z0-9\s\-\.\']+$/', $name)) {
-                    $errors[] = 'Name can only contain letters, numbers, spaces, hyphens, periods, and apostrophes.';
+                // Validate name - no numbers or special characters allowed
+                if (!preg_match('/^[a-zA-Z\s\-\.\']+$/', $name)) {
+                    $errors[] = 'Name can only contain letters, spaces, hyphens, periods, and apostrophes. Numbers are not allowed.';
                 }
             }
 
@@ -349,9 +349,9 @@ class UserManagement extends BaseController
             if ($name === '') {
                 $errors[] = 'Name is required.';
             } else {
-                // Validate name - no special characters allowed
-                if (!preg_match('/^[a-zA-Z0-9\s\-\.\']+$/', $name)) {
-                    $errors[] = 'Name can only contain letters, numbers, spaces, hyphens, periods, and apostrophes.';
+                // Validate name - no numbers or special characters allowed
+                if (!preg_match('/^[a-zA-Z\s\-\.\']+$/', $name)) {
+                    $errors[] = 'Name can only contain letters, spaces, hyphens, periods, and apostrophes. Numbers are not allowed.';
                 }
             }
 

@@ -20,7 +20,7 @@
     }
 
     h1 {
-        color: #00796b;
+        color: #73AF6F;
         font-weight: 700;
     }
 
@@ -31,27 +31,40 @@
 
     .form-control {
         border-radius: 10px;
-        border: 1px solid #b2dfdb;
+        border: 1px solid #e9ecef;
     }
 
     .form-control:focus {
-        border-color: #00796b;
-        box-shadow: 0 0 0 0.2rem rgba(0, 121, 107, 0.25);
+        border-color: #73AF6F;
+        box-shadow: 0 0 0 0.2rem rgba(115, 175, 111, 0.25);
     }
 
-    .btn-primary {
-        background: #00796b;
-        border: none;
+    .btn.btn-primary {
+        background: #73AF6F !important;
+        border: 1px solid #73AF6F !important;
         border-radius: 10px;
         font-weight: 600;
+        color: white !important;
+        box-shadow: none !important;
     }
 
-    .btn-primary:hover {
-        background: #00695c;
+    .btn.btn-primary:hover {
+        background: #5a8f58 !important;
+        border-color: #5a8f58 !important;
+        color: white !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(115, 175, 111, 0.3) !important;
+    }
+
+    .btn.btn-primary:focus {
+        background: #73AF6F !important;
+        border-color: #73AF6F !important;
+        color: white !important;
+        box-shadow: 0 0 0 0.2rem rgba(115, 175, 111, 0.25) !important;
     }
 
     .text-primary {
-        color: #00796b !important;
+        color: #73AF6F !important;
     }
 
     .alert {

@@ -188,48 +188,41 @@ class Course extends BaseController
         $data = [
             'user_id' => $user_id,
             'course_id' => $course_id,
-            'enrollment_date' => date('Y-m-d H:i:s')
+            'enrollment_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending' // Set status to pending for teacher approval
         ];
 
         if ($enrollmentModel->enrollUser($data)) {
-            // Update course status to active when student enrolls
-            $courseModel->update($course_id, [
-                'status' => 'active',
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
             // Get the enrollment date from the data
             $enrollment_date = $data['enrollment_date'];
 
-            // Create notification for successful enrollment for the student
+            // Create notification for enrollment application for the student
             $notificationModel = new NotificationModel();
             $notificationData = [
                 'user_id' => $user_id,
-                'message' => "You have been enrolled in {$course['course_number']}",
+                'message' => "Your enrollment application for {$course['course_number']} has been submitted and is waiting for teacher approval.",
                 'is_read' => 0,
                 'created_at' => date('Y-m-d H:i:s')
             ];
             $notificationModel->insert($notificationData);
 
-            // Notify the teacher about the new enrollment
+            // Notify the teacher about the new enrollment application
             $userModel = new \App\Models\UserModel();
             $student = $userModel->find($user_id);
             if ($student) {
                 $studentName = $student['name'];
                 $teacherNotification = [
                     'user_id' => $course['teacher_id'],
-                    'message' => "Student {$studentName} has enrolled in your course: {$course['course_number']}",
+                    'message' => "Student {$studentName} has applied for enrollment in your course: {$course['course_number']}. Please review and approve/reject the application.",
                     'is_read' => 0,
                     'created_at' => date('Y-m-d H:i:s')
                 ];
                 $notificationModel->insert($teacherNotification);
             }
 
-            $materialModel = new \App\Models\MaterialModel();
-            $materials = $materialModel->getMaterialsByCourse($course_id);
-
-            return $this->response->setJSON(['success' => true, 'message' => 'Successfully enrolled in the course', 'enrollment_date' => $enrollment_date, 'materials' => $materials]);
+            return $this->response->setJSON(['success' => true, 'message' => 'Enrollment application submitted successfully. Waiting for teacher approval.', 'enrollment_date' => $enrollment_date]);
         } else {
-            return $this->response->setStatusCode(500)->setJSON(['success' => false, 'message' => 'Failed to enroll']);
+            return $this->response->setStatusCode(500)->setJSON(['success' => false, 'message' => 'Failed to submit enrollment application']);
         }
     }
 

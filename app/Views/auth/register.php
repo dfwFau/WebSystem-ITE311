@@ -194,8 +194,8 @@ e<?= $this->extend('template') ?>
   }
   
   .btn-register-submit {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
+    background: #73AF6F;
+    border: 1px solid #73AF6F;
     border-radius: 12px;
     padding: 1rem;
     font-size: 1rem;
@@ -203,7 +203,7 @@ e<?= $this->extend('template') ?>
     color: #fff;
     width: 100%;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 15px rgba(115, 175, 111, 0.3);
     position: relative;
     overflow: hidden;
     margin-top: 0.5rem;

@@ -409,22 +409,22 @@ Add New User
             Full Name
             <span class="required">*</span>
           </label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            class="form-control" 
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
             value="<?= old('name') ?>"
             required
             minlength="3"
             maxlength="100"
             placeholder="Enter user's full name"
-            pattern="[a-zA-Z0-9\s\-\.']*"
-            title="Name can only contain letters, numbers, spaces, hyphens, periods, and apostrophes"
+            pattern="[a-zA-Z\s\-\.']*"
+            title="Name can only contain letters, spaces, hyphens, periods, and apostrophes"
           >
           <div class="form-help">
             <i class="fas fa-info-circle"></i>
-            Letters, numbers, spaces, hyphens, periods, and apostrophes only
+            Letters, spaces, hyphens, periods, and apostrophes only (no numbers or special characters)
           </div>
         </div>
 
