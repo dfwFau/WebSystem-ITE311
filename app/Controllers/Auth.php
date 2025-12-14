@@ -320,9 +320,13 @@ if ($admin) {
             
             $userId = $user['id'];
             
-            // Get enrolled courses
-            $enrolledCourses = $enrollmentModel->getUserEnrollments($userId);
+            // Get enrolled courses (approved only)
+            $enrolledCourses = $enrollmentModel->getApprovedEnrollments($userId);
             $data['enrolledCourses'] = $enrolledCourses;
+            
+            // Get pending courses
+            $pendingCourses = $enrollmentModel->getPendingEnrollments($userId);
+            $data['pendingCourses'] = $pendingCourses;
             
             // Get available courses using the new method
             $data['availableCourses'] = $courseModel->getAvailableCoursesForStudent($userId);

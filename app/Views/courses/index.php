@@ -2202,67 +2202,40 @@ $(document).ready(function() {
             if (response && response.success) {
                 showAlert('success', response.message);
 
-                // Update UI without reload
-                var courseRow = button.closest('tr');
-                var courseCode = courseRow.find('td:first-child').text();
-                var courseName = courseRow.find('td:nth-child(2)').text();
-
-                // Remove from available courses table
-                courseRow.fadeOut(500, function() {
-                    $(this).remove();
-
-                    // Check if available courses table is empty
-                    var availableTable = $('.content-card-modern').eq(1).find('tbody');
-                    if (availableTable.find('tr').length === 0) {
-                        availableTable.closest('.table-responsive').html(`
-                            <div class="empty-state-modern">
-                                <i class="fas fa-check-circle"></i>
-                                <h6>All Courses Enrolled</h6>
-                                <p>You're enrolled in all available courses!</p>
-                            </div>
-                        `);
-                    }
+                // Update UI - change button to show "Pending" status
+                var courseCard = button.closest('.course-card-new');
+                
+                // Update the status badge to "Pending"
+                var statusBadge = courseCard.find('.course-status');
+                statusBadge.removeClass('active').addClass('pending');
+                statusBadge.html('<i class="fas fa-hourglass-half"></i> Pending');
+                statusBadge.css({
+                    'background': '#f59e0b',
+                    'color': 'white'
                 });
-
-                // Add to enrolled courses table
-                var enrolledTable = $('.content-card-modern').eq(0).find('tbody');
-                var enrolledTableContainer = enrolledTable.closest('.table-responsive');
-
-                // If empty state exists, replace it with table
-                if (enrolledTableContainer.find('.empty-state-modern').length > 0) {
-                    enrolledTableContainer.html(`
-                        <table class="table-modern">
-                            <thead>
-                                <tr>
-                                    <th>Code</th>
-                                    <th>Course Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    `);
-                    enrolledTable = enrolledTableContainer.find('tbody');
+                
+                // Replace the Enroll button with a pending message
+                button.replaceWith(`
+                    <div style="text-align: center; padding: 0.75rem; background: #fef3c7; border-radius: 8px; color: #92400e;">
+                        <i class="fas fa-hourglass-half"></i> Waiting for teacher approval
+                    </div>
+                `);
+                
+                // Add pending styling to the card
+                courseCard.css('border', '2px dashed #f59e0b');
+                courseCard.find('.course-card-header').css('background', 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)');
+                courseCard.find('.course-code').css('color', '#92400e');
+                
+                // Update stat counters
+                var pendingStatValue = $('.stat-card:has(.stat-label:contains("Pending"))').find('.stat-value');
+                var availableStatValue = $('.stat-card:has(.stat-label:contains("Available"))').find('.stat-value');
+                
+                if (pendingStatValue.length) {
+                    pendingStatValue.text(parseInt(pendingStatValue.text()) + 1);
                 }
-
-                var newRow = `
-                    <tr style="display: none;">
-                        <td><strong>${courseCode}</strong></td>
-                        <td>${courseName}</td>
-                        <td><span class="badge-modern success">Enrolled</span></td>
-                        <td>
-                            <button class="btn-action-modern primary view-materials-btn"
-                                    data-course-id="${courseId}"
-                                    data-course-name="${courseName}">
-                                <i class="fas fa-eye"></i> View
-                            </button>
-                        </td>
-                    </tr>
-                `;
-
-                enrolledTable.append(newRow);
-                enrolledTable.find('tr:last').fadeIn(500);
+                if (availableStatValue.length) {
+                    availableStatValue.text(Math.max(0, parseInt(availableStatValue.text()) - 1));
+                }
 
             } else {
                 showAlert('danger', (response && response.message) ? response.message : 'Failed to enroll in course.');

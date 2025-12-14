@@ -928,8 +928,8 @@
           <div class="stat-icon-modern">
             <i class="fas fa-book-open"></i>
           </div>
-          <div class="stat-value-modern"><?= count($enrolledCourses ?? []) ?></div>
-          <div class="stat-label-modern">Enrolled Courses</div>
+          <div class="stat-value-modern"><?= count($enrolledCourses ?? []) + count($pendingCourses ?? []) ?></div>
+          <div class="stat-label-modern">My Courses</div>
         </div>
         <div class="stat-card-modern">
           <div class="stat-icon-modern">
@@ -972,12 +972,24 @@
           </a>
         </div>
         <div class="card-body-modern">
-          <?php if (!empty($enrolledCourses ?? [])): ?>
+          <?php 
+            $allCourses = array_merge($enrolledCourses ?? [], $pendingCourses ?? []);
+          ?>
+          <?php if (!empty($allCourses)): ?>
+            <?php foreach (array_slice($pendingCourses ?? [], 0, 5) as $course): ?>
+              <div class="course-list-item" style="border-left: 3px solid #f59e0b;">
+                <div class="course-info">
+                  <h6><?= esc($course['course_number'] ?? '') ?></h6>
+                  <small><?= esc($course['teacher_name'] ?? '') ?></small>
+                </div>
+                <span class="badge-pending" style="background: #f59e0b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Pending</span>
+              </div>
+            <?php endforeach; ?>
             <?php foreach (array_slice($enrolledCourses ?? [], 0, 5) as $course): ?>
               <div class="course-list-item">
                 <div class="course-info">
                   <h6><?= esc($course['course_number'] ?? '') ?></h6>
-                  <small><?= esc($course['course_name'] ?? '') ?></small>
+                  <small><?= esc($course['teacher_name'] ?? '') ?></small>
                 </div>
                 <span class="badge-enrolled">Enrolled</span>
               </div>
