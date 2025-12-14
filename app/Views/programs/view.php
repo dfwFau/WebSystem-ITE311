@@ -202,13 +202,21 @@
         <div class="courses-table">
             <div class="table-header d-flex justify-content-between align-items-center">
                 <h5><i class="fas fa-book me-2"></i>Courses in This Program</h5>
-                <span class="badge bg-light text-dark"><?= count($courses) ?> courses</span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-dark"><?= count($courses) ?> courses</span>
+                    <a href="<?= base_url('courses/create?program_id=' . $program['id']) ?>" class="btn btn-light btn-sm">
+                        <i class="fas fa-plus me-1"></i>Add Course
+                    </a>
+                </div>
             </div>
             <?php if (empty($courses)): ?>
                 <div class="empty-courses">
                     <i class="fas fa-book-open"></i>
                     <h6>No Courses Yet</h6>
-                    <p class="mb-0">Courses added to this program will appear here.</p>
+                    <p class="mb-3">Courses added to this program will appear here.</p>
+                    <a href="<?= base_url('courses/create?program_id=' . $program['id']) ?>" class="btn btn-success">
+                        <i class="fas fa-plus me-2"></i>Add First Course
+                    </a>
                 </div>
             <?php else: ?>
                 <table class="table">
@@ -261,6 +269,9 @@
         <div class="info-card">
             <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
             <div class="d-grid gap-2">
+                <a href="<?= base_url('courses/create?program_id=' . $program['id']) ?>" class="btn btn-success">
+                    <i class="fas fa-plus me-2"></i>Add Course to Program
+                </a>
                 <a href="<?= base_url('programs/edit/' . $program['id']) ?>" class="btn btn-outline-warning">
                     <i class="fas fa-edit me-2"></i>Edit Program
                 </a>

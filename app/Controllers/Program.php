@@ -214,12 +214,19 @@ class Program extends BaseController
             return redirect()->to('/programs')->with('error', 'You do not have permission to view this program.');
         }
 
-        // Get courses in this program
+        // Get courses in this program (if program_id column exists)
         $db = \Config\Database::connect();
-        $courses = $db->table('courses')
-                      ->where('program_id', $id)
-                      ->get()
-                      ->getResultArray();
+        $fields = $db->getFieldNames('courses');
+        
+        if (in_array('program_id', $fields)) {
+            $courses = $db->table('courses')
+                          ->where('program_id', $id)
+                          ->get()
+                          ->getResultArray();
+        } else {
+            // Column doesn't exist yet, return empty array
+            $courses = [];
+        }
 
         $data = [
             'title' => $program['program_name'],

@@ -28,30 +28,12 @@ class CourseModel extends Model
 
     protected $useTimestamps = false; // timestamps handled by DB defaults in migration
     
-    protected $validationRules = [
-        'course_number' => 'required|max_length[200]|is_unique[courses.course_number]',
-        'description' => 'permit_empty',
-        'units' => 'permit_empty|integer|greater_than[0]|less_than[7]',
-        'teacher_id' => 'required|integer'
-    ];
+    // Validation is handled in the controller for more control over is_unique with exclusions
+    protected $validationRules = [];
     
-    protected $validationMessages = [
-        'course_number' => [
-            'required' => 'Course number (CN) is required.',
-            'max_length' => 'Course number cannot exceed 200 characters.',
-            'is_unique' => 'This course number already exists.'
-        ],
-        'units' => [
-            'integer' => 'Units must be a number.',
-            'greater_than' => 'Units must be greater than 0.',
-            'less_than' => 'Units must be less than 7.'
-        ],
-        'teacher_id' => [
-            'required' => 'Teacher ID is required.',
-            'integer' => 'Teacher ID must be a number.'
-        ]
-    ];
-
+    protected $validationMessages = [];
+    
+    protected $skipValidation = true;
 
     /**
      * Get all available courses for students (not enrolled by the student and activated by teacher)

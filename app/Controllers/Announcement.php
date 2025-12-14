@@ -9,7 +9,7 @@ use App\Models\UserModel;
 class Announcement extends BaseController
 {
     /**
-     * Display announcements (Students only)
+     * Display announcements (All logged-in users)
      */
     public function index()
     {
@@ -21,12 +21,8 @@ class Announcement extends BaseController
         }
 
         $userRole = $session->get('userRole');
-        
-        // Only students can view announcements
-        if ($userRole !== 'student') {
-            return redirect()->to(base_url('dashboard'))
-                ->with('error', 'Only students can view announcements.');
-        }
+        $userName = $session->get('userName');
+        $userEmail = $session->get('userEmail');
 
         $announcementModel = new AnnouncementModel();
         $announcements = $announcementModel->getAllAnnouncements();
@@ -34,14 +30,16 @@ class Announcement extends BaseController
         $data = [
             'announcements' => $announcements,
             'title' => 'Announcements',
-            'userRole' => $userRole
+            'userRole' => $userRole,
+            'userName' => $userName,
+            'userEmail' => $userEmail
         ];
         
         return view('announcements/index', $data);
     }
 
     /**
-     * Show create announcement form or handle form submission (Teachers only)
+     * Show create announcement form or handle form submission (Admins and Teachers)
      */
     public function create()
     {
@@ -53,11 +51,13 @@ class Announcement extends BaseController
         }
 
         $userRole = $session->get('userRole');
+        $userName = $session->get('userName');
+        $userEmail = $session->get('userEmail');
         
-        // Only teachers can create announcements
-        if ($userRole !== 'teacher') {
-            return redirect()->to(base_url('dashboard'))
-                ->with('error', 'Only teachers can create announcements.');
+        // Only admins and teachers can create announcements
+        if ($userRole !== 'admin' && $userRole !== 'teacher') {
+            return redirect()->to(base_url('announcements'))
+                ->with('error', 'Only admins and teachers can create announcements.');
         }
 
         // Handle POST request (form submission)
@@ -123,7 +123,7 @@ class Announcement extends BaseController
                     ]);
                 }
 
-                return redirect()->to(base_url('announcements/create'))
+                return redirect()->to(base_url('announcements'))
                     ->with('success', 'Announcement created successfully and all students have been notified!');
             } else {
                 return redirect()->back()
@@ -135,9 +135,45 @@ class Announcement extends BaseController
         // Handle GET request (show form)
         $data = [
             'title' => 'Create Announcement',
-            'userRole' => $userRole
+            'userRole' => $userRole,
+            'userName' => $userName,
+            'userEmail' => $userEmail
         ];
         
         return view('announcements/create', $data);
+    }
+    
+    /**
+     * Delete an announcement (Admins and Teachers only)
+     */
+    public function delete($id = null)
+    {
+        $session = session();
+        
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $userRole = $session->get('userRole');
+        
+        if ($userRole !== 'admin' && $userRole !== 'teacher') {
+            return redirect()->to(base_url('announcements'))
+                ->with('error', 'Only admins and teachers can delete announcements.');
+        }
+
+        if (!$id) {
+            return redirect()->to(base_url('announcements'))
+                ->with('error', 'Announcement ID is required.');
+        }
+
+        $announcementModel = new AnnouncementModel();
+        
+        if ($announcementModel->delete($id)) {
+            return redirect()->to(base_url('announcements'))
+                ->with('success', 'Announcement deleted successfully.');
+        } else {
+            return redirect()->to(base_url('announcements'))
+                ->with('error', 'Failed to delete announcement.');
+        }
     }
 }

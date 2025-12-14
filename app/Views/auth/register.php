@@ -35,7 +35,7 @@ e<?= $this->extend('template') ?>
   }
   
   .register-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #73AF6F 0%, #5a8f58 100%);
     padding: 2.5rem 2rem;
     text-align: center;
     position: relative;
@@ -115,8 +115,8 @@ e<?= $this->extend('template') ?>
   }
   
   .form-floating-custom input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    border-color: #73AF6F;
+    box-shadow: 0 0 0 4px rgba(115, 175, 111, 0.1);
     background: #fff;
     outline: none;
   }
@@ -132,7 +132,7 @@ e<?= $this->extend('template') ?>
   }
   
   .form-floating-custom input:focus ~ .input-icon {
-    color: #667eea;
+    color: #73AF6F;
   }
   
   .form-floating-custom label {
@@ -152,7 +152,7 @@ e<?= $this->extend('template') ?>
     top: -0.5rem;
     left: 2.5rem;
     font-size: 0.75rem;
-    color: #667eea;
+    color: #73AF6F;
     background: #fff;
     padding: 0 0.5rem;
   }
@@ -270,7 +270,7 @@ e<?= $this->extend('template') ?>
   }
   
   .login-link a {
-    color: #667eea;
+    color: #73AF6F;
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
@@ -284,12 +284,12 @@ e<?= $this->extend('template') ?>
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: #667eea;
+    background: #73AF6F;
     transition: width 0.3s ease;
   }
   
   .login-link a:hover {
-    color: #764ba2;
+    color: #5a8f58;
   }
   
   .login-link a:hover::after {
@@ -366,7 +366,7 @@ e<?= $this->extend('template') ?>
   }
   
   .input-group-addon:hover {
-    color: #667eea;
+    color: #73AF6F;
   }
 </style>
 
@@ -374,7 +374,7 @@ e<?= $this->extend('template') ?>
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
             <div class="card shadow" style="border-radius: 15px; border: none;">
-                <div class="card-header bg-success text-white text-center py-4" style="border-radius: 15px 15px 0 0 !important; border: none;">
+                <div class="card-header text-white text-center py-4" style="border-radius: 15px 15px 0 0 !important; border: none; background: linear-gradient(135deg, #73AF6F 0%, #5a8f58 100%);">
                     <i class="fas fa-user-plus fa-2x mb-2"></i>
                     <h4 class="mb-1">Create Your Account</h4>
                     <p class="mb-0 small opacity-75">Join us and start your learning journey</p>
@@ -441,15 +441,15 @@ e<?= $this->extend('template') ?>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-success w-100 py-2 mb-3"
-                                style="border-radius: 10px; font-weight: 600;">
+                        <button type="submit" class="btn w-100 py-2 mb-3"
+                                style="border-radius: 10px; font-weight: 600; background: linear-gradient(135deg, #73AF6F 0%, #5a8f58 100%); color: white; border: none;">
                             <i class="fas fa-user-plus me-2"></i>Create Account
                         </button>
                     </form>
 
                     <div class="text-center">
                         <span class="text-muted">Already have an account?</span>
-                        <a href="<?= base_url('/login') ?>" class="text-decoration-none fw-bold text-success ms-1">
+                        <a href="<?= base_url('/login') ?>" class="text-decoration-none fw-bold ms-1" style="color: #73AF6F;">
                             Sign in
                         </a>
                     </div>

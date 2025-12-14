@@ -395,6 +395,33 @@
       </div>
     </div>
 
+    <!-- Quick Actions -->
+    <div class="content-card-modern" style="margin-bottom: 2rem;">
+      <div class="card-header-modern">
+        <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
+      </div>
+      <div class="card-body-modern">
+        <div class="quick-actions-grid">
+          <a href="<?= base_url('/manageusers') ?>" class="quick-action-btn">
+            <i class="fas fa-users"></i>
+            <span>Manage Users</span>
+          </a>
+          <a href="<?= base_url('/programs') ?>" class="quick-action-btn">
+            <i class="fas fa-layer-group"></i>
+            <span>Manage Programs</span>
+          </a>
+          <a href="<?= base_url('/courses') ?>" class="quick-action-btn">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Manage Courses</span>
+          </a>
+          <a href="<?= base_url('/announcements') ?>" class="quick-action-btn">
+            <i class="fas fa-bullhorn"></i>
+            <span>Announcements</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- Content Cards Grid -->
     <div class="cards-grid">
       <!-- Recent Users Card -->
@@ -450,37 +477,6 @@
               <h6>No courses created yet</h6>
             </div>
           <?php endif; ?>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Actions -->
-    <div class="content-card-modern">
-      <div class="card-header-modern">
-        <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
-      </div>
-      <div class="card-body-modern">
-        <div class="quick-actions-grid">
-          <a href="<?= base_url('/manageusers') ?>" class="quick-action-btn">
-            <i class="fas fa-users"></i>
-            <span>Manage Users</span>
-          </a>
-          <a href="<?= base_url('/programs') ?>" class="quick-action-btn">
-            <i class="fas fa-layer-group"></i>
-            <span>Manage Programs</span>
-          </a>
-          <a href="<?= base_url('/courses') ?>" class="quick-action-btn">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Manage Courses</span>
-          </a>
-          <a href="<?= base_url('/announcements') ?>" class="quick-action-btn">
-            <i class="fas fa-bullhorn"></i>
-            <span>Announcements</span>
-          </a>
-          <a href="<?= base_url('/assignments') ?>" class="quick-action-btn">
-            <i class="fas fa-clipboard-list"></i>
-            <span>Assignments</span>
-          </a>
         </div>
       </div>
     </div>

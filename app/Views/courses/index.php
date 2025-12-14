@@ -1411,6 +1411,10 @@
             <i class="fas fa-plus"></i>
             Add Course
           </a>
+          <a href="<?= base_url('teacher/manage-students') ?>" class="btn-secondary-green">
+            <i class="fas fa-users-cog"></i>
+            Manage Students
+          </a>
           <?php endif; ?>
           <a href="#" class="btn-secondary-green">
             <i class="fas fa-sync-alt"></i>
@@ -1603,6 +1607,14 @@
 
         <div class="stat-card">
           <div class="stat-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="stat-value"><?= count($pendingCourses ?? []) ?></div>
+          <div class="stat-label">Pending Approval</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
             <i class="fas fa-plus-circle"></i>
           </div>
           <div class="stat-value"><?= count($availableCourses ?? []) ?></div>
@@ -1629,31 +1641,64 @@
           </div>
           <div class="stat-label">Course Materials</div>
         </div>
-
-        <div class="stat-card">
-          <div class="stat-icon">
-            <i class="fas fa-clipboard-list"></i>
-          </div>
-          <div class="stat-value">
-            <?php
-              // Get total assignments count for enrolled courses
-              $totalAssignments = 0;
-              if (!empty($enrolledCourses ?? [])) {
-                $assignmentModel = new \App\Models\AssignmentModel();
-                foreach ($enrolledCourses as $course) {
-                  $assignments = $assignmentModel->where('course_id', $course['course_id'])->findAll();
-                  $totalAssignments += count($assignments);
-                }
-              }
-              echo $totalAssignments;
-            ?>
-          </div>
-          <div class="stat-label">Assignments</div>
-        </div>
       </div>
 
       <!-- Content Grid -->
       <div class="content-grid">
+        <!-- Pending Courses Section (if any) -->
+        <?php if (!empty($pendingCourses ?? [])): ?>
+        <div class="main-content-card" style="margin-bottom: 2rem;">
+          <div class="content-header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+            <div class="content-title" style="color: white;">
+              <i class="fas fa-clock"></i>
+              Pending Approval
+            </div>
+            <span style="background: rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;">
+              <?= count($pendingCourses) ?> course(s) waiting for teacher approval
+            </span>
+          </div>
+
+          <div class="courses-grid">
+            <?php foreach ($pendingCourses as $course): ?>
+              <div class="course-card-new" style="border: 2px dashed #f59e0b;">
+                <div class="course-card-header" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+                  <div class="course-code" style="color: #92400e;"><?= esc($course['course_number'] ?? '') ?></div>
+                  <div class="course-status" style="background: #f59e0b; color: white;">
+                    <i class="fas fa-hourglass-half"></i> Pending
+                  </div>
+                </div>
+                <div class="course-card-body">
+                  <div class="course-info">
+                    <div class="info-item">
+                      <span class="info-label">INSTRUCTOR</span>
+                      <span class="info-value"><?= esc($course['teacher_name'] ?? 'N/A') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">UNITS</span>
+                      <span class="info-value"><?= esc($course['units'] ?? '3') ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">APPLIED ON</span>
+                      <span class="info-value"><?= date('M d, Y', strtotime($course['enrollment_date'] ?? 'now')) ?></span>
+                    </div>
+                    <div class="info-item">
+                      <span class="info-label">STATUS</span>
+                      <span class="info-value" style="color: #f59e0b; font-weight: 600;">Waiting for teacher approval</span>
+                    </div>
+                  </div>
+                  <div class="course-card-actions">
+                    <div style="text-align: center; padding: 1rem; background: #fef3c7; border-radius: 8px; color: #92400e;">
+                      <i class="fas fa-info-circle"></i> 
+                      Materials will be available after approval
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <?php endif; ?>
+
         <!-- Main Content Area -->
         <div class="main-content-card">
           <div class="content-header">

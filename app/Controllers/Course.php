@@ -59,7 +59,9 @@ class Course extends BaseController
 
             case 'student':
                 // Student can see enrolled and available courses
-                $data['enrolledCourses'] = $this->enrollmentModel->getUserEnrollments($userId);
+                // Separate approved enrollments from pending ones
+                $data['enrolledCourses'] = $this->enrollmentModel->getApprovedEnrollments($userId);
+                $data['pendingCourses'] = $this->enrollmentModel->getPendingEnrollments($userId);
                 $data['availableCourses'] = $this->courseModel->getAvailableCoursesForStudent($userId);
                 $data['upcomingDeadlines'] = []; // TODO: Implement if needed
                 $data['recentGrades'] = []; // TODO: Implement if needed
@@ -115,8 +117,9 @@ class Course extends BaseController
                 $data['availableCourses'] = $this->courseModel->getAvailableCoursesForStudent($userId);
             }
 
-            // Always show enrolled courses
-            $data['enrolledCourses'] = $this->enrollmentModel->getUserEnrollments($userId);
+            // Always show enrolled courses (approved only) and pending courses separately
+            $data['enrolledCourses'] = $this->enrollmentModel->getApprovedEnrollments($userId);
+            $data['pendingCourses'] = $this->enrollmentModel->getPendingEnrollments($userId);
             $data['upcomingDeadlines'] = []; // TODO: Implement if needed
             $data['recentGrades'] = []; // TODO: Implement if needed
         } elseif ($userRole === 'admin') {
@@ -266,7 +269,7 @@ class Course extends BaseController
             $validationRules = [
                 'course_number' => [
                     'label' => 'Course Number (CN)',
-                    'rules' => 'required|min_length[5]|max_length[200]|is_unique[courses.course_number,id,' . $courseId . ']',
+                    'rules' => 'required|min_length[5]|max_length[200]|is_unique[courses.course_number,course_id,' . $courseId . ']',
                     'errors' => [
                         'required' => 'Course number (CN) is required.',
                         'min_length' => 'Course number must be at least 5 characters long.',
@@ -319,7 +322,8 @@ class Course extends BaseController
 
             // Additional manual validation
             $scheduleDate = $this->request->getPost('schedule_date');
-            $scheduleTime = $this->request->getPost('schedule_time');
+            $scheduleTimeStart = $this->request->getPost('schedule_time_start');
+            $scheduleTimeEnd = $this->request->getPost('schedule_time_end');
             $teacherId = $this->request->getPost('teacher_id');
             $manualErrors = [];
 
@@ -333,8 +337,11 @@ class Course extends BaseController
                 }
             }
 
-            if (empty($scheduleTime)) {
-                $manualErrors['schedule_time'] = 'Schedule time is required!';
+            // Only validate time range if both are provided
+            if (!empty($scheduleTimeStart) && !empty($scheduleTimeEnd)) {
+                if ($scheduleTimeStart >= $scheduleTimeEnd) {
+                    $manualErrors['schedule_time'] = 'End time must be after start time!';
+                }
             }
 
             // Check if teacher exists
@@ -360,8 +367,15 @@ class Course extends BaseController
             $academicYear = $this->request->getPost('academic_year') ?? '';
             $semester = $this->request->getPost('semester') ?? '';
             $term = $this->request->getPost('term') ?? '';
-            $scheduleTime = $this->request->getPost('schedule_time') ?? '';
+            $scheduleTimeStart = $this->request->getPost('schedule_time_start') ?? '';
+            $scheduleTimeEnd = $this->request->getPost('schedule_time_end') ?? '';
             $scheduleDate = $this->request->getPost('schedule_date') ?? '';
+            
+            // Combine start and end times
+            $scheduleTime = '';
+            if (!empty($scheduleTimeStart) && !empty($scheduleTimeEnd)) {
+                $scheduleTime = $scheduleTimeStart . ' - ' . $scheduleTimeEnd;
+            }
 
             // Update course
             $courseData = [
@@ -498,7 +512,8 @@ class Course extends BaseController
 
             // Additional manual validation
             $scheduleDate = $this->request->getPost('schedule_date');
-            $scheduleTime = $this->request->getPost('schedule_time');
+            $scheduleTimeStart = $this->request->getPost('schedule_time_start');
+            $scheduleTimeEnd = $this->request->getPost('schedule_time_end');
             $teacherId = $this->request->getPost('teacher_id');
             $manualErrors = [];
 
@@ -512,8 +527,11 @@ class Course extends BaseController
                 }
             }
 
-            if (empty($scheduleTime)) {
-                $manualErrors['schedule_time'] = 'Schedule time is required!';
+            // Only validate time range if both are provided
+            if (!empty($scheduleTimeStart) && !empty($scheduleTimeEnd)) {
+                if ($scheduleTimeStart >= $scheduleTimeEnd) {
+                    $manualErrors['schedule_time'] = 'End time must be after start time!';
+                }
             }
 
             // Check if teacher exists for admin
@@ -546,8 +564,15 @@ class Course extends BaseController
             $academicYear = $this->request->getPost('academic_year') ?? '';
             $semester = $this->request->getPost('semester') ?? '';
             $term = $this->request->getPost('term') ?? '';
-            $scheduleTime = $this->request->getPost('schedule_time') ?? '';
+            $scheduleTimeStart = $this->request->getPost('schedule_time_start') ?? '';
+            $scheduleTimeEnd = $this->request->getPost('schedule_time_end') ?? '';
             $scheduleDate = $this->request->getPost('schedule_date') ?? '';
+            
+            // Combine start and end times
+            $scheduleTime = '';
+            if (!empty($scheduleTimeStart) && !empty($scheduleTimeEnd)) {
+                $scheduleTime = $scheduleTimeStart . ' - ' . $scheduleTimeEnd;
+            }
 
             // Create course
             $courseData = [

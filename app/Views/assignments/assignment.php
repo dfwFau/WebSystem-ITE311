@@ -454,6 +454,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    grid-column: 1 / -1;
+    min-height: 300px;
   }
 
   .empty-state i {

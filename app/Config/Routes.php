@@ -14,6 +14,7 @@ $routes->get('/contact', 'Home::contact');
 $routes->get('/announcements', 'Announcement::index');
 $routes->get('/announcements/create', 'Announcement::create');
 $routes->post('/announcements/create', 'Announcement::create');
+$routes->get('/announcements/delete/(:num)', 'Announcement::delete/$1');
 
 // Authentication
 $routes->get('/register', 'Auth::register');

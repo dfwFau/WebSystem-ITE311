@@ -55,7 +55,7 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Get all courses a user is enrolled in
+     * Get all courses a user is enrolled in (all statuses for display purposes)
      * 
      * @param int $user_id The user ID
      * @return array Array of enrollment records with course details
@@ -68,6 +68,70 @@ class EnrollmentModel extends Model
         $builder->join('users u', 'c.teacher_id = u.id', 'left');
         $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
         $builder->where('e.user_id', $user_id);
+        $builder->orderBy('e.enrollment_date', 'DESC');
+        
+        return $builder->get()->getResultArray();
+    }
+
+    /**
+     * Get only approved (enrolled/active) courses for a user
+     * 
+     * @param int $user_id The user ID
+     * @return array Array of approved enrollment records with course details
+     */
+    public function getApprovedEnrollments($user_id)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $enrolledStatusId = $statusModel->getStatusIdByName('enrolled');
+        $activeStatusId = $statusModel->getStatusIdByName('active');
+        
+        // Collect valid status IDs
+        $validStatusIds = [];
+        if ($enrolledStatusId !== null) {
+            $validStatusIds[] = $enrolledStatusId;
+        }
+        if ($activeStatusId !== null) {
+            $validStatusIds[] = $activeStatusId;
+        }
+        
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*, c.course_id, c.course_number, c.description, c.units, c.academic_year, c.semester, c.term, c.schedule_time, c.schedule_date, u.name as teacher_name, es.status_name as status');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('e.user_id', $user_id);
+        
+        if (!empty($validStatusIds)) {
+            $builder->whereIn('e.status_id', $validStatusIds);
+        }
+        
+        $builder->orderBy('e.enrollment_date', 'DESC');
+        
+        return $builder->get()->getResultArray();
+    }
+
+    /**
+     * Get pending enrollment applications for a user
+     * 
+     * @param int $user_id The user ID
+     * @return array Array of pending enrollment records with course details
+     */
+    public function getPendingEnrollments($user_id)
+    {
+        $statusModel = new EnrollmentStatusModel();
+        $pendingStatusId = $statusModel->getStatusIdByName('pending');
+        
+        if (!$pendingStatusId) {
+            return [];
+        }
+        
+        $builder = $this->db->table('enrollments e');
+        $builder->select('e.*, c.course_id, c.course_number, c.description, c.units, c.academic_year, c.semester, c.term, c.schedule_time, c.schedule_date, u.name as teacher_name, es.status_name as status');
+        $builder->join('courses c', 'e.course_id = c.course_id', 'left');
+        $builder->join('users u', 'c.teacher_id = u.id', 'left');
+        $builder->join('enrollment_statuses es', 'e.status_id = es.id', 'left');
+        $builder->where('e.user_id', $user_id);
+        $builder->where('e.status_id', $pendingStatusId);
         $builder->orderBy('e.enrollment_date', 'DESC');
         
         return $builder->get()->getResultArray();

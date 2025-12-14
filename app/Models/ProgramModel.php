@@ -88,10 +88,19 @@ class ProgramModel extends Model
 
     /**
      * Count courses in a program
+     * Note: Currently returns 0 as courses table doesn't have program_id column yet
      */
     public function countCoursesInProgram($programId)
     {
+        // Check if program_id column exists in courses table
         $db = \Config\Database::connect();
+        $fields = $db->getFieldNames('courses');
+        
+        if (!in_array('program_id', $fields)) {
+            // Column doesn't exist yet, return 0
+            return 0;
+        }
+        
         return $db->table('courses')
                   ->where('program_id', $programId)
                   ->countAllResults();

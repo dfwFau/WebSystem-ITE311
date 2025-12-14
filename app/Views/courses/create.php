@@ -1,10 +1,24 @@
 <?= $this->extend('template') ?>
 
 <?= $this->section('title') ?>
-Create New Course
+<?= isset($isEdit) && $isEdit ? 'Edit Course' : 'Create New Course' ?>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+
+<?php
+// Parse existing schedule_time if editing
+$scheduleTimeStart = old('schedule_time_start', '');
+$scheduleTimeEnd = old('schedule_time_end', '');
+
+if (isset($isEdit) && $isEdit && isset($course['schedule_time']) && !empty($course['schedule_time'])) {
+    $timeParts = explode(' - ', $course['schedule_time']);
+    if (count($timeParts) == 2) {
+        $scheduleTimeStart = old('schedule_time_start', trim($timeParts[0]));
+        $scheduleTimeEnd = old('schedule_time_end', trim($timeParts[1]));
+    }
+}
+?>
 
 <style>
   /* Redesigned Create Course Template with #73AF6F Theme */
@@ -308,10 +322,10 @@ Create New Course
   <div class="create-course-container">
     <div class="create-course-header">
       <h2>
-        <i class="fas fa-plus-circle"></i>
-        Create New Course
+        <i class="fas fa-<?= isset($isEdit) && $isEdit ? 'edit' : 'plus-circle' ?>"></i>
+        <?= isset($isEdit) && $isEdit ? 'Edit Course' : 'Create New Course' ?>
       </h2>
-      <p>Add a new course to the system</p>
+      <p><?= isset($isEdit) && $isEdit ? 'Update course information' : 'Add a new course to the system' ?></p>
     </div>
 
     <div class="create-course-body">
@@ -341,7 +355,10 @@ Create New Course
         </div>
       <?php endif; ?>
 
-      <form method="POST" action="<?= base_url('courses/create') ?>">
+      <?php 
+        $courseId = isset($course['course_id']) ? $course['course_id'] : (isset($course['id']) ? $course['id'] : null);
+      ?>
+      <form method="POST" action="<?= isset($isEdit) && $isEdit && $courseId ? base_url('courses/edit/' . $courseId) : base_url('courses/create') ?>">
         <?= csrf_field() ?>
 
         <div class="row">
@@ -349,17 +366,30 @@ Create New Course
             <label for="course_number" class="form-label">
               <i class="fas fa-book"></i>
               Course Code & Name
-              <span class="required">*</span>
+              <?php if (!isset($isEdit) || !$isEdit): ?><span class="required">*</span><?php endif; ?>
             </label>
-            <input type="text" id="course_number" name="course_number"
-                   class="form-control <?= session('errors') && isset(session('errors')['course_number']) ? 'is-invalid' : '' ?>"
-                   value="<?= old('course_number') ?>"
-                   placeholder="e.g., CS101 - Introduction to Computer Science" required>
-            <?php if (session('errors') && isset(session('errors')['course_number'])): ?>
+            <?php if (isset($isEdit) && $isEdit): ?>
+              <input type="text" id="course_number_display" 
+                     class="form-control" 
+                     value="<?= esc($course['course_number'] ?? '') ?>" 
+                     readonly 
+                     style="background-color: #f1f5f9; cursor: not-allowed;">
+              <input type="hidden" name="course_number" value="<?= esc($course['course_number'] ?? '') ?>">
               <div class="form-help">
-                <i class="fas fa-exclamation-triangle"></i>
-                <?= session('errors')['course_number'] ?>
+                <i class="fas fa-lock"></i>
+                Course code cannot be changed after creation.
               </div>
+            <?php else: ?>
+              <input type="text" id="course_number" name="course_number"
+                     class="form-control <?= session('errors') && isset(session('errors')['course_number']) ? 'is-invalid' : '' ?>"
+                     value="<?= old('course_number', '') ?>"
+                     placeholder="e.g., CS101 - Introduction to Computer Science" required>
+              <?php if (session('errors') && isset(session('errors')['course_number'])): ?>
+                <div class="form-help">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <?= session('errors')['course_number'] ?>
+                </div>
+              <?php endif; ?>
             <?php endif; ?>
           </div>
 
@@ -368,13 +398,14 @@ Create New Course
               <i class="fas fa-graduation-cap"></i>
               Units
             </label>
+            <?php $unitsValue = old('units', isset($course['units']) ? $course['units'] : '3'); ?>
             <select id="units" name="units" class="form-select">
-              <option value="3" <?= old('units') == '3' || old('units') == '' ? 'selected' : '' ?>>3 Units</option>
-              <option value="1" <?= old('units') == '1' ? 'selected' : '' ?>>1 Unit</option>
-              <option value="2" <?= old('units') == '2' ? 'selected' : '' ?>>2 Units</option>
-              <option value="4" <?= old('units') == '4' ? 'selected' : '' ?>>4 Units</option>
-              <option value="5" <?= old('units') == '5' ? 'selected' : '' ?>>5 Units</option>
-              <option value="6" <?= old('units') == '6' ? 'selected' : '' ?>>6 Units</option>
+              <option value="3" <?= $unitsValue == '3' ? 'selected' : '' ?>>3 Units</option>
+              <option value="1" <?= $unitsValue == '1' ? 'selected' : '' ?>>1 Unit</option>
+              <option value="2" <?= $unitsValue == '2' ? 'selected' : '' ?>>2 Units</option>
+              <option value="4" <?= $unitsValue == '4' ? 'selected' : '' ?>>4 Units</option>
+              <option value="5" <?= $unitsValue == '5' ? 'selected' : '' ?>>5 Units</option>
+              <option value="6" <?= $unitsValue == '6' ? 'selected' : '' ?>>6 Units</option>
             </select>
           </div>
 
@@ -383,6 +414,7 @@ Create New Course
               <i class="fas fa-calendar-alt"></i>
               Academic Year
             </label>
+            <?php $academicYearValue = old('academic_year', isset($course['academic_year']) ? $course['academic_year'] : ''); ?>
             <select id="academic_year" name="academic_year" class="form-select">
               <option value="">Select academic year</option>
               <?php
@@ -391,7 +423,7 @@ Create New Course
                 $startYear = $currentYear + $i;
                 $endYear = $startYear + 1;
                 $yearRange = $startYear . '-' . $endYear;
-                $selected = old('academic_year') == $yearRange ? 'selected' : '';
+                $selected = $academicYearValue == $yearRange ? 'selected' : '';
                 echo "<option value='{$yearRange}' {$selected}>{$yearRange}</option>";
               }
               ?>
@@ -403,11 +435,12 @@ Create New Course
               <i class="fas fa-calendar-week"></i>
               Semester
             </label>
+            <?php $semesterValue = old('semester', isset($course['semester']) ? $course['semester'] : ''); ?>
             <select id="semester" name="semester" class="form-select">
               <option value="">Select semester</option>
-              <option value="First Semester" <?= old('semester') == 'First Semester' ? 'selected' : '' ?>>First Semester</option>
-              <option value="Second Semester" <?= old('semester') == 'Second Semester' ? 'selected' : '' ?>>Second Semester</option>
-              <option value="Summer" <?= old('semester') == 'Summer' ? 'selected' : '' ?>>Summer</option>
+              <option value="First Semester" <?= $semesterValue == 'First Semester' ? 'selected' : '' ?>>First Semester</option>
+              <option value="Second Semester" <?= $semesterValue == 'Second Semester' ? 'selected' : '' ?>>Second Semester</option>
+              <option value="Summer" <?= $semesterValue == 'Summer' ? 'selected' : '' ?>>Summer</option>
             </select>
           </div>
 
@@ -416,35 +449,87 @@ Create New Course
               <i class="fas fa-clock"></i>
               Term
             </label>
+            <?php $termValue = old('term', isset($course['term']) ? $course['term'] : ''); ?>
             <select id="term" name="term" class="form-select">
               <option value="">Select term</option>
-              <option value="Prelim" <?= old('term') == 'Prelim' ? 'selected' : '' ?>>Prelim</option>
-              <option value="Midterm" <?= old('term') == 'Midterm' ? 'selected' : '' ?>>Midterm</option>
-              <option value="Final" <?= old('term') == 'Final' ? 'selected' : '' ?>>Final</option>
+              <option value="Prelim" <?= $termValue == 'Prelim' ? 'selected' : '' ?>>Prelim</option>
+              <option value="Midterm" <?= $termValue == 'Midterm' ? 'selected' : '' ?>>Midterm</option>
+              <option value="Final" <?= $termValue == 'Final' ? 'selected' : '' ?>>Final</option>
             </select>
           </div>
 
           <div class="col-md-6 mb-3">
-            <label for="schedule_time" class="form-label">
+            <label class="form-label">
               <i class="fas fa-clock"></i>
               Schedule Time
             </label>
-            <select id="schedule_time" name="schedule_time" class="form-select">
-              <option value="">Select time</option>
-              <option value="07:00" <?= old('schedule_time') == '07:00' ? 'selected' : '' ?>>7:00 AM</option>
-              <option value="08:00" <?= old('schedule_time') == '08:00' ? 'selected' : '' ?>>8:00 AM</option>
-              <option value="09:00" <?= old('schedule_time') == '09:00' ? 'selected' : '' ?>>9:00 AM</option>
-              <option value="10:00" <?= old('schedule_time') == '10:00' ? 'selected' : '' ?>>10:00 AM</option>
-              <option value="11:00" <?= old('schedule_time') == '11:00' ? 'selected' : '' ?>>11:00 AM</option>
-              <option value="12:00" <?= old('schedule_time') == '12:00' ? 'selected' : '' ?>>12:00 PM</option>
-              <option value="13:00" <?= old('schedule_time') == '13:00' ? 'selected' : '' ?>>1:00 PM</option>
-              <option value="14:00" <?= old('schedule_time') == '14:00' ? 'selected' : '' ?>>2:00 PM</option>
-              <option value="15:00" <?= old('schedule_time') == '15:00' ? 'selected' : '' ?>>3:00 PM</option>
-              <option value="16:00" <?= old('schedule_time') == '16:00' ? 'selected' : '' ?>>4:00 PM</option>
-              <option value="17:00" <?= old('schedule_time') == '17:00' ? 'selected' : '' ?>>5:00 PM</option>
-              <option value="18:00" <?= old('schedule_time') == '18:00' ? 'selected' : '' ?>>6:00 PM</option>
-              <option value="19:00" <?= old('schedule_time') == '19:00' ? 'selected' : '' ?>>7:00 PM</option>
-            </select>
+            <div class="row">
+              <div class="col-6">
+                <label for="schedule_time_start" class="form-label small text-muted mb-1">Start Time</label>
+                <select id="schedule_time_start" name="schedule_time_start" class="form-select">
+                  <option value="">Start</option>
+                  <option value="07:00" <?= $scheduleTimeStart == '07:00' ? 'selected' : '' ?>>7:00 AM</option>
+                  <option value="07:30" <?= $scheduleTimeStart == '07:30' ? 'selected' : '' ?>>7:30 AM</option>
+                  <option value="08:00" <?= $scheduleTimeStart == '08:00' ? 'selected' : '' ?>>8:00 AM</option>
+                  <option value="08:30" <?= $scheduleTimeStart == '08:30' ? 'selected' : '' ?>>8:30 AM</option>
+                  <option value="09:00" <?= $scheduleTimeStart == '09:00' ? 'selected' : '' ?>>9:00 AM</option>
+                  <option value="09:30" <?= $scheduleTimeStart == '09:30' ? 'selected' : '' ?>>9:30 AM</option>
+                  <option value="10:00" <?= $scheduleTimeStart == '10:00' ? 'selected' : '' ?>>10:00 AM</option>
+                  <option value="10:30" <?= $scheduleTimeStart == '10:30' ? 'selected' : '' ?>>10:30 AM</option>
+                  <option value="11:00" <?= $scheduleTimeStart == '11:00' ? 'selected' : '' ?>>11:00 AM</option>
+                  <option value="11:30" <?= $scheduleTimeStart == '11:30' ? 'selected' : '' ?>>11:30 AM</option>
+                  <option value="12:00" <?= $scheduleTimeStart == '12:00' ? 'selected' : '' ?>>12:00 PM</option>
+                  <option value="12:30" <?= $scheduleTimeStart == '12:30' ? 'selected' : '' ?>>12:30 PM</option>
+                  <option value="13:00" <?= $scheduleTimeStart == '13:00' ? 'selected' : '' ?>>1:00 PM</option>
+                  <option value="13:30" <?= $scheduleTimeStart == '13:30' ? 'selected' : '' ?>>1:30 PM</option>
+                  <option value="14:00" <?= $scheduleTimeStart == '14:00' ? 'selected' : '' ?>>2:00 PM</option>
+                  <option value="14:30" <?= $scheduleTimeStart == '14:30' ? 'selected' : '' ?>>2:30 PM</option>
+                  <option value="15:00" <?= $scheduleTimeStart == '15:00' ? 'selected' : '' ?>>3:00 PM</option>
+                  <option value="15:30" <?= $scheduleTimeStart == '15:30' ? 'selected' : '' ?>>3:30 PM</option>
+                  <option value="16:00" <?= $scheduleTimeStart == '16:00' ? 'selected' : '' ?>>4:00 PM</option>
+                  <option value="16:30" <?= $scheduleTimeStart == '16:30' ? 'selected' : '' ?>>4:30 PM</option>
+                  <option value="17:00" <?= $scheduleTimeStart == '17:00' ? 'selected' : '' ?>>5:00 PM</option>
+                  <option value="17:30" <?= $scheduleTimeStart == '17:30' ? 'selected' : '' ?>>5:30 PM</option>
+                  <option value="18:00" <?= $scheduleTimeStart == '18:00' ? 'selected' : '' ?>>6:00 PM</option>
+                  <option value="18:30" <?= $scheduleTimeStart == '18:30' ? 'selected' : '' ?>>6:30 PM</option>
+                  <option value="19:00" <?= $scheduleTimeStart == '19:00' ? 'selected' : '' ?>>7:00 PM</option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label for="schedule_time_end" class="form-label small text-muted mb-1">End Time</label>
+                <select id="schedule_time_end" name="schedule_time_end" class="form-select">
+                  <option value="">End</option>
+                  <option value="07:30" <?= $scheduleTimeEnd == '07:30' ? 'selected' : '' ?>>7:30 AM</option>
+                  <option value="08:00" <?= $scheduleTimeEnd == '08:00' ? 'selected' : '' ?>>8:00 AM</option>
+                  <option value="08:30" <?= $scheduleTimeEnd == '08:30' ? 'selected' : '' ?>>8:30 AM</option>
+                  <option value="09:00" <?= $scheduleTimeEnd == '09:00' ? 'selected' : '' ?>>9:00 AM</option>
+                  <option value="09:30" <?= $scheduleTimeEnd == '09:30' ? 'selected' : '' ?>>9:30 AM</option>
+                  <option value="10:00" <?= $scheduleTimeEnd == '10:00' ? 'selected' : '' ?>>10:00 AM</option>
+                  <option value="10:30" <?= $scheduleTimeEnd == '10:30' ? 'selected' : '' ?>>10:30 AM</option>
+                  <option value="11:00" <?= $scheduleTimeEnd == '11:00' ? 'selected' : '' ?>>11:00 AM</option>
+                  <option value="11:30" <?= $scheduleTimeEnd == '11:30' ? 'selected' : '' ?>>11:30 AM</option>
+                  <option value="12:00" <?= $scheduleTimeEnd == '12:00' ? 'selected' : '' ?>>12:00 PM</option>
+                  <option value="12:30" <?= $scheduleTimeEnd == '12:30' ? 'selected' : '' ?>>12:30 PM</option>
+                  <option value="13:00" <?= $scheduleTimeEnd == '13:00' ? 'selected' : '' ?>>1:00 PM</option>
+                  <option value="13:30" <?= $scheduleTimeEnd == '13:30' ? 'selected' : '' ?>>1:30 PM</option>
+                  <option value="14:00" <?= $scheduleTimeEnd == '14:00' ? 'selected' : '' ?>>2:00 PM</option>
+                  <option value="14:30" <?= $scheduleTimeEnd == '14:30' ? 'selected' : '' ?>>2:30 PM</option>
+                  <option value="15:00" <?= $scheduleTimeEnd == '15:00' ? 'selected' : '' ?>>3:00 PM</option>
+                  <option value="15:30" <?= $scheduleTimeEnd == '15:30' ? 'selected' : '' ?>>3:30 PM</option>
+                  <option value="16:00" <?= $scheduleTimeEnd == '16:00' ? 'selected' : '' ?>>4:00 PM</option>
+                  <option value="16:30" <?= $scheduleTimeEnd == '16:30' ? 'selected' : '' ?>>4:30 PM</option>
+                  <option value="17:00" <?= $scheduleTimeEnd == '17:00' ? 'selected' : '' ?>>5:00 PM</option>
+                  <option value="17:30" <?= $scheduleTimeEnd == '17:30' ? 'selected' : '' ?>>5:30 PM</option>
+                  <option value="18:00" <?= $scheduleTimeEnd == '18:00' ? 'selected' : '' ?>>6:00 PM</option>
+                  <option value="18:30" <?= $scheduleTimeEnd == '18:30' ? 'selected' : '' ?>>6:30 PM</option>
+                  <option value="19:00" <?= $scheduleTimeEnd == '19:00' ? 'selected' : '' ?>>7:00 PM</option>
+                  <option value="19:30" <?= $scheduleTimeEnd == '19:30' ? 'selected' : '' ?>>7:30 PM</option>
+                  <option value="20:00" <?= $scheduleTimeEnd == '20:00' ? 'selected' : '' ?>>8:00 PM</option>
+                  <option value="20:30" <?= $scheduleTimeEnd == '20:30' ? 'selected' : '' ?>>8:30 PM</option>
+                  <option value="21:00" <?= $scheduleTimeEnd == '21:00' ? 'selected' : '' ?>>9:00 PM</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="col-md-6 mb-3">
@@ -452,15 +537,16 @@ Create New Course
               <i class="fas fa-calendar-day"></i>
               Schedule Day
             </label>
+            <?php $scheduleDateValue = old('schedule_date', isset($course['schedule_date']) ? $course['schedule_date'] : ''); ?>
             <select id="schedule_date" name="schedule_date" class="form-select">
               <option value="">Select day</option>
-              <option value="Monday" <?= old('schedule_date') == 'Monday' ? 'selected' : '' ?>>Monday</option>
-              <option value="Tuesday" <?= old('schedule_date') == 'Tuesday' ? 'selected' : '' ?>>Tuesday</option>
-              <option value="Wednesday" <?= old('schedule_date') == 'Wednesday' ? 'selected' : '' ?>>Wednesday</option>
-              <option value="Thursday" <?= old('schedule_date') == 'Thursday' ? 'selected' : '' ?>>Thursday</option>
-              <option value="Friday" <?= old('schedule_date') == 'Friday' ? 'selected' : '' ?>>Friday</option>
-              <option value="Saturday" <?= old('schedule_date') == 'Saturday' ? 'selected' : '' ?>>Saturday</option>
-              <option value="Sunday" <?= old('schedule_date') == 'Sunday' ? 'selected' : '' ?>>Sunday</option>
+              <option value="Monday" <?= $scheduleDateValue == 'Monday' ? 'selected' : '' ?>>Monday</option>
+              <option value="Tuesday" <?= $scheduleDateValue == 'Tuesday' ? 'selected' : '' ?>>Tuesday</option>
+              <option value="Wednesday" <?= $scheduleDateValue == 'Wednesday' ? 'selected' : '' ?>>Wednesday</option>
+              <option value="Thursday" <?= $scheduleDateValue == 'Thursday' ? 'selected' : '' ?>>Thursday</option>
+              <option value="Friday" <?= $scheduleDateValue == 'Friday' ? 'selected' : '' ?>>Friday</option>
+              <option value="Saturday" <?= $scheduleDateValue == 'Saturday' ? 'selected' : '' ?>>Saturday</option>
+              <option value="Sunday" <?= $scheduleDateValue == 'Sunday' ? 'selected' : '' ?>>Sunday</option>
             </select>
           </div>
 
@@ -471,7 +557,7 @@ Create New Course
             </label>
             <textarea id="description" name="description" class="form-control"
                       placeholder="Enter course description (optional)"
-                      maxlength="500"><?= old('description') ?></textarea>
+                      maxlength="500"><?= old('description', isset($course['description']) ? $course['description'] : '') ?></textarea>
           </div>
 
           <?php if ($userRole === 'admin'): ?>
@@ -495,9 +581,10 @@ Create New Course
                 ->get()
                 ->getResultArray();
 
+              $teacherIdValue = old('teacher_id', isset($course['teacher_id']) ? $course['teacher_id'] : '');
               foreach ($teachers as $teacher):
               ?>
-                <option value="<?= $teacher['id'] ?>" <?= old('teacher_id') == $teacher['id'] ? 'selected' : '' ?>>
+                <option value="<?= $teacher['id'] ?>" <?= $teacherIdValue == $teacher['id'] ? 'selected' : '' ?>>
                   <?= esc($teacher['name']) ?> (<?= esc($teacher['email']) ?>)
                 </option>
               <?php endforeach; ?>
@@ -520,7 +607,7 @@ Create New Course
 
         <div class="btn-group">
           <button type="submit" class="btn btn-success">
-            <i class="fas fa-save"></i> Create Course
+            <i class="fas fa-save"></i> <?= isset($isEdit) && $isEdit ? 'Update Course' : 'Create Course' ?>
           </button>
           <a href="<?= base_url('courses') ?>" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Cancel
