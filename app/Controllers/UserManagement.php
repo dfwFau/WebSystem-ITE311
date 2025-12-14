@@ -450,4 +450,58 @@ class UserManagement extends BaseController
             ])->setStatusCode(500);
         }
     }
+
+    /**
+     * Toggle user status (Activate/Deactivate) - AJAX
+     */
+    public function toggleStatus()
+    {
+        $session = session();
+        
+        // Check if user is logged in and is admin
+        if (!$session->get('isLoggedIn') || $session->get('userRole') !== 'admin') {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Access Denied'
+            ])->setStatusCode(403);
+        }
+
+        $userId = $this->request->getPost('user_id');
+        $action = $this->request->getPost('action'); // 'activate' or 'deactivate'
+
+        // Validate action
+        if (!in_array($action, ['activate', 'deactivate'])) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid action'
+            ])->setStatusCode(400);
+        }
+
+        // Prevent admin from deactivating themselves
+        if ($userId == $session->get('user_id') && $action === 'deactivate') {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'You cannot deactivate your own account'
+            ])->setStatusCode(400);
+        }
+
+        // Check if user exists
+        $user = $this->userModel->find($userId);
+        if (!$user) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User not found'
+            ])->setStatusCode(404);
+        }
+
+        // Update user status
+        $newStatus = ($action === 'activate') ? 'active' : 'inactive';
+        $this->userModel->update($userId, ['status' => $newStatus]);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'User ' . ($action === 'activate' ? 'activated' : 'deactivated') . ' successfully',
+            'status' => $newStatus
+        ]);
+    }
 }

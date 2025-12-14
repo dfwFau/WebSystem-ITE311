@@ -11,11 +11,13 @@
       ['url' => '/dashboard',       'icon' => 'th-large',     'text' => 'Dashboard'],
       ['url' => '/manageusers',   'icon' => 'users-cog',    'text' => 'ManageUsers'],
       ['url' => '/courses',        'icon' => 'graduation-cap','text' => 'All Courses'],
+      ['url' => '/programs',       'icon' => 'layer-group',  'text' => 'Programs'],
     ],
     'teacher' => [
       'title' => 'Teaching',
       ['url' => '/dashboard',                'icon' => 'th-large',       'text' => 'Dashboard'],
       ['url' => 'courses',                   'icon' => 'graduation-cap', 'text' => 'Courses'],
+      ['url' => '/programs',                 'icon' => 'layer-group',    'text' => 'Programs'],
       ['url' => '/announcements/create',     'icon' => 'bullhorn',       'text' => 'Create Announcement'],
       ['url' => '/assignments',      'icon' => 'tasks',          'text' => 'Assignments'],
       ['url' => '/teacher/grades',           'icon' => 'star',           'text' => 'Grades'],

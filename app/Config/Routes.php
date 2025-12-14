@@ -68,6 +68,7 @@ $routes->post('/manageusers/create', 'UserManagement::create');
 $routes->post('/manageusers/update-role', 'UserManagement::updateRole');
 $routes->post('/manageusers/delete', 'UserManagement::delete');
 $routes->post('/manageusers/edit', 'UserManagement::edit');
+$routes->post('/manageusers/toggleStatus', 'UserManagement::toggleStatus');
 
 $routes->get('/teacher/manage-students', 'Teacher::manageStudents', ['filter' => 'roleauth']);
 $routes->get('/teacher/get-student-details', 'Teacher::getStudentDetails', ['filter' => 'roleauth']);
@@ -89,3 +90,12 @@ $routes->get('/student/assignments', 'Student::assignments', ['filter' => 'rolea
 
 // Materials access for students
 $routes->get('/materials/get/(:num)', 'Materials::get/$1');
+
+// Programs
+$routes->get('/programs', 'Program::index');
+$routes->get('/programs/create', 'Program::create');
+$routes->post('/programs/store', 'Program::store');
+$routes->get('/programs/edit/(:num)', 'Program::edit/$1');
+$routes->post('/programs/update/(:num)', 'Program::update/$1');
+$routes->post('/programs/delete/(:num)', 'Program::delete/$1');
+$routes->get('/programs/view/(:num)', 'Program::view/$1');

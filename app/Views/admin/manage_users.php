@@ -210,12 +210,59 @@
         color: white;
     }
 
+    .btn-action-user.deactivate {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-action-user.deactivate:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+        color: white;
+    }
+
+    .btn-action-user.activate {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-action-user.activate:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        color: white;
+    }
+
     .btn-action-user.delete:disabled {
         background: rgba(229, 231, 235, 0.5);
         color: #9ca3af;
         cursor: not-allowed;
         opacity: 0.6;
         border: 1px solid rgba(229, 231, 235, 0.3);
+    }
+
+    /* Status Badge */
+    .badge-status {
+        padding: 6px 12px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+    }
+
+    .badge-status.active {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-status.inactive {
+        background: linear-gradient(135deg, rgba(107, 114, 128, 0.1) 0%, rgba(75, 85, 99, 0.1) 100%);
+        color: #6b7280;
+        border: 1px solid rgba(107, 114, 128, 0.3);
     }
 
     /* Search Bar */
@@ -430,6 +477,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -447,23 +495,29 @@
                                             <?= esc(ucfirst($user['role'])) ?>
                                         </span>
                                     </td>
+                                    <td>
+                                        <span class="badge-status <?= ($user['status'] ?? 'active') === 'active' ? 'active' : 'inactive' ?>">
+                                            <?= ($user['status'] ?? 'active') === 'active' ? 'Active' : 'Inactive' ?>
+                                        </span>
+                                    </td>
                                     <td><?= esc($user['created_at'] ?? 'N/A') ?></td>
                                     <td>
                                         <a href="<?= base_url('/admin/edit-user/' . $user['id']) ?>" class="btn-action-user edit" title="Edit">
                                             <i class="fas fa-pencil-alt"></i> Edit
                                         </a>
-                                        <?php if ($user['id'] != session()->get('userId')): ?>
-                                            <a href="<?= base_url('/admin/delete-user/' . $user['id']) ?>" 
-                                               class="btn-action-user delete"
-                                               title="Delete"
-                                               onclick="return confirm('Are you sure you want to delete this user? This action cannot be undone.');">
-                                                <i class="fas fa-trash-alt"></i> Delete
-                                            </a>
-                                        <?php else: ?>
-                                            <button class="btn-action-user delete" disabled title="Cannot delete your own account">
-                                                <i class="fas fa-trash-alt"></i> Delete
-                                            </button>
-                                        <?php endif; ?>
+                                        <a href="<?= base_url('/admin/toggle-user-status/' . $user['id']) ?>" 
+                                           class="btn-action-user <?= ($user['status'] ?? 'active') === 'active' ? 'deactivate' : 'activate' ?>"
+                                           title="<?= ($user['status'] ?? 'active') === 'active' ? 'Deactivate User' : 'Activate User' ?>"
+                                           onclick="return confirm('Are you sure?');">
+                                            <i class="fas <?= ($user['status'] ?? 'active') === 'active' ? 'fa-ban' : 'fa-check-circle' ?>"></i> 
+                                            <?= ($user['status'] ?? 'active') === 'active' ? 'Deactivate' : 'Activate' ?>
+                                        </a>
+                                        <a href="<?= base_url('/admin/delete-user/' . $user['id']) ?>" 
+                                           class="btn-action-user delete"
+                                           title="Delete"
+                                           onclick="return confirm('Are you sure you want to delete this user? This action cannot be undone.');">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

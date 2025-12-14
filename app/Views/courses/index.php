@@ -1307,6 +1307,14 @@
             <i class="fas fa-graduation-cap"></i>
             All Courses
           </div>
+          <div class="content-actions">
+            <div class="search-container">
+              <input type="text" class="search-input" id="admin-course-search-input" placeholder="Search courses..." value="">
+              <button class="search-btn" id="admin-search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="courses-grid">
@@ -2051,29 +2059,42 @@ $(document).ready(function() {
     // Function to perform search on admin courses
     function performAdminSearch() {
         const searchTerm = document.getElementById('admin-course-search-input').value.toLowerCase().trim();
-        const rows = document.querySelectorAll('.content-card-modern tbody tr');
-        const noResultsDiv = document.getElementById('admin-search-no-results');
+        const courseCards = document.querySelectorAll('.course-card-new');
         let visibleCount = 0;
 
-        rows.forEach(row => {
-            const courseCode = row.querySelector('td:first-child').textContent.toLowerCase();
-            const courseName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+        courseCards.forEach(card => {
+            const courseCode = card.querySelector('.course-code')?.textContent.toLowerCase() || '';
+            const courseInfo = card.textContent.toLowerCase();
 
-            const matches = courseCode.includes(searchTerm) || courseName.includes(searchTerm);
+            const matches = courseCode.includes(searchTerm) || courseInfo.includes(searchTerm);
 
             if (matches) {
-                row.style.display = '';
+                card.style.display = '';
                 visibleCount++;
             } else {
-                row.style.display = 'none';
+                card.style.display = 'none';
             }
         });
 
         // Show/hide no results message
-        if (noResultsDiv) {
-            if (visibleCount === 0 && searchTerm !== '') {
-                noResultsDiv.style.display = 'block';
-            } else {
+        const coursesGrid = document.querySelector('.courses-grid');
+        let noResultsDiv = document.getElementById('admin-search-no-results');
+
+        if (visibleCount === 0 && searchTerm !== '') {
+            if (!noResultsDiv) {
+                noResultsDiv = document.createElement('div');
+                noResultsDiv.id = 'admin-search-no-results';
+                noResultsDiv.className = 'empty-state';
+                noResultsDiv.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>No Courses Found</h3>
+                    <p>No courses match your search term "${searchTerm}".</p>
+                `;
+                coursesGrid.appendChild(noResultsDiv);
+            }
+            noResultsDiv.style.display = 'block';
+        } else {
+            if (noResultsDiv) {
                 noResultsDiv.style.display = 'none';
             }
         }

@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
             <div class="card shadow" style="border-radius: 15px; border: none;">
-                <div class="card-header bg-primary text-white text-center py-4" style="border-radius: 15px 15px 0 0 !important; border: none;">
+                <div class="card-header bg-success text-white text-center py-4" style="border-radius: 15px 15px 0 0 !important; border: none;">
                     <i class="fas fa-user-circle fa-2x mb-2"></i>
                     <h4 class="mb-1">Welcome Back</h4>
                     <p class="mb-0 small opacity-75">Sign in to your account</p>
@@ -29,7 +29,7 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">
-                                <i class="fas fa-envelope text-primary me-1"></i>Email Address
+                                <i class="fas fa-envelope text-success me-1"></i>Email Address
                             </label>
                             <input type="email" class="form-control" id="email" name="email"
                                    value="<?= esc(old('email')) ?>" required
@@ -38,13 +38,13 @@
 
                         <div class="mb-4">
                             <label for="password" class="form-label fw-bold">
-                                <i class="fas fa-lock text-primary me-1"></i>Password
+                                <i class="fas fa-lock text-success me-1"></i>Password
                             </label>
                             <input type="password" class="form-control" id="password" name="password" required
                                    style="border-radius: 10px; border: 2px solid #e9ecef;">
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3"
+                        <button type="submit" class="btn btn-success w-100 py-2 mb-3"
                                 style="border-radius: 10px; font-weight: 600;">
                             <i class="fas fa-sign-in-alt me-2"></i>Sign In
                         </button>
@@ -52,7 +52,7 @@
 
                     <div class="text-center">
                         <span class="text-muted">Don't have an account?</span>
-                        <a href="<?= base_url('/register') ?>" class="text-decoration-none fw-bold text-primary ms-1">
+                        <a href="<?= base_url('/register') ?>" class="text-decoration-none fw-bold text-success ms-1">
                             Create one
                         </a>
                     </div>

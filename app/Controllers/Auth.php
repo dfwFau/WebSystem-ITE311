@@ -115,6 +115,11 @@ if ($admin) {
                $user = $userModel->findByEmailWithRole($email);
                
                if ($user && password_verify($password, $user['password'])) {
+                   // Check if user account is active
+                   if (($user['status'] ?? 'active') === 'inactive') {
+                       return redirect()->back()->with('login_error', 'Your account has been deactivated. Please contact the administrator.');
+                   }
+                   
                    // Store the user's email and role in the session
                    $session->set([
                        'isLoggedIn' => true,

@@ -403,6 +403,39 @@ Manage Users
     transform: none !important;
   }
 
+  .btn-action-modern.deactivate {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+
+  .btn-action-modern.deactivate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+  }
+
+  .btn-action-modern.deactivate:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  .btn-action-modern.activate {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .btn-action-modern.activate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+  }
+
+  .badge-modern.inactive {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+  }
+
   /* Empty State */
   .empty-state {
     text-align: center;
@@ -655,13 +688,27 @@ Manage Users
                       </span>
                     </td>
                     <td>
-                      <span class="badge-modern success">Active</span>
+                      <span class="badge-modern <?= ($user['status'] ?? 'active') === 'active' ? 'success' : 'inactive' ?>">
+                        <?= ($user['status'] ?? 'active') === 'active' ? 'Active' : 'Inactive' ?>
+                      </span>
                     </td>
                     <td>
                       <button class="btn-action-modern primary me-2"
                               onclick="editUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', '<?= esc($user['email']) ?>')">
                         <i class="fas fa-edit"></i> Edit
                       </button>
+                      <?php if (($user['status'] ?? 'active') === 'active'): ?>
+                        <button class="btn-action-modern deactivate me-2"
+                                onclick="toggleUserStatus(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', 'deactivate')"
+                                <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
+                          <i class="fas fa-ban"></i> Deactivate
+                        </button>
+                      <?php else: ?>
+                        <button class="btn-action-modern activate me-2"
+                                onclick="toggleUserStatus(<?= $user['id'] ?>, '<?= esc($user['name']) ?>', 'activate')">
+                          <i class="fas fa-check-circle"></i> Activate
+                        </button>
+                      <?php endif; ?>
                       <button class="btn-action-modern danger"
                               onclick="deleteUser(<?= $user['id'] ?>, '<?= esc($user['name']) ?>')"
                               <?= $user['id'] == session()->get('user_id') ? 'disabled' : '' ?>>
@@ -993,6 +1040,57 @@ window.onclick = function(event) {
     closeDeleteModal();
   }
 };
+
+// Toggle User Status (Activate/Deactivate)
+function toggleUserStatus(userId, userName, action) {
+  const actionText = action === 'activate' ? 'activate' : 'deactivate';
+  
+  if (!confirm(`Are you sure you want to ${actionText} user "${userName}"?`)) {
+    return;
+  }
+
+  const btn = document.querySelector(`button.btn-action-modern.${action === 'activate' ? 'activate' : 'deactivate'}[onclick*="${userId}"]`);
+  if (!btn) {
+    showAlert('danger', 'Error: Button not found');
+    return;
+  }
+
+  const originalHTML = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="loading-spinner"></span> Processing...';
+
+  // Get CSRF token from cookie
+  const csrfToken = getCookie('csrf_cookie_name');
+
+  const formData = new FormData();
+  formData.append('user_id', userId);
+  formData.append('action', action);
+  formData.append('csrf_test_name', csrfToken);
+
+  fetch('<?= base_url('manageusers/toggleStatus') ?>', {
+    method: 'POST',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest'
+    },
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      location.reload();
+    } else {
+      showAlert('danger', data.message || 'Failed to update user status');
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    showAlert('danger', 'An error occurred while updating user status.');
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+  });
+}
 
 function showAlert(type, message) {
   // Remove existing alerts
